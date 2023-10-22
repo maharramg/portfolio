@@ -1,11 +1,14 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
-final appFontTextStyle = TextStyle(fontFamily: 'Codec');
+const appFontTextStyle = TextStyle(fontFamily: 'TuskerGrotesk');
 
 // COLORS
 const primaryColor = Color(0xffEF6555);
 const secondaryColor = Color(0xffE3DFD7);
-const scaffoldBackgroundColor = Color(0xff253E66);
+const scaffoldBackgroundColor = Colors.black;
+const textColor = Color(0xff253E66);
 
 // TEXT STYLES
 final size10weight400 = appFontTextStyle.copyWith(fontSize: 10.0, fontWeight: FontWeight.w400);
@@ -67,3 +70,9 @@ final size32weight400 = appFontTextStyle.copyWith(fontSize: 32.0, fontWeight: Fo
 final size32weight500 = appFontTextStyle.copyWith(fontSize: 32.0, fontWeight: FontWeight.w500);
 final size32weight600 = appFontTextStyle.copyWith(fontSize: 32.0, fontWeight: FontWeight.w600);
 final size32weight700 = appFontTextStyle.copyWith(fontSize: 32.0, fontWeight: FontWeight.w700);
+
+// SIZES
+FlutterView view = WidgetsBinding.instance.platformDispatcher.views.first;
+
+final screenHeight = view.physicalSize.height;
+final screenWidth = view.physicalSize.width;
