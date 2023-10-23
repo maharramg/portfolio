@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/presentation/home/widgets/home_body.dart';
+import 'package:portfolio/presentation/home/widgets/home_header.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,7 +15,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: HomeBody(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            HomeHeader(),
+            HomeBody(),
+          ],
+        ),
+      ),
     );
   }
 }
