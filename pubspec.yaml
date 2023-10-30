@@ -1,93 +1,74 @@
 name: portfolio
-description: A new Flutter project.
+description: A Flutter portfolio project.
 
-# The following line prevents the package from being accidentally published to
-# pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
-# Read more about iOS versioning at
-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 version: 1.0.0+1
 
 environment:
   sdk: ">=2.17.5 <3.0.0"
 
-# Dependencies specify other packages that your package needs in order to work.
-# To automatically upgrade your package dependencies to the latest versions
-# consider running `flutter pub upgrade --major-versions`. Alternatively,
-# dependencies can be manually updated by changing the version numbers below to
-# the latest version available on pub.dev. To see which dependencies have newer
-# versions available, run `flutter pub outdated`.
 dependencies:
   flutter:
     sdk: flutter
 
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   responsive_framework: ^1.1.1
   responsive_builder: ^0.7.0
   url_launcher: ^6.1.14
+  font_awesome_flutter: ^10.6.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^3.0.0
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
 
-# The following section is specific to Flutter packages.
 flutter:
 
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/logos/
+    - assets/images/screenshots/
+    - assets/images/screenshots/tendopay/
+    - assets/images/screenshots/tentony/
+    - assets/images/screenshots/tezibu/
+    - assets/images/screenshots/tezibu-courier/
+    - assets/images/screenshots/tezibu-partner/
+    - assets/images/screenshots/rahat/
+    - assets/images/screenshots/wibty/
+    - assets/images/screenshots/flostore/
+    - assets/images/screenshots/dentistore/
+    - assets/images/screenshots/lilac/
+    - assets/images/screenshots/bouquet/
+    - assets/images/screenshots/ra9/
+    - assets/images/screenshots/unityfood/
+    - assets/images/screenshots/inloya/
+    - assets/images/screenshots/gunka/
+    - assets/images/screenshots/inloya-pos/
 
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
 
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
   fonts:
-    - family: Codec
+    - family: HankenGrotesk
       fonts:
-        - asset: assets/fonts/codec/Codec-Warm-Bold-Italic-trial.ttf
-        - asset: assets/fonts/codec/Codec-Warm-ExtraBold-trial.ttf
-        - asset: assets/fonts/codec/Codec-Warm-Heavy-trial.ttf
-        - asset: assets/fonts/codec/Codec-Warm-Regular-trial.ttf
-    - family: TuskerGrotesk
-      fonts:
-        - asset: assets/fonts/tusker-grotesk/TuskerGrotesk-2500Medium.ttf
-        - asset: assets/fonts/tusker-grotesk/TuskerGrotesk-2600Semibold.ttf
-        - asset: assets/fonts/tusker-grotesk/TuskerGrotesk-2700Bold.ttf
-        - asset: assets/fonts/tusker-grotesk/TuskerGrotesk-2800Super.ttf
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Black.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-BlackItalic.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Bold.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-BoldItalic.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-ExtraBold.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-ExtraBoldItalic.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-ExtraLight.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-ExtraLightItalic.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Italic.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Light.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-LightItalic.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Medium.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-MediumItalic.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Regular.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-SemiBold.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-SemiBoldItalic.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Thin.ttf
+        - asset: assets/fonts/hankengrotesk/HankenGrotesk-ThinItalic.ttf

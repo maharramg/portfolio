@@ -24,7 +24,7 @@ class App extends StatelessWidget {
       home: const HomeScreen(),
       theme: ThemeData(
         scaffoldBackgroundColor: scaffoldBackgroundColor,
-        fontFamily: 'TuskerGrotesk',
+        fontFamily: 'HankenGrotesk',
       ),
     );
   }

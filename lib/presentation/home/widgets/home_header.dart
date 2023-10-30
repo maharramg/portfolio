@@ -9,7 +9,6 @@ class HomeHeader extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      color: whiteColor,
       padding: paddingHorizontal24,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -17,11 +16,7 @@ class HomeHeader extends StatelessWidget {
         children: [
           Text(
             'Maharram Guliyev',
-            style: size24weight700.copyWith(
-              color: textColor,
-              fontSize: 100,
-              fontWeight: FontWeight.bold,
-            ),
+            style: size24weight900.copyWith(fontSize: 70),
           ),
         ],
       ),

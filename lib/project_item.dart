@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/app_constants.dart';
 import 'package:portfolio/utilities/project_model.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -24,96 +25,56 @@ class _ProjectItemState extends State<ProjectItem> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        shape: BoxShape.rectangle,
-        border: Border.all(),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 1.2,
-            width: double.infinity,
+    return Row(
+      children: [
+        Container(
+          height: 200.0,
+          width: 200.0,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.1), //New
+                blurRadius: 3.0,
+                spreadRadius: 3.0,
+              )
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(25.0),
             child: Image.asset(
-              widget.project.image,
+              widget.project.logo,
               fit: BoxFit.fill,
             ),
           ),
-          const SizedBox(height: 12.0),
-          Column(
-            children: [
-              Text(
-                widget.project.name,
-                style: size32weight700.copyWith(color: textColor, fontSize: 30),
-              ),
-              Visibility(
-                visible: widget.project.description!.isNotEmpty,
-                child: Text(
-                  widget.project.description!,
-                  style: size20weight700.copyWith(color: textColor),
-                ),
-              ),
-              if (widget.project.playStoreUrl!.isNotEmpty) ...[
-                const SizedBox(height: 12.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: OutlinedButton(
-                          onPressed: () => _launchUrl(widget.project.playStoreUrl!),
-                          onHover: (value) => setState(() => onHover1 = value),
-                          style: OutlinedButton.styleFrom(
-                            elevation: 0.0,
-                            fixedSize: const Size(double.infinity, 40),
-                            backgroundColor: onHover1 ? textColor : whiteColor,
-                            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-                            side: const BorderSide(color: textColor, width: 1.0),
-                          ),
-                          child: Text(
-                            'Play Store',
-                            style: size24weight700.copyWith(color: onHover1 ? whiteColor : textColor),
-                          ),
-                        ),
-                      ),
-                    ],
+        ),
+        const SizedBox(width: 24.0),
+        Expanded(
+          child: SizedBox(
+            height: 500,
+            child: ListView.separated(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: widget.project.images.length,
+              itemBuilder: (context, index) {
+                return SizedBox(
+                  height: 500,
+                  // width: 220,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(25.0),
+                    child: Image.asset(
+                      widget.project.images.elementAt(index),
+                    ),
                   ),
-                ),
-              ],
-              if (widget.project.appStoreUrl!.isNotEmpty) ...[
-                const SizedBox(height: 12.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: OutlinedButton(
-                          onPressed: () => _launchUrl(widget.project.appStoreUrl!),
-                          onHover: (value) => setState(() => onHover2 = value),
-                          style: OutlinedButton.styleFrom(
-                            elevation: 0.0,
-                            fixedSize: const Size(double.infinity, 40),
-                            backgroundColor: onHover2 ? textColor : whiteColor,
-                            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-                            side: const BorderSide(color: textColor, width: 1.0),
-                          ),
-                          child: Text(
-                            'App Store',
-                            style: size24weight700.copyWith(color: onHover2 ? whiteColor : textColor),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ],
+                );
+              },
+              separatorBuilder: (context, index) {
+                return const SizedBox(width: 12.0);
+              },
+            ),
           ),
-          const SizedBox(height: 12.0),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
