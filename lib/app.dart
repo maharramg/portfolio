@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app_constants.dart';
-import 'package:portfolio/presentation/home/home_screen.dart';
-import 'package:responsive_framework/responsive_framework.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:portfolio/presentation/desktop/desktop_home_screen.dart';
+import 'package:portfolio/presentation/mobile/mobile_home_screen.dart';
+import 'package:portfolio/presentation/tablet/tablet_home_screen.dart';
+import 'package:portfolio/responsive/responsive_layout.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -9,23 +11,14 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      builder: (context, child) => ResponsiveBreakpoints.builder(
-        child: child!,
-        debugLog: true,
-        breakpoints: [
-          const Breakpoint(start: 0, end: 450, name: MOBILE),
-          const Breakpoint(start: 451, end: 800, name: TABLET),
-          const Breakpoint(start: 801, end: 1920, name: DESKTOP),
-          const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
-        ],
-      ),
       title: 'Portfolio',
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
-      theme: ThemeData(
-        scaffoldBackgroundColor: scaffoldBackgroundColor,
-        fontFamily: 'HankenGrotesk',
+      theme: ThemeData(fontFamily: 'HankenGrotesk'),
+      home: const ResponsiveLayout(
+        mobileView: MobileHomeScreen(),
+        tabletView: TabletHomeScreen(),
+        desktopView: DesktopHomeScreen(),
       ),
-    );
+    ).animate().fadeIn(duration: 400.ms);
   }
 }
