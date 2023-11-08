@@ -88,10 +88,7 @@ const apps = [
   ProjectModel(
     name: 'Rahat Kart',
     images: [
-      'assets/images/screenshots/tendopay/tendopay-1.webp',
-      'assets/images/screenshots/tendopay/tendopay-2.webp',
-      'assets/images/screenshots/tendopay/tendopay-3.webp',
-      'assets/images/screenshots/tendopay/tendopay-4.webp',
+      'assets/images/screenshots/rahat/rahat-1.png',
     ],
     logo: 'assets/images/logos/rahat.png',
     description: '',
@@ -197,10 +194,7 @@ const apps = [
   ProjectModel(
     name: 'InLoya',
     images: [
-      'assets/images/screenshots/tendopay/tendopay-1.webp',
-      'assets/images/screenshots/tendopay/tendopay-2.webp',
-      'assets/images/screenshots/tendopay/tendopay-3.webp',
-      'assets/images/screenshots/tendopay/tendopay-4.webp',
+      'assets/images/screenshots/inloya/inloya-1.webp',
     ],
     logo: 'assets/images/logos/inloya.jpg',
     description: '',
@@ -210,10 +204,7 @@ const apps = [
   ProjectModel(
     name: 'Gunka Beauty House',
     images: [
-      'assets/images/screenshots/tendopay/tendopay-1.webp',
-      'assets/images/screenshots/tendopay/tendopay-2.webp',
-      'assets/images/screenshots/tendopay/tendopay-3.webp',
-      'assets/images/screenshots/tendopay/tendopay-4.webp',
+      'assets/images/screenshots/gunka/gunka-1.png',
     ],
     logo: 'assets/images/logos/gunka.png',
     description: '',

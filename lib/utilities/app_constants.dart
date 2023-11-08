@@ -8,9 +8,11 @@ const appFontTextStyle = TextStyle(fontFamily: 'HankenGrotesk');
 // COLORS
 const primaryColor = Color(0xff202124);
 const secondaryColor = Color(0xff303134);
+const headingBgColor = Color(0xff131416);
 const textColor = Colors.white;
 const whiteColor = Colors.white;
 const blackColor = Colors.black;
+const greyColor = Colors.grey;
 
 // TEXT STYLES
 final size10weight400 = appFontTextStyle.copyWith(fontSize: 10.0, fontWeight: FontWeight.w400, color: textColor);

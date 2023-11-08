@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/presentation/desktop/desktop_header.dart';
 import 'package:portfolio/presentation/desktop/desktop_project_item.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/project_model.dart';
@@ -14,6 +15,7 @@ class DesktopHomeScreen extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
+            const DesktopHeader(),
             ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
               primary: false,
@@ -21,7 +23,7 @@ class DesktopHomeScreen extends StatelessWidget {
               itemCount: apps.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.all(12.0),
+                  padding: const EdgeInsets.all(12.0).copyWith(top: 0.0),
                   child: DesktopProjectItem(project: apps[index]),
                 );
               },

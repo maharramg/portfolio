@@ -84,7 +84,7 @@ class _MobileProjectItemState extends State<MobileProjectItem> {
                     borderRadius: BorderRadius.circular(50.0),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.1),
+                        color: greyColor.withOpacity(0.1),
                         blurRadius: 3.0,
                         spreadRadius: 3.0,
                       ),

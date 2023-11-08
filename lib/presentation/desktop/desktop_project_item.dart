@@ -38,109 +38,110 @@ class _DesktopProjectItemState extends State<DesktopProjectItem> {
           children: [
             AspectRatio(
               aspectRatio: 3 / 5,
-              child: Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 200.0,
-                      child: Text(
-                        widget.project.name,
-                        style: size32weight700,
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 200.0,
+                    child: Text(
+                      widget.project.name,
+                      style: size32weight700,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  const SizedBox(height: 12.0),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                    child: AspectRatio(
+                      aspectRatio: 1,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(50.0),
+                        child: Image.asset(
+                          widget.project.logo,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 24.0),
+                  if (widget.project.playStoreUrl!.isNotEmpty) ...[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                      child: AspectRatio(
+                        aspectRatio: 9 / 2,
+                        child: OutlinedButton(
+                          onPressed: () => _launchUrl(widget.project.playStoreUrl!),
+                          onHover: (value) => setState(() => onHover1 = value),
+                          style: OutlinedButton.styleFrom(
+                            elevation: 0.0,
+                            backgroundColor: onHover1 ? whiteColor.withOpacity(0.1) : primaryColor,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
+                            side: BorderSide.none,
+                          ),
+                          child: Text(
+                            'Play Store',
+                            style: size24weight400,
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(height: 12.0),
+                  ],
+                  if (widget.project.appStoreUrl!.isNotEmpty) ...[
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 50.0),
                       child: AspectRatio(
-                        aspectRatio: 1,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50.0),
-                          child: Image.asset(
-                            widget.project.logo,
-                            fit: BoxFit.fill,
+                        aspectRatio: 9 / 2,
+                        child: OutlinedButton(
+                          onPressed: () => _launchUrl(widget.project.appStoreUrl!),
+                          onHover: (value) => setState(() => onHover2 = value),
+                          style: OutlinedButton.styleFrom(
+                            elevation: 0.0,
+                            backgroundColor: onHover2 ? whiteColor.withOpacity(0.1) : primaryColor,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
+                            side: BorderSide.none,
+                          ),
+                          child: Text(
+                            'App Store',
+                            style: size24weight400,
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 24.0),
-                    if (widget.project.playStoreUrl!.isNotEmpty) ...[
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                        child: AspectRatio(
-                          aspectRatio: 9 / 2,
-                          child: OutlinedButton(
-                            onPressed: () => _launchUrl(widget.project.playStoreUrl!),
-                            onHover: (value) => setState(() => onHover1 = value),
-                            style: OutlinedButton.styleFrom(
-                              elevation: 0.0,
-                              backgroundColor: onHover1 ? whiteColor.withOpacity(0.1) : primaryColor,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
-                              side: BorderSide.none,
-                            ),
-                            child: Text(
-                              'Play Store',
-                              style: size24weight400,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 12.0),
-                    ],
-                    if (widget.project.appStoreUrl!.isNotEmpty) ...[
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                        child: AspectRatio(
-                          aspectRatio: 9 / 2,
-                          child: OutlinedButton(
-                            onPressed: () => _launchUrl(widget.project.appStoreUrl!),
-                            onHover: (value) => setState(() => onHover2 = value),
-                            style: OutlinedButton.styleFrom(
-                              elevation: 0.0,
-                              backgroundColor: onHover2 ? whiteColor.withOpacity(0.1) : primaryColor,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
-                              side: BorderSide.none,
-                            ),
-                            child: Text(
-                              'App Store',
-                              style: size24weight400,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
                   ],
-                ),
+                ],
               ),
             ),
             AspectRatio(
-              aspectRatio: 9 / 5,
-              child: Column(
-                children: [
-                  Expanded(
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      itemCount: 3,
-                      itemBuilder: (context, index) {
-                        return AspectRatio(
-                          aspectRatio: 1 / 2,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12.0),
-                            child: Image.asset(
-                              widget.project.images.elementAt(index),
-                              fit: BoxFit.fill,
+              aspectRatio: 8 / 5,
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemCount: widget.project.images.length > 3 ? 3 : widget.project.images.length,
+                        itemBuilder: (context, index) {
+                          return AspectRatio(
+                            aspectRatio: 1 / 2,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12.0),
+                              child: Image.asset(
+                                widget.project.images.elementAt(index),
+                                fit: BoxFit.fill,
+                              ),
                             ),
-                          ),
-                        );
-                      },
-                      separatorBuilder: (context, index) => const SizedBox(width: 12.0),
+                          );
+                        },
+                        separatorBuilder: (context, index) => const SizedBox(width: 12.0),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],

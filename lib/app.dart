@@ -11,7 +11,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Portfolio',
+      title: 'Maharram Guliyev',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'HankenGrotesk'),
       home: const ResponsiveLayout(

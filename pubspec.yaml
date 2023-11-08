@@ -30,6 +30,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/icons/
     - assets/images/logos/
     - assets/images/screenshots/
     - assets/images/screenshots/tendopay/
