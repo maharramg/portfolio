@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/presentation/mobile/mobile_header.dart';
+import 'package:portfolio/presentation/mobile/mobile_project_item.dart';
+import 'package:portfolio/utilities/app_constants.dart';
+import 'package:portfolio/utilities/project_model.dart';
 
 class MobileHomeScreen extends StatelessWidget {
   const MobileHomeScreen({super.key});
@@ -6,9 +10,26 @@ class MobileHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-      body: Container(
-        child: Text('mobile'),
+      backgroundColor: primaryColor,
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            const MobileHeader(),
+            ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              primary: false,
+              shrinkWrap: true,
+              itemCount: apps.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(12.0).copyWith(top: 0.0),
+                  child: MobileProjectItem(project: apps[index]),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

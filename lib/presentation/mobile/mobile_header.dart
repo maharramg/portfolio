@@ -3,14 +3,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/services.dart';
 
-class DesktopHeader extends StatefulWidget {
-  const DesktopHeader({super.key});
+class MobileHeader extends StatefulWidget {
+  const MobileHeader({super.key});
 
   @override
-  State<DesktopHeader> createState() => _DesktopHeaderState();
+  State<MobileHeader> createState() => _MobileHeaderState();
 }
 
-class _DesktopHeaderState extends State<DesktopHeader> {
+class _MobileHeaderState extends State<MobileHeader> {
   bool _isHoveredGithub = false;
   bool _isHoveredLinkedin = false;
   bool _isHoveredInstagram = false;
@@ -22,7 +22,7 @@ class _DesktopHeaderState extends State<DesktopHeader> {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: AspectRatio(
-        aspectRatio: 12 / 5.5,
+        aspectRatio: 1,
         child: Container(
           decoration: BoxDecoration(
             color: headingBgColor,
@@ -34,7 +34,7 @@ class _DesktopHeaderState extends State<DesktopHeader> {
             children: [
               Image.asset(
                 'assets/images/icons/home-icon-grey.png',
-                height: 400,
+                height: 300,
               ),
               _buildSocialField(),
             ],
@@ -45,9 +45,7 @@ class _DesktopHeaderState extends State<DesktopHeader> {
   }
 
   Widget _buildSocialField() {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height / 10,
-      width: MediaQuery.of(context).size.width / 5,
+    return UnconstrainedBox(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

@@ -3,16 +3,16 @@ import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/project_model.dart';
 import 'package:portfolio/utilities/services.dart';
 
-class DesktopProjectItem extends StatefulWidget {
+class TabletProjectItem extends StatefulWidget {
   final ProjectModel project;
 
-  const DesktopProjectItem({super.key, required this.project});
+  const TabletProjectItem({super.key, required this.project});
 
   @override
-  State<DesktopProjectItem> createState() => _DesktopProjectItemState();
+  State<TabletProjectItem> createState() => _TabletProjectItemState();
 }
 
-class _DesktopProjectItemState extends State<DesktopProjectItem> {
+class _TabletProjectItemState extends State<TabletProjectItem> {
   bool onHover1 = false;
   bool onHover2 = false;
 
@@ -47,11 +47,11 @@ class _DesktopProjectItemState extends State<DesktopProjectItem> {
                   ),
                   const SizedBox(height: 12.0),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: AspectRatio(
                       aspectRatio: 1,
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(50.0),
+                        borderRadius: BorderRadius.circular(40),
                         child: Image.asset(
                           widget.project.logo,
                           fit: BoxFit.fill,
@@ -62,7 +62,7 @@ class _DesktopProjectItemState extends State<DesktopProjectItem> {
                   const SizedBox(height: 16.0),
                   if (widget.project.playStoreUrl!.isNotEmpty) ...[
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: AspectRatio(
                         aspectRatio: 9 / 2,
                         child: OutlinedButton(
@@ -73,13 +73,12 @@ class _DesktopProjectItemState extends State<DesktopProjectItem> {
                             backgroundColor: onHover1 ? whiteColor.withOpacity(0.1) : primaryColor,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
                             side: BorderSide.none,
-                            fixedSize: const Size(120, 50),
                           ),
                           child: Text(
                             'GOOGLE PLAY',
                             style: size18weight600.copyWith(
                               fontSize: MediaQuery.of(context).size.width * 0.015,
-                              letterSpacing: 1.5,
+                              letterSpacing: 1,
                             ),
                           ),
                         ),
@@ -89,7 +88,7 @@ class _DesktopProjectItemState extends State<DesktopProjectItem> {
                   ],
                   if (widget.project.appStoreUrl!.isNotEmpty) ...[
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: AspectRatio(
                         aspectRatio: 9 / 2,
                         child: OutlinedButton(
@@ -100,7 +99,6 @@ class _DesktopProjectItemState extends State<DesktopProjectItem> {
                             backgroundColor: onHover2 ? whiteColor.withOpacity(0.1) : primaryColor,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
                             side: BorderSide.none,
-                            fixedSize: const Size(120, 50),
                           ),
                           child: Text(
                             'APP STORE',

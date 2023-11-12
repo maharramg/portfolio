@@ -2,6 +2,13 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+// URLS
+const String githubUrl = 'https://github.com/maharramg';
+const String linkedinUrl = 'https://www.linkedin.com/in/maharramg/';
+const String instagramUrl = 'https://www.instagram.com/matyshere/';
+const String facebookUrl = 'https://www.facebook.com/matyshere';
+const String emailAddress = 'quliyevff@gmail.com';
+
 // FONT
 const appFontTextStyle = TextStyle(fontFamily: 'HankenGrotesk');
 
