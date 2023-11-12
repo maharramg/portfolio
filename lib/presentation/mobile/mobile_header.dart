@@ -22,7 +22,7 @@ class _MobileHeaderState extends State<MobileHeader> {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: AspectRatio(
-        aspectRatio: 1,
+        aspectRatio: 0.8,
         child: Container(
           decoration: BoxDecoration(
             color: headingBgColor,

@@ -22,7 +22,7 @@ class MobileProjectItemState extends State<MobileProjectItem> {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 5 / 13,
+      aspectRatio: 5 / 14,
       child: Container(
         padding: const EdgeInsets.all(24.0),
         decoration: BoxDecoration(
@@ -34,21 +34,21 @@ class MobileProjectItemState extends State<MobileProjectItem> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             AspectRatio(
-              aspectRatio: 1,
+              aspectRatio: 0.8,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     widget.project.name,
-                    style: size32weight700.copyWith(fontSize: 36.0),
-                    maxLines: 1,
+                    style: size32weight700,
+                    maxLines: 2,
                     textAlign: TextAlign.center,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 32.0),
                     child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.3,
+                      height: 150,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(40.0),
                         child: Image.asset(
@@ -62,8 +62,8 @@ class MobileProjectItemState extends State<MobileProjectItem> {
                     children: [
                       if (widget.project.playStoreUrl!.isNotEmpty) ...[
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.08,
-                          width: MediaQuery.of(context).size.width * 0.4,
+                          height: 50,
+                          width: 200,
                           child: OutlinedButton(
                             onPressed: () => URLLauncher.launchURL(widget.project.playStoreUrl!),
                             onHover: (value) => setState(() => onHover1 = value),
@@ -83,8 +83,8 @@ class MobileProjectItemState extends State<MobileProjectItem> {
                       ],
                       if (widget.project.appStoreUrl!.isNotEmpty) ...[
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.08,
-                          width: MediaQuery.of(context).size.width * 0.4,
+                          height: 50,
+                          width: 200,
                           child: OutlinedButton(
                             onPressed: () => URLLauncher.launchURL(widget.project.appStoreUrl!),
                             onHover: (value) => setState(() => onHover2 = value),
@@ -124,7 +124,7 @@ class MobileProjectItemState extends State<MobileProjectItem> {
                       );
                     },
                     options: CarouselOptions(
-                      aspectRatio: 0.65,
+                      aspectRatio: 0.68,
                       viewportFraction: 0.75,
                       initialPage: 0,
                       enableInfiniteScroll: true,

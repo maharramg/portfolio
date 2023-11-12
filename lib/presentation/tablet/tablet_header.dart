@@ -22,7 +22,7 @@ class _TabletHeaderState extends State<TabletHeader> {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: AspectRatio(
-        aspectRatio: 12 / 8,
+        aspectRatio: 1.2,
         child: Container(
           decoration: BoxDecoration(
             color: headingBgColor,
