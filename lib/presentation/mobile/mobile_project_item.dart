@@ -46,9 +46,9 @@ class MobileProjectItemState extends State<MobileProjectItem> {
                     textAlign: TextAlign.center,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 12.0),
                     child: SizedBox(
-                      height: 150,
+                      height: screenHeight * 0.1,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(40.0),
                         child: Image.asset(
@@ -62,8 +62,8 @@ class MobileProjectItemState extends State<MobileProjectItem> {
                     children: [
                       if (widget.project.playStoreUrl!.isNotEmpty) ...[
                         SizedBox(
-                          height: 50,
-                          width: 200,
+                          height: screenHeight * 0.033,
+                          width: screenWidth * 0.28,
                           child: OutlinedButton(
                             onPressed: () => URLLauncher.launchURL(widget.project.playStoreUrl!),
                             onHover: (value) => setState(() => onHover1 = value),
@@ -83,8 +83,8 @@ class MobileProjectItemState extends State<MobileProjectItem> {
                       ],
                       if (widget.project.appStoreUrl!.isNotEmpty) ...[
                         SizedBox(
-                          height: 50,
-                          width: 200,
+                          height: screenHeight * 0.033,
+                          width: screenWidth * 0.28,
                           child: OutlinedButton(
                             onPressed: () => URLLauncher.launchURL(widget.project.appStoreUrl!),
                             onHover: (value) => setState(() => onHover2 = value),
@@ -120,6 +120,7 @@ class MobileProjectItemState extends State<MobileProjectItem> {
                         child: Image.asset(
                           widget.project.images.elementAt(index),
                           fit: BoxFit.fill,
+                          width: screenHeight * 0.5,
                         ),
                       );
                     },

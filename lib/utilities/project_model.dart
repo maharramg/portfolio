@@ -46,7 +46,7 @@ const apps = [
     appStoreUrl: 'https://apps.apple.com/do/app/tentony/id1630425777',
   ),
   ProjectModel(
-    name: 'Tezibu Online Super Market',
+    name: 'Tezibu',
     images: [
       'assets/images/screenshots/tezibu/tezibu-1.webp',
       'assets/images/screenshots/tezibu/tezibu-2.webp',
@@ -62,10 +62,9 @@ const apps = [
   ProjectModel(
     name: 'Tezibu Courier',
     images: [
-      'assets/images/screenshots/tendopay/tendopay-1.webp',
-      'assets/images/screenshots/tendopay/tendopay-2.webp',
-      'assets/images/screenshots/tendopay/tendopay-3.webp',
-      'assets/images/screenshots/tendopay/tendopay-4.webp',
+      'assets/images/screenshots/tezibu-courier/tezibu-courier-1.png',
+      'assets/images/screenshots/tezibu-courier/tezibu-courier-2.png',
+      'assets/images/screenshots/tezibu-courier/tezibu-courier-3.png',
     ],
     logo: 'assets/images/logos/tezibu-courier.png',
     description: '',
