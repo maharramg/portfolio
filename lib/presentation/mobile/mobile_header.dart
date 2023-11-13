@@ -21,24 +21,22 @@ class _MobileHeaderState extends State<MobileHeader> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(12.0),
-      child: AspectRatio(
-        aspectRatio: 0.8,
-        child: Container(
-          decoration: BoxDecoration(
-            color: headingBgColor,
-            borderRadius: BorderRadius.circular(12.0),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/images/icons/home-icon-grey.png',
-                height: screenHeight * 0.2,
-              ),
-              _buildSocialField(),
-            ],
-          ),
+      child: Container(
+        decoration: BoxDecoration(
+          color: headingBgColor,
+          borderRadius: BorderRadius.circular(12.0),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/images/icons/home-icon-grey.png',
+              height: screenHeight * 0.3,
+            ),
+            _buildSocialField(),
+            const SizedBox(height: 12.0),
+          ],
         ),
       ),
     );
