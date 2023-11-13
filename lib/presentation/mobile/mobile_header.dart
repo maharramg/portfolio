@@ -34,7 +34,7 @@ class _MobileHeaderState extends State<MobileHeader> {
             children: [
               Image.asset(
                 'assets/images/icons/home-icon-grey.png',
-                height: 300,
+                height: screenHeight * 0.2,
               ),
               _buildSocialField(),
             ],
