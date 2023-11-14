@@ -39,23 +39,23 @@ class MobileProjectItemState extends State<MobileProjectItem> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 12.0),
-            child: SizedBox(
-              height: screenHeight * 0.1,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(40.0),
-                child: Image.asset(
-                  widget.project.logo,
-                  fit: BoxFit.fill,
-                ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(40.0),
+              child: Image.asset(
+                widget.project.logo,
+                fit: BoxFit.fill,
+                height: MediaQuery.of(context).size.height * 0.2,
+                width: MediaQuery.of(context).size.height * 0.2,
               ),
             ),
           ),
+          const SizedBox(height: 12.0),
           Column(
             children: [
               if (widget.project.playStoreUrl!.isNotEmpty) ...[
                 SizedBox(
-                  height: screenHeight * 0.033,
-                  width: screenWidth * 0.28,
+                  height: MediaQuery.of(context).size.height * 0.065,
+                  width: MediaQuery.of(context).size.width * 0.6,
                   child: OutlinedButton(
                     onPressed: () => URLLauncher.launchURL(widget.project.playStoreUrl!),
                     onHover: (value) => setState(() => onHover1 = value),
@@ -75,8 +75,8 @@ class MobileProjectItemState extends State<MobileProjectItem> {
               ],
               if (widget.project.appStoreUrl!.isNotEmpty) ...[
                 SizedBox(
-                  height: screenHeight * 0.033,
-                  width: screenWidth * 0.28,
+                  height: MediaQuery.of(context).size.height * 0.065,
+                  width: MediaQuery.of(context).size.width * 0.6,
                   child: OutlinedButton(
                     onPressed: () => URLLauncher.launchURL(widget.project.appStoreUrl!),
                     onHover: (value) => setState(() => onHover2 = value),
@@ -108,7 +108,7 @@ class MobileProjectItemState extends State<MobileProjectItem> {
                     child: Image.asset(
                       widget.project.images.elementAt(index),
                       fit: BoxFit.fill,
-                      width: screenHeight * 0.5,
+                      width: MediaQuery.of(context).size.width * 0.8,
                     ),
                   );
                 },

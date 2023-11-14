@@ -22,6 +22,7 @@ class _MobileHeaderState extends State<MobileHeader> {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Container(
+        width: double.infinity,
         decoration: BoxDecoration(
           color: headingBgColor,
           borderRadius: BorderRadius.circular(12.0),
@@ -32,7 +33,7 @@ class _MobileHeaderState extends State<MobileHeader> {
           children: [
             Image.asset(
               'assets/images/icons/home-icon-grey.png',
-              height: screenHeight * 0.2,
+              height: MediaQuery.of(context).size.height * 0.5,
             ),
             _buildSocialField(),
             const SizedBox(height: 12.0),
