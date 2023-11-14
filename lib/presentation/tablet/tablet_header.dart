@@ -24,7 +24,7 @@ class _TabletHeaderState extends State<TabletHeader> {
       child: AspectRatio(
         aspectRatio: 12,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          padding: const EdgeInsets.only(left: 12.0, right: 24.0),
           decoration: BoxDecoration(
             color: headingBgColor,
             borderRadius: BorderRadius.circular(12.0),
@@ -43,102 +43,114 @@ class _TabletHeaderState extends State<TabletHeader> {
   }
 
   Widget _buildSocialField() {
-    return SizedBox(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          MouseRegion(
-            onEnter: (_) {
-              setState(() {
-                _isHoveredGithub = true;
-              });
-            },
-            onExit: (_) {
-              setState(() {
-                _isHoveredGithub = false;
-              });
-            },
-            child: IconButton(
-              onPressed: () => URLLauncher.launchURL(githubUrl),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        MouseRegion(
+          onEnter: (_) {
+            setState(() {
+              _isHoveredGithub = true;
+            });
+          },
+          onExit: (_) {
+            setState(() {
+              _isHoveredGithub = false;
+            });
+          },
+          child: GestureDetector(
+            onTap: () => URLLauncher.launchURL(githubUrl),
+            child: Icon(
+              FontAwesomeIcons.github,
               color: _isHoveredGithub ? whiteColor : greyColor,
-              iconSize: 18.0,
-              icon: const Icon(FontAwesomeIcons.github),
+              size: 18.0,
             ),
           ),
-          MouseRegion(
-            onEnter: (_) {
-              setState(() {
-                _isHoveredLinkedin = true;
-              });
-            },
-            onExit: (_) {
-              setState(() {
-                _isHoveredLinkedin = false;
-              });
-            },
-            child: IconButton(
-              onPressed: () => URLLauncher.launchURL(linkedinUrl),
+        ),
+        const SizedBox(width: 10.0),
+        MouseRegion(
+          onEnter: (_) {
+            setState(() {
+              _isHoveredLinkedin = true;
+            });
+          },
+          onExit: (_) {
+            setState(() {
+              _isHoveredLinkedin = false;
+            });
+          },
+          child: GestureDetector(
+            onTap: () => URLLauncher.launchURL(linkedinUrl),
+            child: Icon(
+              FontAwesomeIcons.linkedin,
               color: _isHoveredLinkedin ? whiteColor : greyColor,
-              iconSize: 18.0,
-              icon: const Icon(FontAwesomeIcons.linkedin),
+              size: 18.0,
             ),
           ),
-          MouseRegion(
-            onEnter: (_) {
-              setState(() {
-                _isHoveredInstagram = true;
-              });
-            },
-            onExit: (_) {
-              setState(() {
-                _isHoveredInstagram = false;
-              });
-            },
-            child: IconButton(
-              onPressed: () => URLLauncher.launchURL(instagramUrl),
+        ),
+        const SizedBox(width: 10.0),
+        MouseRegion(
+          onEnter: (_) {
+            setState(() {
+              _isHoveredInstagram = true;
+            });
+          },
+          onExit: (_) {
+            setState(() {
+              _isHoveredInstagram = false;
+            });
+          },
+          child: GestureDetector(
+            onTap: () => URLLauncher.launchURL(instagramUrl),
+            child: Icon(
+              FontAwesomeIcons.instagram,
               color: _isHoveredInstagram ? whiteColor : greyColor,
-              iconSize: 18.0,
-              icon: const Icon(FontAwesomeIcons.instagram),
+              size: 18.0,
             ),
           ),
-          MouseRegion(
-            onEnter: (_) {
-              setState(() {
-                _isHoveredFacebook = true;
-              });
-            },
-            onExit: (_) {
-              setState(() {
-                _isHoveredFacebook = false;
-              });
-            },
-            child: IconButton(
-              onPressed: () => URLLauncher.launchURL(facebookUrl),
+        ),
+        const SizedBox(width: 10.0),
+        MouseRegion(
+          onEnter: (_) {
+            setState(() {
+              _isHoveredFacebook = true;
+            });
+          },
+          onExit: (_) {
+            setState(() {
+              _isHoveredFacebook = false;
+            });
+          },
+          child: GestureDetector(
+            onTap: () => URLLauncher.launchURL(facebookUrl),
+            child: Icon(
+              FontAwesomeIcons.facebook,
               color: _isHoveredFacebook ? whiteColor : greyColor,
-              iconSize: 18.0,
-              icon: const Icon(FontAwesomeIcons.facebook),
+              size: 18.0,
             ),
           ),
-          MouseRegion(
-            onEnter: (_) {
-              setState(() {
-                _isHoveredEmail = true;
-              });
-            },
-            onExit: (_) {
-              setState(() {
-                _isHoveredEmail = false;
-              });
-            },
-            child: IconButton(
-              onPressed: () => URLLauncher.launchEmail(emailAddress),
+        ),
+        const SizedBox(width: 10.0),
+        MouseRegion(
+          onEnter: (_) {
+            setState(() {
+              _isHoveredEmail = true;
+            });
+          },
+          onExit: (_) {
+            setState(() {
+              _isHoveredEmail = false;
+            });
+          },
+          child: GestureDetector(
+            onTap: () => URLLauncher.launchURL(emailAddress),
+            child: Icon(
+              FontAwesomeIcons.solidEnvelope,
               color: _isHoveredEmail ? whiteColor : greyColor,
-              iconSize: 18.0,
-              icon: const Icon(FontAwesomeIcons.solidEnvelope),
+              size: 18.0,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
