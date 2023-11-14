@@ -22,21 +22,51 @@ class _DesktopHeaderState extends State<DesktopHeader> {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: AspectRatio(
-        aspectRatio: 12 / 5.5,
+        aspectRatio: 12,
         child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
           decoration: BoxDecoration(
             color: headingBgColor,
             borderRadius: BorderRadius.circular(12.0),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/images/icons/home-icon-grey.png',
-                height: 400,
-              ),
+              Image.asset('assets/images/icons/main-icon.png'),
               _buildSocialField(),
+              // Row(
+              //   children: [
+              //     TextButton(
+              //       onPressed: () {},
+              //       onHover: (value) {},
+              //       style: TextButton.styleFrom(
+              //         elevation: 0.0,
+              //         fixedSize: const Size(150, 40),
+              //       ),
+              //       child: Text(
+              //         'PROJECTS',
+              //         style: size16weight600.copyWith(
+              //           letterSpacing: 1.5,
+              //         ),
+              //       ),
+              //     ),
+              //     TextButton(
+              //       onPressed: () {},
+              //       onHover: (value) {},
+              //       style: TextButton.styleFrom(
+              //         elevation: 0.0,
+              //         fixedSize: const Size(150, 40),
+              //       ),
+              //       child: Text(
+              //         'CV',
+              //         style: size16weight600.copyWith(
+              //           letterSpacing: 1.5,
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         ),
@@ -65,9 +95,8 @@ class _DesktopHeaderState extends State<DesktopHeader> {
             child: IconButton(
               onPressed: () => URLLauncher.launchURL(githubUrl),
               color: _isHoveredGithub ? whiteColor : greyColor,
-              icon: const Icon(
-                FontAwesomeIcons.github,
-              ),
+              iconSize: 20.0,
+              icon: const Icon(FontAwesomeIcons.github),
             ),
           ),
           MouseRegion(
@@ -84,9 +113,8 @@ class _DesktopHeaderState extends State<DesktopHeader> {
             child: IconButton(
               onPressed: () => URLLauncher.launchURL(linkedinUrl),
               color: _isHoveredLinkedin ? whiteColor : greyColor,
-              icon: const Icon(
-                FontAwesomeIcons.linkedin,
-              ),
+              iconSize: 20.0,
+              icon: const Icon(FontAwesomeIcons.linkedin),
             ),
           ),
           MouseRegion(
@@ -103,9 +131,8 @@ class _DesktopHeaderState extends State<DesktopHeader> {
             child: IconButton(
               onPressed: () => URLLauncher.launchURL(instagramUrl),
               color: _isHoveredInstagram ? whiteColor : greyColor,
-              icon: const Icon(
-                FontAwesomeIcons.instagram,
-              ),
+              iconSize: 20.0,
+              icon: const Icon(FontAwesomeIcons.instagram),
             ),
           ),
           MouseRegion(
@@ -122,9 +149,8 @@ class _DesktopHeaderState extends State<DesktopHeader> {
             child: IconButton(
               onPressed: () => URLLauncher.launchURL(facebookUrl),
               color: _isHoveredFacebook ? whiteColor : greyColor,
-              icon: const Icon(
-                FontAwesomeIcons.facebook,
-              ),
+              iconSize: 20.0,
+              icon: const Icon(FontAwesomeIcons.facebook),
             ),
           ),
           MouseRegion(
@@ -141,9 +167,8 @@ class _DesktopHeaderState extends State<DesktopHeader> {
             child: IconButton(
               onPressed: () => URLLauncher.launchEmail(emailAddress),
               color: _isHoveredEmail ? whiteColor : greyColor,
-              icon: const Icon(
-                FontAwesomeIcons.at,
-              ),
+              iconSize: 20.0,
+              icon: const Icon(FontAwesomeIcons.solidEnvelope),
             ),
           ),
         ],

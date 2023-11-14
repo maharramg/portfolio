@@ -22,20 +22,18 @@ class _TabletHeaderState extends State<TabletHeader> {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: AspectRatio(
-        aspectRatio: 1.2,
+        aspectRatio: 12,
         child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
           decoration: BoxDecoration(
             color: headingBgColor,
             borderRadius: BorderRadius.circular(12.0),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/images/icons/home-icon-grey.png',
-                height: MediaQuery.of(context).size.height / 2.2,
-              ),
+              Image.asset('assets/images/icons/main-icon.png'),
               _buildSocialField(),
             ],
           ),
@@ -63,9 +61,8 @@ class _TabletHeaderState extends State<TabletHeader> {
             child: IconButton(
               onPressed: () => URLLauncher.launchURL(githubUrl),
               color: _isHoveredGithub ? whiteColor : greyColor,
-              icon: const Icon(
-                FontAwesomeIcons.github,
-              ),
+              iconSize: 18.0,
+              icon: const Icon(FontAwesomeIcons.github),
             ),
           ),
           MouseRegion(
@@ -82,9 +79,8 @@ class _TabletHeaderState extends State<TabletHeader> {
             child: IconButton(
               onPressed: () => URLLauncher.launchURL(linkedinUrl),
               color: _isHoveredLinkedin ? whiteColor : greyColor,
-              icon: const Icon(
-                FontAwesomeIcons.linkedin,
-              ),
+              iconSize: 18.0,
+              icon: const Icon(FontAwesomeIcons.linkedin),
             ),
           ),
           MouseRegion(
@@ -101,9 +97,8 @@ class _TabletHeaderState extends State<TabletHeader> {
             child: IconButton(
               onPressed: () => URLLauncher.launchURL(instagramUrl),
               color: _isHoveredInstagram ? whiteColor : greyColor,
-              icon: const Icon(
-                FontAwesomeIcons.instagram,
-              ),
+              iconSize: 18.0,
+              icon: const Icon(FontAwesomeIcons.instagram),
             ),
           ),
           MouseRegion(
@@ -120,9 +115,8 @@ class _TabletHeaderState extends State<TabletHeader> {
             child: IconButton(
               onPressed: () => URLLauncher.launchURL(facebookUrl),
               color: _isHoveredFacebook ? whiteColor : greyColor,
-              icon: const Icon(
-                FontAwesomeIcons.facebook,
-              ),
+              iconSize: 18.0,
+              icon: const Icon(FontAwesomeIcons.facebook),
             ),
           ),
           MouseRegion(
@@ -139,9 +133,8 @@ class _TabletHeaderState extends State<TabletHeader> {
             child: IconButton(
               onPressed: () => URLLauncher.launchEmail(emailAddress),
               color: _isHoveredEmail ? whiteColor : greyColor,
-              icon: const Icon(
-                FontAwesomeIcons.at,
-              ),
+              iconSize: 18.0,
+              icon: const Icon(FontAwesomeIcons.solidEnvelope),
             ),
           ),
         ],
