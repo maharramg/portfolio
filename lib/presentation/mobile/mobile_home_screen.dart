@@ -11,11 +11,11 @@ class MobileHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryColor,
+      appBar: const MobileHeader(),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            const MobileHeader(),
             ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
               primary: false,
