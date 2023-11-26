@@ -5,7 +5,7 @@ const String githubUrl = 'https://github.com/maharramg';
 const String linkedinUrl = 'https://www.linkedin.com/in/maharramg/';
 const String instagramUrl = 'https://www.instagram.com/matyshere/';
 const String facebookUrl = 'https://www.facebook.com/matyshere';
-const String resumeUrl = 'https://drive.google.com/file/d/16cB9zkSuyHyY-QqIW_5YevFWK2o0WmSd/view?usp=sharing';
+const String resumeUrl = 'https://drive.google.com/file/d/1L9hdnE9DO2mXZG1C4FlTtT8sChVi_Y3u/view?usp=sharing';
 const String emailAddress = 'quliyevff@gmail.com';
 
 // FONT
