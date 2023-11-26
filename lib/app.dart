@@ -4,6 +4,8 @@ import 'package:portfolio/presentation/desktop/desktop_home_screen.dart';
 import 'package:portfolio/presentation/mobile/mobile_home_screen.dart';
 import 'package:portfolio/presentation/tablet/tablet_home_screen.dart';
 import 'package:portfolio/responsive/responsive_layout.dart';
+import 'package:portfolio/utilities/app_constants.dart';
+import 'package:portfolio/utilities/strings.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -11,9 +13,24 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Maharram Guliyev',
+      title: Strings.title,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'HankenGrotesk'),
+      theme: ThemeData(
+        fontFamily: 'HankenGrotesk',
+        colorScheme: const ColorScheme(
+          brightness: Brightness.dark,
+          primary: primaryColor,
+          onPrimary: primaryColor,
+          secondary: secondaryColor,
+          onSecondary: secondaryColor,
+          error: errorColor,
+          onError: errorColor,
+          background: primaryColor,
+          onBackground: primaryColor,
+          surface: primaryColor,
+          onSurface: primaryColor,
+        ),
+      ),
       home: const ResponsiveLayout(
         mobileView: MobileHomeScreen(),
         tabletView: TabletHomeScreen(),

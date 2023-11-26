@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/services.dart';
+import 'package:portfolio/utilities/strings.dart';
 
 class TopDrawer extends StatefulWidget {
   const TopDrawer({super.key});
@@ -61,7 +62,7 @@ class _TopDrawerState extends State<TopDrawer> with SingleTickerProviderStateMix
                 ],
               ),
               Image.asset(
-                'assets/images/icons/main-icon.png',
+                Strings.mainIcon,
                 height: 180.0,
               ),
               const SizedBox(height: 24.0),
@@ -73,13 +74,14 @@ class _TopDrawerState extends State<TopDrawer> with SingleTickerProviderStateMix
                       onPressed: () => URLLauncher.launchURL(resumeUrl),
                       style: TextButton.styleFrom(
                         elevation: 0.0,
-                        foregroundColor: Colors.transparent,
+                        foregroundColor: headingBgColor,
                         fixedSize: const Size(180, 50),
-                        shape: const RoundedRectangleBorder(),
                       ),
                       child: Text(
-                        'Resume',
-                        style: size32weight600,
+                        Strings.resume,
+                        style: size32weight600.copyWith(
+                          letterSpacing: 1.5,
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -113,6 +115,7 @@ class _TopDrawerState extends State<TopDrawer> with SingleTickerProviderStateMix
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               isHoveredGithub = true;
@@ -134,6 +137,7 @@ class _TopDrawerState extends State<TopDrawer> with SingleTickerProviderStateMix
         ),
         const SizedBox(width: 12.0),
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               isHoveredLinkedin = true;
@@ -155,6 +159,7 @@ class _TopDrawerState extends State<TopDrawer> with SingleTickerProviderStateMix
         ),
         const SizedBox(width: 12.0),
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               isHoveredInstagram = true;
@@ -176,6 +181,7 @@ class _TopDrawerState extends State<TopDrawer> with SingleTickerProviderStateMix
         ),
         const SizedBox(width: 12.0),
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               isHoveredFacebook = true;
@@ -197,6 +203,7 @@ class _TopDrawerState extends State<TopDrawer> with SingleTickerProviderStateMix
         ),
         const SizedBox(width: 12.0),
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               isHoveredEmail = true;

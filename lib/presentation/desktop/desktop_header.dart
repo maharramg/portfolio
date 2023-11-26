@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/services.dart';
+import 'package:portfolio/utilities/strings.dart';
 
 class DesktopHeader extends StatefulWidget {
   const DesktopHeader({super.key});
@@ -16,6 +17,8 @@ class _DesktopHeaderState extends State<DesktopHeader> {
   bool _isHoveredInstagram = false;
   bool _isHoveredFacebook = false;
   bool _isHoveredEmail = false;
+
+  Color textColor = whiteColor.withOpacity(0.8);
 
   @override
   Widget build(BuildContext context) {
@@ -33,40 +36,28 @@ class _DesktopHeaderState extends State<DesktopHeader> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/images/icons/main-icon.png'),
+              TextButton(
+                onPressed: () => URLLauncher.launchURL(resumeUrl),
+                onHover: (value) {
+                  setState(() {
+                    textColor = textColor == whiteColor ? whiteColor.withOpacity(0.8) : whiteColor;
+                  });
+                },
+                style: TextButton.styleFrom(
+                  elevation: 0.0,
+                  foregroundColor: headingBgColor,
+                  fixedSize: const Size(150, 40),
+                ),
+                child: Text(
+                  Strings.resume,
+                  style: size20weight600.copyWith(
+                    color: textColor,
+                    letterSpacing: 1.5,
+                  ),
+                ),
+              ),
+              Image.asset(Strings.mainIcon),
               _buildSocialField(),
-              // Row(
-              //   children: [
-              //     TextButton(
-              //       onPressed: () {},
-              //       onHover: (value) {},
-              //       style: TextButton.styleFrom(
-              //         elevation: 0.0,
-              //         fixedSize: const Size(150, 40),
-              //       ),
-              //       child: Text(
-              //         'PROJECTS',
-              //         style: size16weight600.copyWith(
-              //           letterSpacing: 1.5,
-              //         ),
-              //       ),
-              //     ),
-              //     TextButton(
-              //       onPressed: () {},
-              //       onHover: (value) {},
-              //       style: TextButton.styleFrom(
-              //         elevation: 0.0,
-              //         fixedSize: const Size(150, 40),
-              //       ),
-              //       child: Text(
-              //         'CV',
-              //         style: size16weight600.copyWith(
-              //           letterSpacing: 1.5,
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
             ],
           ),
         ),
@@ -79,6 +70,7 @@ class _DesktopHeaderState extends State<DesktopHeader> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               _isHoveredGithub = true;
@@ -100,6 +92,7 @@ class _DesktopHeaderState extends State<DesktopHeader> {
         ),
         const SizedBox(width: 10.0),
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               _isHoveredLinkedin = true;
@@ -121,6 +114,7 @@ class _DesktopHeaderState extends State<DesktopHeader> {
         ),
         const SizedBox(width: 10.0),
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               _isHoveredInstagram = true;
@@ -142,6 +136,7 @@ class _DesktopHeaderState extends State<DesktopHeader> {
         ),
         const SizedBox(width: 10.0),
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               _isHoveredFacebook = true;
@@ -163,6 +158,7 @@ class _DesktopHeaderState extends State<DesktopHeader> {
         ),
         const SizedBox(width: 10.0),
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               _isHoveredEmail = true;

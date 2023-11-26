@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/project_model.dart';
 import 'package:portfolio/utilities/services.dart';
+import 'package:portfolio/utilities/strings.dart';
 
 class TabletProjectItem extends StatefulWidget {
   final ProjectModel project;
@@ -60,90 +61,108 @@ class _TabletProjectItemState extends State<TabletProjectItem> {
                     ),
                   ),
                   const SizedBox(height: 16.0),
-                  if (widget.project.playStoreUrl!.isNotEmpty) ...[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: AspectRatio(
-                        aspectRatio: 9 / 2,
-                        child: OutlinedButton(
-                          onPressed: () => URLLauncher.launchURL(widget.project.playStoreUrl!),
-                          onHover: (value) => setState(() => onHover1 = value),
-                          style: OutlinedButton.styleFrom(
-                            elevation: 0.0,
-                            backgroundColor: onHover1 ? whiteColor.withOpacity(0.1) : primaryColor,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
-                            side: BorderSide.none,
-                          ),
-                          child: Text(
-                            'GOOGLE PLAY',
-                            style: size18weight600.copyWith(
-                              fontSize: MediaQuery.of(context).size.width * 0.015,
-                              letterSpacing: 1,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 12.0),
-                  ],
-                  if (widget.project.appStoreUrl!.isNotEmpty) ...[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: AspectRatio(
-                        aspectRatio: 9 / 2,
-                        child: OutlinedButton(
-                          onPressed: () => URLLauncher.launchURL(widget.project.appStoreUrl!),
-                          onHover: (value) => setState(() => onHover2 = value),
-                          style: OutlinedButton.styleFrom(
-                            elevation: 0.0,
-                            backgroundColor: onHover2 ? whiteColor.withOpacity(0.1) : primaryColor,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
-                            side: BorderSide.none,
-                          ),
-                          child: Text(
-                            'APP STORE',
-                            style: size18weight600.copyWith(
-                              fontSize: MediaQuery.of(context).size.width * 0.015,
-                              letterSpacing: 1.5,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                  _buildButtons(),
                 ],
               ),
             ),
-            AspectRatio(
-              aspectRatio: 8 / 5,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      itemCount: widget.project.images.length > 3 ? 3 : widget.project.images.length,
-                      itemBuilder: (context, index) {
-                        return AspectRatio(
-                          aspectRatio: 1 / 2,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12.0),
-                            child: Image.asset(
-                              widget.project.images.elementAt(index),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        );
-                      },
-                      separatorBuilder: (context, index) => const SizedBox(width: 12.0),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            _buildImages(),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildButtons() {
+    return Column(
+      children: [
+        if (widget.project.playStoreUrl!.isNotEmpty) ...[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: AspectRatio(
+              aspectRatio: 9 / 2,
+              child: OutlinedButton(
+                onPressed: () => URLLauncher.launchURL(widget.project.playStoreUrl!),
+                onHover: (value) => setState(() => onHover1 = value),
+                style: OutlinedButton.styleFrom(
+                  elevation: 0.0,
+                  backgroundColor: onHover1 ? whiteColor.withOpacity(0.1) : primaryColor,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
+                  side: BorderSide.none,
+                ),
+                child: Text(
+                  Strings.googlePlay,
+                  style: size18weight600.copyWith(
+                    fontSize: MediaQuery.of(context).size.width * 0.015,
+                    letterSpacing: 1,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 12.0),
+        ],
+        if (widget.project.appStoreUrl!.isNotEmpty) ...[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: AspectRatio(
+              aspectRatio: 9 / 2,
+              child: OutlinedButton(
+                onPressed: () => URLLauncher.launchURL(widget.project.appStoreUrl!),
+                onHover: (value) => setState(() => onHover2 = value),
+                style: OutlinedButton.styleFrom(
+                  elevation: 0.0,
+                  backgroundColor: onHover2 ? whiteColor.withOpacity(0.1) : primaryColor,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
+                  side: BorderSide.none,
+                ),
+                child: Text(
+                  Strings.appStore,
+                  style: size18weight600.copyWith(
+                    fontSize: MediaQuery.of(context).size.width * 0.015,
+                    letterSpacing: 1.5,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+
+  Widget _buildImages() {
+    return AspectRatio(
+      aspectRatio: 8 / 5,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              itemCount: widget.project.images.length,
+              itemBuilder: (context, index) {
+                return AspectRatio(
+                  aspectRatio: 1 / 2,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12.0),
+                    child: MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: GestureDetector(
+                        onTap: () => URLLauncher.launchURL(widget.project.imageUrls!.elementAt(index)),
+                        child: Image.asset(
+                          widget.project.images.elementAt(index),
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
+              separatorBuilder: (context, index) => const SizedBox(width: 12.0),
+            ),
+          ),
+        ],
       ),
     );
   }

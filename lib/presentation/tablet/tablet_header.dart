@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/services.dart';
+import 'package:portfolio/utilities/strings.dart';
 
 class TabletHeader extends StatefulWidget {
   const TabletHeader({super.key});
@@ -33,7 +34,21 @@ class _TabletHeaderState extends State<TabletHeader> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/images/icons/main-icon.png'),
+              TextButton(
+                onPressed: () => URLLauncher.launchURL(resumeUrl),
+                style: TextButton.styleFrom(
+                  elevation: 0.0,
+                  foregroundColor: headingBgColor,
+                  fixedSize: const Size(150, 40),
+                ),
+                child: Text(
+                  Strings.resume,
+                  style: size20weight600.copyWith(
+                    letterSpacing: 1.5,
+                  ),
+                ),
+              ),
+              Image.asset(Strings.mainIcon),
               _buildSocialField(),
             ],
           ),
@@ -47,6 +62,7 @@ class _TabletHeaderState extends State<TabletHeader> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               _isHoveredGithub = true;
@@ -68,6 +84,7 @@ class _TabletHeaderState extends State<TabletHeader> {
         ),
         const SizedBox(width: 10.0),
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               _isHoveredLinkedin = true;
@@ -89,6 +106,7 @@ class _TabletHeaderState extends State<TabletHeader> {
         ),
         const SizedBox(width: 10.0),
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               _isHoveredInstagram = true;
@@ -110,6 +128,7 @@ class _TabletHeaderState extends State<TabletHeader> {
         ),
         const SizedBox(width: 10.0),
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               _isHoveredFacebook = true;
@@ -131,6 +150,7 @@ class _TabletHeaderState extends State<TabletHeader> {
         ),
         const SizedBox(width: 10.0),
         MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) {
             setState(() {
               _isHoveredEmail = true;

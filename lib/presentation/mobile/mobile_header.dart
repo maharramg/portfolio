@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/presentation/widgets/top_drawer.dart';
 import 'package:portfolio/utilities/app_constants.dart';
+import 'package:portfolio/utilities/strings.dart';
 
 class MobileHeader extends StatefulWidget implements PreferredSizeWidget {
   const MobileHeader({super.key});
@@ -32,13 +33,11 @@ class _MobileHeaderState extends State<MobileHeader> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset('assets/images/icons/main-icon.png'),
+                Image.asset(Strings.mainIcon),
                 GestureDetector(
                   onTap: () => showDialog(
                     context: context,
-                    builder: (context) {
-                      return const TopDrawer();
-                    },
+                    builder: (context) => const TopDrawer(),
                   ),
                   child: const Icon(
                     FontAwesomeIcons.bars,
