@@ -13,7 +13,6 @@ class AllProjectsScreen extends StatelessWidget {
 
     return Scaffold(
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             Header(scrollFunction: () => Scroll.scrollToSection(footerKey)),

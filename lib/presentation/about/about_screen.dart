@@ -15,7 +15,6 @@ class AboutScreen extends StatelessWidget {
 
     return Scaffold(
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             Header(
