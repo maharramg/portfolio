@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:portfolio/presentation/desktop/desktop_home_screen.dart';
-import 'package:portfolio/presentation/mobile/mobile_home_screen.dart';
-import 'package:portfolio/presentation/tablet/tablet_home_screen.dart';
-import 'package:portfolio/responsive/responsive_layout.dart';
+import 'package:portfolio/presentation/about/about_screen.dart';
+import 'package:portfolio/presentation/home/all_projects_screen.dart';
+import 'package:portfolio/presentation/home/home_screen.dart';
 import 'package:portfolio/utilities/app_constants.dart';
+import 'package:portfolio/utilities/routes.dart';
 import 'package:portfolio/utilities/strings.dart';
 
 class App extends StatelessWidget {
@@ -16,26 +16,16 @@ class App extends StatelessWidget {
       title: Strings.title,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'HankenGrotesk',
-        colorScheme: const ColorScheme(
-          brightness: Brightness.dark,
-          primary: primaryColor,
-          onPrimary: primaryColor,
-          secondary: secondaryColor,
-          onSecondary: secondaryColor,
-          error: errorColor,
-          onError: errorColor,
-          background: primaryColor,
-          onBackground: primaryColor,
-          surface: primaryColor,
-          onSurface: primaryColor,
-        ),
+        fontFamily: poppinsFont,
+        scaffoldBackgroundColor: scaffoldBgColor,
+        colorSchemeSeed: primaryColor,
       ),
-      home: const ResponsiveLayout(
-        mobileView: MobileHomeScreen(),
-        tabletView: TabletHomeScreen(),
-        desktopView: DesktopHomeScreen(),
-      ),
+      initialRoute: Routes.homeScreen,
+      routes: {
+        Routes.homeScreen: (context) => const HomeScreen(),
+        Routes.aboutScreen: (context) => const AboutScreen(),
+        Routes.projectsScreen: (context) => const AllProjectsScreen(),
+      },
     ).animate().fadeIn(duration: 400.ms);
   }
 }

@@ -16,8 +16,6 @@ dependencies:
   url_launcher: ^6.1.14
   font_awesome_flutter: ^10.6.0
   flutter_animate: ^4.2.0+1
-  carousel_slider: ^4.2.1
-  dots_indicator: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -34,43 +32,13 @@ flutter:
     - assets/images/
     - assets/images/icons/
     - assets/images/logos/
-    - assets/images/screenshots/
-    - assets/images/screenshots/tendopay/
-    - assets/images/screenshots/tentony/
-    - assets/images/screenshots/tezibu/
-    - assets/images/screenshots/tezibu-courier/
-    - assets/images/screenshots/tezibu-partner/
-    - assets/images/screenshots/rahat/
-    - assets/images/screenshots/wibty/
-    - assets/images/screenshots/flostore/
-    - assets/images/screenshots/dentistore/
-    - assets/images/screenshots/lilac/
-    - assets/images/screenshots/bouquet/
-    - assets/images/screenshots/ra9/
-    - assets/images/screenshots/unityfood/
-    - assets/images/screenshots/inloya/
-    - assets/images/screenshots/gunka/
-    - assets/images/screenshots/inloya-pos/
+    - assets/images/mockups/
 
 
   fonts:
-    - family: HankenGrotesk
+    - family: Poppins
       fonts:
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Black.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-BlackItalic.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Bold.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-BoldItalic.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-ExtraBold.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-ExtraBoldItalic.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-ExtraLight.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-ExtraLightItalic.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Italic.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Light.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-LightItalic.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Medium.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-MediumItalic.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Regular.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-SemiBold.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-SemiBoldItalic.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-Thin.ttf
-        - asset: assets/fonts/hankengrotesk/HankenGrotesk-ThinItalic.ttf
+        - asset: assets/fonts/poppins/Poppins-Regular.ttf
+    - family: NeuePower
+      fonts:
+        - asset: assets/fonts/neue-power/NeuePower-Ultra.ttf

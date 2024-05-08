@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// URLS
+// Urls
 const String githubUrl = 'https://github.com/maharramg';
 const String linkedinUrl = 'https://www.linkedin.com/in/maharramg/';
 const String instagramUrl = 'https://www.instagram.com/matyshere/';
@@ -8,20 +8,26 @@ const String facebookUrl = 'https://www.facebook.com/matyshere';
 const String resumeUrl = 'https://drive.google.com/file/d/1L9hdnE9DO2mXZG1C4FlTtT8sChVi_Y3u/view?usp=sharing';
 const String emailAddress = 'quliyevff@gmail.com';
 
-// FONT
-const appFontTextStyle = TextStyle(fontFamily: 'HankenGrotesk');
+// Fonts
+const String poppinsFont = 'Poppins';
+const String neuePowerFont = 'NeuePower';
 
-// COLORS
-const primaryColor = Color(0xff202124);
+const appFontTextStyle = TextStyle(fontFamily: poppinsFont);
+
+// Colors
+const primaryColor = Color(0xff001446);
 const secondaryColor = Color(0xff303134);
+const tertiaryColor = Color(0xff010623);
 const headingBgColor = Color(0xff131416);
+const scaffoldBgColor = Color(0xFFEEEEEE);
 const whiteColor = Colors.white;
 const blackColor = Colors.black;
 const greyColor = Colors.grey;
 const blueColor = Colors.blue;
 const errorColor = Colors.red;
+const greenColor = Color(0xFF24FF00);
 
-// TEXT STYLES
+// Text Styles
 final size10weight400 = appFontTextStyle.copyWith(fontSize: 10.0, fontWeight: FontWeight.w400, color: whiteColor);
 final size10weight500 = appFontTextStyle.copyWith(fontSize: 10.0, fontWeight: FontWeight.w500, color: whiteColor);
 final size10weight600 = appFontTextStyle.copyWith(fontSize: 10.0, fontWeight: FontWeight.w600, color: whiteColor);
@@ -94,7 +100,7 @@ final size32weight600 = appFontTextStyle.copyWith(fontSize: 32.0, fontWeight: Fo
 final size32weight700 = appFontTextStyle.copyWith(fontSize: 32.0, fontWeight: FontWeight.w700, color: whiteColor);
 final size32weight900 = appFontTextStyle.copyWith(fontSize: 32.0, fontWeight: FontWeight.w900, color: whiteColor);
 
-// PADDING
+// Paddings
 const paddingAll24 = EdgeInsets.all(24.0);
 const paddingHorizontal24 = EdgeInsets.symmetric(horizontal: 24.0);
 const paddingVertical24 = EdgeInsets.symmetric(vertical: 24.0);
