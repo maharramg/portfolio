@@ -18,13 +18,20 @@ class SocialIcon extends StatefulWidget {
 }
 
 class _SocialIconState extends State<SocialIcon> {
+  bool isHovered = false;
+
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () => URLLauncher.launchURL(widget.url),
-      icon: Icon(
+    return InkWell(
+      onTap: () => URLLauncher.launchURL(widget.url),
+      onHover: (value) {
+        setState(() {
+          isHovered = !isHovered;
+        });
+      },
+      child: Icon(
         widget.icon,
-        color: whiteColor,
+        color: isHovered ? greenColor : whiteColor,
         size: context.isDesktop
             ? 30.0
             : context.isTablet

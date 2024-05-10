@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   GlobalKey footerKey = GlobalKey();
+  GlobalKey projectsKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             Header(scrollFunction: () => Scroll.scrollToSection(footerKey)),
-            const LandingView(),
-            const ProjectsView(),
+            LandingView(scrollFunction: () => Scroll.scrollToSection(projectsKey)),
+            ProjectsView(key: projectsKey),
             Footer(
               key: footerKey,
               scrollFunction: () => Scroll.scrollToSection(footerKey),

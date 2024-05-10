@@ -5,12 +5,14 @@ class HoverUnderlineText extends StatefulWidget {
   final String text;
   final TextStyle? textStyle;
   final Function onPressed;
+  final bool isTabSelected;
 
   const HoverUnderlineText({
     super.key,
     required this.text,
     this.textStyle,
     required this.onPressed,
+    required this.isTabSelected,
   });
 
   @override
@@ -25,16 +27,22 @@ class _HoverUnderlineTextState extends State<HoverUnderlineText> {
     return InkWell(
       onTap: () => widget.onPressed(),
       onHover: (value) {
-        setState(() {
-          isHovered = !isHovered;
-        });
+        if (!widget.isTabSelected) {
+          setState(() {
+            isHovered = !isHovered;
+          });
+        } else {
+          setState(() {
+            isHovered = true;
+          });
+        }
       },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: greenColor.withOpacity(isHovered ? 1.0 : 0.0),
+              color: greenColor.withOpacity(widget.isTabSelected || isHovered ? 1.0 : 0.0),
             ),
           ),
         ),

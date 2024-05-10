@@ -1,3 +1,6 @@
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/presentation/common/contact_view.dart';
@@ -23,6 +26,8 @@ class Footer extends StatefulWidget {
 class _FooterState extends State<Footer> {
   @override
   Widget build(BuildContext context) {
+    final String? currentRoute = ModalRoute.of(context)?.settings.name;
+
     return Container(
       color: whiteColor,
       width: MediaQuery.of(context).size.width,
@@ -52,18 +57,33 @@ class _FooterState extends State<Footer> {
                               HoverUnderlineText(
                                 text: Strings.tabWork,
                                 textStyle: size24weight500,
-                                onPressed: () => Navigator.pushNamed(context, Routes.homeScreen),
+                                isTabSelected: currentRoute == Routes.homeScreen,
+                                onPressed: () {
+                                  if (currentRoute == Routes.homeScreen) {
+                                    html.window.location.reload();
+                                  } else {
+                                    Navigator.pushNamed(context, Routes.homeScreen);
+                                  }
+                                },
                               ),
                               const SizedBox(width: 24.0),
                               HoverUnderlineText(
                                 text: Strings.tabAbout,
                                 textStyle: size24weight500,
-                                onPressed: () => Navigator.pushNamed(context, Routes.aboutScreen),
+                                isTabSelected: currentRoute == Routes.aboutScreen,
+                                onPressed: () {
+                                  if (currentRoute == Routes.aboutScreen) {
+                                    html.window.location.reload();
+                                  } else {
+                                    Navigator.pushNamed(context, Routes.aboutScreen);
+                                  }
+                                },
                               ),
                               const SizedBox(width: 24.0),
                               HoverUnderlineText(
                                 text: Strings.tabContact,
                                 textStyle: size24weight500,
+                                isTabSelected: false,
                                 onPressed: () => widget.scrollFunction!(),
                               ),
                             ],
@@ -77,7 +97,14 @@ class _FooterState extends State<Footer> {
                       const SizedBox(height: 30.0),
                       Text(
                         Strings.copyright,
+                        textAlign: TextAlign.center,
                         style: size20weight400,
+                      ),
+                      const SizedBox(height: 8.0),
+                      Text(
+                        Strings.builtWithFlutter,
+                        textAlign: TextAlign.center,
+                        style: size18weight400,
                       ),
                     ],
                   )
@@ -97,18 +124,33 @@ class _FooterState extends State<Footer> {
                                   HoverUnderlineText(
                                     text: Strings.tabWork,
                                     textStyle: size24weight500,
-                                    onPressed: () => Navigator.pushNamed(context, Routes.homeScreen),
+                                    isTabSelected: currentRoute == Routes.homeScreen,
+                                    onPressed: () {
+                                      if (currentRoute == Routes.homeScreen) {
+                                        html.window.location.reload();
+                                      } else {
+                                        Navigator.pushNamed(context, Routes.homeScreen);
+                                      }
+                                    },
                                   ),
                                   const SizedBox(width: 24.0),
                                   HoverUnderlineText(
                                     text: Strings.tabAbout,
                                     textStyle: size24weight500,
-                                    onPressed: () => Navigator.pushNamed(context, Routes.aboutScreen),
+                                    isTabSelected: currentRoute == Routes.aboutScreen,
+                                    onPressed: () {
+                                      if (currentRoute == Routes.aboutScreen) {
+                                        html.window.location.reload();
+                                      } else {
+                                        Navigator.pushNamed(context, Routes.aboutScreen);
+                                      }
+                                    },
                                   ),
                                   const SizedBox(width: 24.0),
                                   HoverUnderlineText(
                                     text: Strings.tabContact,
                                     textStyle: size24weight500,
+                                    isTabSelected: false,
                                     onPressed: () => widget.scrollFunction!(),
                                   ),
                                 ],
@@ -122,7 +164,14 @@ class _FooterState extends State<Footer> {
                           const SizedBox(height: 30.0),
                           Text(
                             Strings.copyright,
+                            textAlign: TextAlign.center,
                             style: size20weight400,
+                          ),
+                          const SizedBox(height: 8.0),
+                          Text(
+                            Strings.builtWithFlutter,
+                            textAlign: TextAlign.center,
+                            style: size18weight400,
                           ),
                         ],
                       )
@@ -142,18 +191,33 @@ class _FooterState extends State<Footer> {
                                   HoverUnderlineText(
                                     text: Strings.tabWork,
                                     textStyle: size20weight500,
-                                    onPressed: () => Navigator.pushNamed(context, Routes.homeScreen),
+                                    isTabSelected: currentRoute == Routes.homeScreen,
+                                    onPressed: () {
+                                      if (currentRoute == Routes.homeScreen) {
+                                        html.window.location.reload();
+                                      } else {
+                                        Navigator.pushNamed(context, Routes.homeScreen);
+                                      }
+                                    },
                                   ),
                                   const SizedBox(width: 24.0),
                                   HoverUnderlineText(
                                     text: Strings.tabAbout,
                                     textStyle: size20weight500,
-                                    onPressed: () => Navigator.pushNamed(context, Routes.aboutScreen),
+                                    isTabSelected: currentRoute == Routes.aboutScreen,
+                                    onPressed: () {
+                                      if (currentRoute == Routes.aboutScreen) {
+                                        html.window.location.reload();
+                                      } else {
+                                        Navigator.pushNamed(context, Routes.aboutScreen);
+                                      }
+                                    },
                                   ),
                                   const SizedBox(width: 24.0),
                                   HoverUnderlineText(
                                     text: Strings.tabContact,
                                     textStyle: size20weight500,
+                                    isTabSelected: false,
                                     onPressed: () => widget.scrollFunction!(),
                                   ),
                                 ],
@@ -167,8 +231,14 @@ class _FooterState extends State<Footer> {
                           const SizedBox(height: 30.0),
                           Text(
                             Strings.copyright,
-                            style: size18weight400,
                             textAlign: TextAlign.center,
+                            style: size18weight400,
+                          ),
+                          const SizedBox(height: 8.0),
+                          Text(
+                            Strings.builtWithFlutter,
+                            textAlign: TextAlign.center,
+                            style: size15weight400,
                           ),
                         ],
                       ),
@@ -179,20 +249,27 @@ class _FooterState extends State<Footer> {
   }
 
   Widget _buildSocialField() {
-    return const Row(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SocialIcon(icon: FontAwesomeIcons.github, url: githubUrl),
-        SizedBox(width: 15.0),
-        SocialIcon(icon: FontAwesomeIcons.linkedin, url: linkedinUrl),
-        SizedBox(width: 15.0),
-        SocialIcon(icon: FontAwesomeIcons.instagram, url: instagramUrl),
-        SizedBox(width: 15.0),
-        SocialIcon(icon: FontAwesomeIcons.facebook, url: facebookUrl),
-        SizedBox(width: 15.0),
-        SocialIcon(icon: FontAwesomeIcons.solidEnvelope, url: emailAddress),
-      ],
+    return SizedBox(
+      width: context.isDesktop
+          ? MediaQuery.of(context).size.width * 0.2
+          : context.isTablet
+              ? MediaQuery.of(context).size.width * 0.2
+              : MediaQuery.of(context).size.width * 0.4,
+      child: const Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SocialIcon(icon: FontAwesomeIcons.github, url: githubUrl),
+          // SizedBox(width: 25.0),
+          SocialIcon(icon: FontAwesomeIcons.linkedin, url: linkedinUrl),
+          // SizedBox(width: 25.0),
+          SocialIcon(icon: FontAwesomeIcons.instagram, url: instagramUrl),
+          // SizedBox(width: 25.0),
+          SocialIcon(icon: FontAwesomeIcons.facebook, url: facebookUrl),
+          // SizedBox(width: 25.0),
+          SocialIcon(icon: FontAwesomeIcons.solidEnvelope, url: emailAddress),
+        ],
+      ),
     );
   }
 }

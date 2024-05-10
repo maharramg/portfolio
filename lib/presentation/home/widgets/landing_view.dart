@@ -5,7 +5,12 @@ import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/strings.dart';
 
 class LandingView extends StatefulWidget {
-  const LandingView({super.key});
+  final Function? scrollFunction;
+
+  const LandingView({
+    super.key,
+    this.scrollFunction,
+  });
 
   @override
   State<LandingView> createState() => _LandingViewState();
@@ -102,14 +107,17 @@ class _LandingViewState extends State<LandingView> {
                 : context.isTablet
                     ? EdgeInsets.zero
                     : const EdgeInsets.only(bottom: 10.0),
-            child: Icon(
-              FontAwesomeIcons.chevronDown,
-              size: context.isDesktop
-                  ? 32.0
-                  : context.isTablet
-                      ? 28.0
-                      : 22.0,
-              color: whiteColor,
+            child: InkWell(
+              onTap: () => widget.scrollFunction!(),
+              child: Icon(
+                FontAwesomeIcons.chevronDown,
+                size: context.isDesktop
+                    ? 32.0
+                    : context.isTablet
+                        ? 28.0
+                        : 22.0,
+                color: whiteColor,
+              ),
             ),
           ),
         ],

@@ -16,7 +16,8 @@ class Strings {
   static const tabWork = 'Work';
   static const tabAbout = 'About';
   static const tabContact = 'Contact';
-  static const copyright = '©COPYRIGHT All rights reserved';
+  static const copyright = '©Copyright - Maharram Guliyev';
+  static const builtWithFlutter = 'Built with Flutter ❤️';
 
   // Landing
   static const landing1 = 'Hello!';
@@ -26,7 +27,7 @@ class Strings {
 
   // Projects
   static const portfolio = 'Portfolio';
-  static const mobileApps = 'Mobile apps';
+  static const mobileApps = 'Projects that I contributed to';
   static const category = 'Category';
   static const seeMore = 'See more';
 
