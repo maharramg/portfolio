@@ -50,6 +50,7 @@ class JobItem extends StatelessWidget {
                       width: MediaQuery.of(context).size.width,
                       child: Text(
                         job.description,
+                        textAlign: TextAlign.justify,
                         style: size20weight400.copyWith(color: blackColor),
                       ),
                     ),

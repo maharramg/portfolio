@@ -30,15 +30,16 @@ class _LandingViewState extends State<LandingView> {
           ? EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.23)
           : context.isTablet
               ? const EdgeInsets.symmetric(horizontal: 24.0).copyWith(top: MediaQuery.of(context).size.height * 0.2)
-              : const EdgeInsets.symmetric(horizontal: 24.0).copyWith(top: MediaQuery.of(context).size.height * 0.2),
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
+              : const EdgeInsets.symmetric(horizontal: 35.0).copyWith(top: MediaQuery.of(context).size.height * 0.2),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
           colors: [
             Color(0xFF010623),
             Color(0xFF001446),
             Color(0xFF000E34),
           ],
         ),
+        border: Border.all(color: primaryColor, width: 0),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,

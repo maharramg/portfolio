@@ -115,7 +115,7 @@ const projects = [
       'assets/images/mockups/denti-store-mockup.png',
     ],
     logo: 'assets/images/logos/dentistore.webp',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=az.abasoft.dentistore',
+    playStoreUrl: '',
     appStoreUrl: 'https://apps.apple.com/gb/app/dentistore/id1576104680',
   ),
   ProjectModel(
@@ -159,7 +159,7 @@ const projects = [
       'assets/images/mockups/unityfood-mockup.png',
     ],
     logo: 'assets/images/logos/unityfood.webp',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.frazex.onlinestore.neptunexpress',
+    playStoreUrl: '',
     appStoreUrl: 'https://apps.apple.com/pl/app/unity-food/id1539019198',
   ),
   // ProjectModel(

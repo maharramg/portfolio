@@ -254,20 +254,16 @@ class _FooterState extends State<Footer> {
           ? MediaQuery.of(context).size.width * 0.2
           : context.isTablet
               ? MediaQuery.of(context).size.width * 0.2
-              : MediaQuery.of(context).size.width * 0.4,
+              : MediaQuery.of(context).size.width * 0.5,
       child: const Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SocialIcon(icon: FontAwesomeIcons.github, url: githubUrl),
-          // SizedBox(width: 25.0),
           SocialIcon(icon: FontAwesomeIcons.linkedin, url: linkedinUrl),
-          // SizedBox(width: 25.0),
           SocialIcon(icon: FontAwesomeIcons.instagram, url: instagramUrl),
-          // SizedBox(width: 25.0),
           SocialIcon(icon: FontAwesomeIcons.facebook, url: facebookUrl),
-          // SizedBox(width: 25.0),
-          SocialIcon(icon: FontAwesomeIcons.solidEnvelope, url: emailAddress),
+          SocialIcon(icon: FontAwesomeIcons.solidEnvelope, url: emailAddress, isEmail: true),
         ],
       ),
     );

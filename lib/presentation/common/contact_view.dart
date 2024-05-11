@@ -166,7 +166,8 @@ class _ContactViewState extends State<ContactView> {
                               });
 
                               if (!_validateName && !_validateEmail && !_validateMessage) {
-                                URLLauncher.launchEmail(
+                                EmailService.sendEmail(
+                                  context: context,
                                   name: _nameController.text,
                                   email: _emailController.text,
                                   message: _messageController.text,
@@ -215,7 +216,8 @@ class _ContactViewState extends State<ContactView> {
                                   });
 
                                   if (!_validateName && !_validateEmail && !_validateMessage) {
-                                    URLLauncher.launchEmail(
+                                    EmailService.sendEmail(
+                                      context: context,
                                       name: _nameController.text,
                                       email: _emailController.text,
                                       message: _messageController.text,
@@ -263,7 +265,8 @@ class _ContactViewState extends State<ContactView> {
                                   });
 
                                   if (!_validateName && !_validateEmail && !_validateMessage) {
-                                    URLLauncher.launchEmail(
+                                    EmailService.sendEmail(
+                                      context: context,
                                       name: _nameController.text,
                                       email: _emailController.text,
                                       message: _messageController.text,
@@ -366,7 +369,8 @@ class _ContactViewState extends State<ContactView> {
                     });
 
                     if (!_validateName && !_validateEmail && !_validateMessage) {
-                      URLLauncher.launchEmail(
+                      EmailService.sendEmail(
+                        context: context,
                         name: _nameController.text,
                         email: _emailController.text,
                         message: _messageController.text,
