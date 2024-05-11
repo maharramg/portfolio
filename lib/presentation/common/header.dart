@@ -38,15 +38,14 @@ class _HeaderState extends State<Header> {
                 : 35.0,
       ),
       decoration: widget.bgColor == null
-          ? BoxDecoration(
-              gradient: const LinearGradient(
+          ? const BoxDecoration(
+              gradient: LinearGradient(
                 colors: [
                   Color(0xFF010623),
                   Color(0xFF001446),
                   Color(0xFF000E34),
                 ],
               ),
-              border: Border.all(color: primaryColor, width: 0),
             )
           : null,
       child: Row(

@@ -4,7 +4,6 @@ import 'package:portfolio/presentation/common/header.dart';
 import 'package:portfolio/presentation/home/widgets/landing_view.dart';
 import 'package:portfolio/presentation/home/widgets/projects_view.dart';
 import 'package:portfolio/presentation/widgets/scroll_up_button.dart';
-import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/services.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -25,15 +24,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       floatingActionButton: ScrollUpButton(controller: _scrollController),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
             colors: [
               Color(0xFF010623),
               Color(0xFF001446),
               Color(0xFF000E34),
             ],
           ),
-          border: Border.all(color: primaryColor, width: 0),
         ),
         child: SingleChildScrollView(
           controller: _scrollController,
