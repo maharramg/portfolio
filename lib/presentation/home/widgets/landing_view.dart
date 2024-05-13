@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:lottie/lottie.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/strings.dart';
@@ -59,7 +60,7 @@ class _LandingViewState extends State<LandingView> {
                   fontFamily: neuePowerFont,
                   height: 1.2,
                 ),
-              ),
+              ).animate().slideY(duration: 400.ms),
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
@@ -87,7 +88,7 @@ class _LandingViewState extends State<LandingView> {
                     ),
                   ],
                 ),
-              ),
+              ).animate().flip(duration: 400.ms),
               const SizedBox(height: 5.0),
               Text(
                 Strings.landing4,
@@ -97,7 +98,7 @@ class _LandingViewState extends State<LandingView> {
                     : context.isTablet
                         ? size11weight400
                         : size10weight400,
-              ),
+              ).animate().flip(duration: 400.ms),
             ],
           ),
           context.isDesktop ? const Spacer() : const SizedBox(),
@@ -109,14 +110,13 @@ class _LandingViewState extends State<LandingView> {
                     : const EdgeInsets.only(bottom: 10.0),
             child: InkWell(
               onTap: () => widget.scrollFunction!(),
-              child: Icon(
-                FontAwesomeIcons.chevronDown,
-                size: context.isDesktop
-                    ? 32.0
+              child: Lottie.asset(
+                'assets/animations/chevron_down.json',
+                height: context.isDesktop
+                    ? 55.0
                     : context.isTablet
-                        ? 28.0
-                        : 22.0,
-                color: whiteColor,
+                        ? 48.0
+                        : 38.0,
               ),
             ),
           ),

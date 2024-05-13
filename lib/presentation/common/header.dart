@@ -2,6 +2,7 @@
 import 'dart:html' as html;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:portfolio/presentation/widgets/hover_underline_text.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/extensions.dart';
@@ -63,9 +64,9 @@ class _HeaderState extends State<Header> {
             child: Image.asset(
               widget.bgColor == null ? Strings.mainIconLight : Strings.mainIconDark,
               height: 35.0,
-            ),
+            ).animate().slideX(duration: 400.ms, begin: -3, end: 0),
           ),
-          _buildTabs(currentRoute),
+          _buildTabs(currentRoute).animate().slideX(duration: 400.ms, begin: 3, end: 0),
         ],
       ),
     );

@@ -15,9 +15,11 @@ dependencies:
   cupertino_icons: ^1.0.6
   url_launcher: ^6.1.14
   font_awesome_flutter: ^10.6.0
-  flutter_animate: ^4.2.0+1
+  flutter_animate: ^4.5.0
   http: ^1.2.1
   fluttertoast: ^8.2.5
+  animated_text_kit: ^4.2.2
+  lottie: ^3.1.0
 
 dev_dependencies:
   flutter_test:
@@ -35,6 +37,7 @@ flutter:
     - assets/images/icons/
     - assets/images/logos/
     - assets/images/mockups/
+    - assets/animations/
 
 
   fonts:
