@@ -28,7 +28,7 @@ const projects = [
     ],
     logo: 'assets/images/logos/tendopay.jpeg',
     playStoreUrl: 'https://play.google.com/store/apps/details?id=ph.tendopay.app.android&hl=en_US&gl=US',
-    appStoreUrl: 'https://apps.apple.com/pl/app/tendopay/id1530959249',
+    appStoreUrl: 'https://apps.apple.com/ph/app/tendopay/id1530959249',
   ),
   ProjectModel(
     name: 'Tentony',
@@ -42,15 +42,15 @@ const projects = [
     appStoreUrl: 'https://apps.apple.com/do/app/tentony/id1630425777',
   ),
   ProjectModel(
-    name: 'Rahat Kart',
-    category: 'E-commerce | Delivery',
-    description: 'The easiest way to get closer to your favorite place. Enjoy yourself!',
+    name: 'Wibty',
+    category: 'Social Media | Music',
+    description: 'Wibty is the first national social network of Azerbaijan. Create connections with friends, loved ones, family, and people who share your musical tastes. Share your own photos and videos as both posts and stories. Share with people how you feel. Make your profile private or ultra private.',
     images: [
-      'assets/images/mockups/rahat-mockup.png',
+      'assets/images/mockups/wibty-mockup.png',
     ],
-    logo: 'assets/images/logos/rahat.png',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=frazex.com.inloya.rahat',
-    appStoreUrl: 'https://apps.apple.com/az/app/rahat-kart/id1478512091',
+    logo: 'assets/images/logos/wibty.webp',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.wibty.wibty',
+    appStoreUrl: 'https://apps.apple.com/az/app/wibty/id1568298650',
   ),
   ProjectModel(
     name: 'Tezibu',
@@ -60,8 +60,19 @@ const projects = [
       'assets/images/mockups/tezibu-mockup.png',
     ],
     logo: 'assets/images/logos/tezibu.jpg',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.frazex.a7575.tezibu.client&hl=pl&gl=US',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.frazex.a7575.tezibu.client',
     appStoreUrl: 'https://apps.apple.com/az/app/tezibu-online-super-market/id1518022392',
+  ),
+  ProjectModel(
+    name: 'Rahat Kart',
+    category: 'E-commerce | Delivery',
+    description: 'The easiest way to get closer to your favorite place. Enjoy yourself!',
+    images: [
+      'assets/images/mockups/rahat-mockup.png',
+    ],
+    logo: 'assets/images/logos/rahat.png',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=frazex.com.inloya.rahat',
+    appStoreUrl: 'https://apps.apple.com/az/app/rahat-kart/id1478512091',
   ),
   ProjectModel(
     name: 'Tezibu Courier',
@@ -86,17 +97,6 @@ const projects = [
     appStoreUrl: 'https://apps.apple.com/az/app/tezibu-partner/id1516765771',
   ),
   ProjectModel(
-    name: 'Wibty',
-    category: 'Social Media | Music',
-    description: 'Wibty is the first national social network of Azerbaijan. Create connections with friends, loved ones, family, and people who share your musical tastes. Share your own photos and videos as both posts and stories. Share with people how you feel. Make your profile private or ultra private.',
-    images: [
-      'assets/images/mockups/wibty-mockup.png',
-    ],
-    logo: 'assets/images/logos/wibty.webp',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.wibty.wibty&hl=pl&gl=US',
-    appStoreUrl: 'https://apps.apple.com/az/app/wibty/id1568298650',
-  ),
-  ProjectModel(
     name: 'Flostore.az',
     category: 'E-commerce',
     description: 'Basics in a small workshop in 1960 by Ahmet Ziylan thrown FLO Retailing, today is the undisputed leader of Turkey\'s shoe market. FLO Mağazacılık, which employs more than 9,700 and indirectly close to 30,000 people, sells 55 million pairs of shoes annually.',
@@ -106,17 +106,6 @@ const projects = [
     logo: 'assets/images/logos/flo.webp',
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.frazex.onlinestore.flo',
     appStoreUrl: 'https://apps.apple.com/az/app/flostore-az/id1514948886',
-  ),
-  ProjectModel(
-    name: 'Denti Store',
-    category: 'E-commerce',
-    description: 'Dentists and surgeons, orthodontists, dental technicians can order all dental products, instruments, disposables, disinfectants and other laboratory equipment from a single mobile application.',
-    images: [
-      'assets/images/mockups/denti-store-mockup.png',
-    ],
-    logo: 'assets/images/logos/dentistore.webp',
-    playStoreUrl: '',
-    appStoreUrl: 'https://apps.apple.com/gb/app/dentistore/id1576104680',
   ),
   ProjectModel(
     name: 'Lilac.az',
@@ -138,7 +127,7 @@ const projects = [
     ],
     logo: 'assets/images/logos/bouquet.webp',
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.frazex.inloya.bouquet',
-    appStoreUrl: 'https://apps.apple.com/pl/app/bouquet-co/id1555310792',
+    appStoreUrl: 'https://apps.apple.com/az/app/bouquet-co/id1555310792',
   ),
   ProjectModel(
     name: 'RA9 Group',
@@ -149,7 +138,7 @@ const projects = [
     ],
     logo: 'assets/images/logos/ra9.webp',
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.frazex.onlinestore.cinemaplaza',
-    appStoreUrl: 'https://apps.apple.com/pl/app/ra9-group/id1571044002',
+    appStoreUrl: 'https://apps.apple.com/az/app/ra9-group/id1571044002',
   ),
   ProjectModel(
     name: 'Unity Food',
@@ -160,21 +149,19 @@ const projects = [
     ],
     logo: 'assets/images/logos/unityfood.webp',
     playStoreUrl: '',
-    appStoreUrl: 'https://apps.apple.com/pl/app/unity-food/id1539019198',
+    appStoreUrl: 'https://apps.apple.com/az/app/unity-food/id1539019198',
   ),
-  // ProjectModel(
-  //   name: 'InLoya',
-  //   category: 'Customer Loyalty',
-  //   description: 'InLoya - is a free mobile loyalty and rewards application that will help you follow your lovely places, earn extra bonuses, discounts and gifts in your city.',
-  //   images: [
-  //     'assets/images/screenshots/inloya/inloya-1.webp',
-  //     'assets/images/screenshots/inloya/inloya-1.webp',
-  //     'assets/images/screenshots/inloya/inloya-1.webp',
-  //   ],
-  //   logo: 'assets/images/logos/inloya.jpg',
-  //   playStoreUrl: '',
-  //   appStoreUrl: 'https://apps.apple.com/pl/app/inloya/id1556053007',
-  // ),
+  ProjectModel(
+    name: 'Denti Store',
+    category: 'E-commerce',
+    description: 'Dentists and surgeons, orthodontists, dental technicians can order all dental products, instruments, disposables, disinfectants and other laboratory equipment from a single mobile application.',
+    images: [
+      'assets/images/mockups/denti-store-mockup.png',
+    ],
+    logo: 'assets/images/logos/dentistore.webp',
+    playStoreUrl: '',
+    appStoreUrl: 'https://apps.apple.com/gb/app/dentistore/id1576104680',
+  ),
   ProjectModel(
     name: 'Gunka Beauty House',
     category: 'Customer Loyalty',
@@ -184,7 +171,7 @@ const projects = [
     ],
     logo: 'assets/images/logos/gunka.png',
     playStoreUrl: '',
-    appStoreUrl: 'https://apps.apple.com/pl/app/gunka-beauty-house/id1518607512',
+    appStoreUrl: 'https://apps.apple.com/az/app/gunka-beauty-house/id1518607512',
   ),
   ProjectModel(
     name: 'InLoya POS',
@@ -195,6 +182,6 @@ const projects = [
     ],
     logo: 'assets/images/logos/inloya-pos.webp',
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.hexobit.inloya_pos_flutter',
-    appStoreUrl: 'https://apps.apple.com/pl/app/inloya-pos/id1381461262',
+    appStoreUrl: 'https://apps.apple.com/az/app/inloya-pos/id1381461262',
   ),
 ];
