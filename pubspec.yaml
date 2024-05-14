@@ -20,6 +20,7 @@ dependencies:
   fluttertoast: ^8.2.5
   animated_text_kit: ^4.2.2
   lottie: ^3.1.0
+  url_strategy: ^0.2.0
 
 dev_dependencies:
   flutter_test:
