@@ -37,10 +37,10 @@ class _FooterState extends State<Footer> {
           Container(
             color: tertiaryColor,
             padding: context.isDesktop
-                ? const EdgeInsets.symmetric(vertical: 80.0, horizontal: 130.0)
+                ? const EdgeInsets.symmetric(vertical: 80.0, horizontal: 130.0).copyWith(bottom: 0.0)
                 : context.isTablet
-                    ? const EdgeInsets.symmetric(vertical: 50.0, horizontal: 100.0)
-                    : const EdgeInsets.symmetric(vertical: 50.0, horizontal: 50.0),
+                    ? const EdgeInsets.symmetric(vertical: 50.0, horizontal: 100.0).copyWith(bottom: 0.0)
+                    : const EdgeInsets.symmetric(vertical: 50.0, horizontal: 50.0).copyWith(bottom: 0.0),
             child: context.isDesktop
                 ? Column(
                     children: [
@@ -100,11 +100,22 @@ class _FooterState extends State<Footer> {
                         textAlign: TextAlign.center,
                         style: size20weight400,
                       ),
-                      const SizedBox(height: 8.0),
-                      Text(
-                        Strings.builtWithFlutter,
-                        textAlign: TextAlign.center,
-                        style: size18weight400,
+                      const SizedBox(height: 30.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            Strings.builtWith,
+                            textAlign: TextAlign.center,
+                            style: size18weight400,
+                          ),
+                          const SizedBox(width: 5.0),
+                          const FlutterLogo(
+                            size: 100.0,
+                            textColor: whiteColor,
+                            style: FlutterLogoStyle.horizontal,
+                          ),
+                        ],
                       ),
                     ],
                   )
@@ -167,11 +178,22 @@ class _FooterState extends State<Footer> {
                             textAlign: TextAlign.center,
                             style: size20weight400,
                           ),
-                          const SizedBox(height: 8.0),
-                          Text(
-                            Strings.builtWithFlutter,
-                            textAlign: TextAlign.center,
-                            style: size18weight400,
+                          const SizedBox(height: 30.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                Strings.builtWith,
+                                textAlign: TextAlign.center,
+                                style: size18weight400,
+                              ),
+                              const SizedBox(width: 5.0),
+                              const FlutterLogo(
+                                size: 100.0,
+                                textColor: whiteColor,
+                                style: FlutterLogoStyle.horizontal,
+                              ),
+                            ],
                           ),
                         ],
                       )
@@ -234,11 +256,22 @@ class _FooterState extends State<Footer> {
                             textAlign: TextAlign.center,
                             style: size18weight400,
                           ),
-                          const SizedBox(height: 8.0),
-                          Text(
-                            Strings.builtWithFlutter,
-                            textAlign: TextAlign.center,
-                            style: size15weight400,
+                          const SizedBox(height: 30.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                Strings.builtWith,
+                                textAlign: TextAlign.center,
+                                style: size15weight400,
+                              ),
+                              const SizedBox(width: 5.0),
+                              const FlutterLogo(
+                                size: 90.0,
+                                textColor: whiteColor,
+                                style: FlutterLogoStyle.horizontal,
+                              ),
+                            ],
                           ),
                         ],
                       ),

@@ -17,7 +17,7 @@ class Strings {
   static const tabAbout = 'About';
   static const tabContact = 'Contact';
   static const copyright = '©Copyright - Maharram Guliyev';
-  static const builtWithFlutter = 'Built with Flutter ❤️';
+  static const builtWith = 'Built with';
 
   // Landing
   static const landing1 = 'Hello!';

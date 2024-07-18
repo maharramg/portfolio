@@ -14,6 +14,8 @@ class ProjectsView extends StatefulWidget {
 }
 
 class _ProjectsViewState extends State<ProjectsView> {
+  bool _onHover = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -66,19 +68,24 @@ class _ProjectsViewState extends State<ProjectsView> {
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 30.0),
-            child: TextButton(
+            child: OutlinedButton(
               onPressed: () => Navigator.pushNamed(context, Routes.projectsScreen),
+              onHover: (value) => setState(() => _onHover = value),
+              style: OutlinedButton.styleFrom(
+                side: BorderSide.none,
+                backgroundColor: _onHover ? primaryColor : whiteColor,
+              ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     Strings.seeMore,
-                    style: size15weight400.copyWith(color: primaryColor.withOpacity(0.5)),
+                    style: size15weight400.copyWith(color: _onHover ? whiteColor : primaryColor.withOpacity(0.5)),
                   ),
                   Icon(
                     Icons.arrow_forward_ios_rounded,
-                    color: primaryColor.withOpacity(0.5),
+                    color: _onHover ? whiteColor : primaryColor.withOpacity(0.5),
                     size: 13.0,
                   ),
                 ],

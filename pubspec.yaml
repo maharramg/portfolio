@@ -14,7 +14,7 @@ dependencies:
 
   cupertino_icons: ^1.0.6
   url_launcher: ^6.1.14
-  font_awesome_flutter: ^10.6.0
+  font_awesome_flutter: ^10.7.0
   flutter_animate: ^4.5.0
   http: ^1.2.1
   fluttertoast: ^8.2.5
@@ -39,7 +39,6 @@ flutter:
     - assets/images/logos/
     - assets/images/mockups/
     - assets/animations/
-
 
   fonts:
     - family: Poppins
