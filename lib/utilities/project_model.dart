@@ -20,6 +20,17 @@ class ProjectModel {
 
 const projects = [
   ProjectModel(
+    name: 'Esimafly',
+    category: 'Travel',
+    description: 'Esimafly is your trusted partner in seamless global connectivity. Founded with the vision of revolutionizing the way travelers stay connected, Esimafly offers affordable and convenient eSIM data packages for globetrotters, digital nomads, and business travelers alike.',
+    images: [
+      'assets/images/mockups/esimafly-mockup.png',
+    ],
+    logo: 'assets/images/logos/esimafly.png',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.esimafly.app',
+    appStoreUrl: 'https://apps.apple.com/az/app/esimafly-esim-internet/id6618155522',
+  ),
+  ProjectModel(
     name: 'TendoPay',
     category: 'Banking',
     description: 'TendoPay gives you access to a full-suite of financial services right at your fingertips. This app allows you to sign up, log in, make purchases, pay bills, set your financial goals, track your expenses, and much more.',

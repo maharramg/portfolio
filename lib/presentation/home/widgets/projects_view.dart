@@ -58,7 +58,7 @@ class _ProjectsViewState extends State<ProjectsView> {
             physics: const NeverScrollableScrollPhysics(),
             primary: false,
             shrinkWrap: true,
-            itemCount: 4,
+            itemCount: 5,
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.all(24.0).copyWith(top: 0.0, bottom: 30.0),
