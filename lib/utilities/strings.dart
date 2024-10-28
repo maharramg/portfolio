@@ -33,7 +33,7 @@ class Strings {
 
   // About
   static const aboutTitle = 'I\'m a Mobile\nDeveloper';
-  static const aboutDesc = 'As a highly skilled Flutter developer with three years of extensive experience, I am proficient in creating visually stunning, high-performance mobile applications that run seamlessly on iOS and Android platforms. I am passionate about transforming innovative ideas into user-friendly and engaging digital experiences, and I am confident in my ability to deliver exceptional results.';
+  static const aboutDesc = 'As a highly skilled Flutter developer with 4 years of extensive experience, I am proficient in creating visually stunning, high-performance mobile applications that run seamlessly on iOS and Android platforms. I am passionate about transforming innovative ideas into user-friendly and engaging digital experiences and confident in my ability to deliver exceptional results.';
   static const resume = 'CV | Resume';
 
   // Jobs
