@@ -1,10 +1,10 @@
-import 'dart:convert';
+import 'dart:developer';
 
+import 'package:emailjs/emailjs.dart' as emailjs;
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:http/http.dart' as http;
 
 class URLLauncher {
   static Future<void> launchURL(String url) async {
@@ -32,7 +32,7 @@ class URLLauncher {
 }
 
 class Scroll {
-  static scrollToSection(GlobalKey key) {
+  static void scrollToSection(GlobalKey key) {
     Scrollable.ensureVisible(
       key.currentContext!,
       duration: const Duration(milliseconds: 900),
@@ -48,35 +48,30 @@ class EmailService {
     required String? email,
     required String? message,
   }) async {
-    const serviceID = 'service_ojvtb4r';
+    const serviceID = 'service_gs2flp9';
     const templateID = 'template_fru8mij';
-    const userID = 'BpTXVWjoc7ESIaQJq';
+    const publicKey = 'BpTXVWjoc7ESIaQJq';
+    const privateKey = 'L8htfxZx_ZJxo9pZiWHzH';
 
-    final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
+    Map<String, dynamic> templateParams = {
+      'user_name': name,
+      'user_email': email,
+      'user_message': message,
+    };
 
-    final headers = {'Content-type': 'application/json'};
-
-    final requestBody = json.encode({
-      'service_id': serviceID,
-      'template_id': templateID,
-      'user_id': userID,
-      'template_params': {
-        'user_name': name,
-        'user_email': email,
-        'user_message': message,
-      }
-    });
-
-    final response = await http.post(
-      url,
-      headers: headers,
-      body: requestBody,
-    );
-
-    // ignore: use_build_context_synchronously
     FToast fToast = FToast().init(context);
 
-    if (response.statusCode == 200) {
+    try {
+      await emailjs.send(
+        serviceID,
+        templateID,
+        templateParams,
+        const emailjs.Options(
+          publicKey: publicKey,
+          privateKey: privateKey,
+        ),
+      );
+
       fToast.showToast(
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
@@ -100,7 +95,9 @@ class EmailService {
         fadeDuration: const Duration(milliseconds: 500),
         toastDuration: const Duration(seconds: 2),
       );
-    } else {
+
+      log('SUCCESS!!');
+    } catch (e) {
       fToast.showToast(
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
@@ -124,6 +121,8 @@ class EmailService {
         fadeDuration: const Duration(milliseconds: 500),
         toastDuration: const Duration(seconds: 2),
       );
+
+      log('ERROR!! $e');
     }
   }
 }

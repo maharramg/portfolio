@@ -281,7 +281,7 @@ class _ContactViewState extends State<ContactView> {
           );
   }
 
-  _buildMobileContactField(BuildContext context) {
+  Widget _buildMobileContactField(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 50.0),
       child: Column(

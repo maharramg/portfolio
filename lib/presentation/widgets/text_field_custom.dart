@@ -58,7 +58,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
           maxLines: widget.maxLines,
           decoration: InputDecoration(
             hintText: widget.hintText,
-            hintStyle: size12weight400.copyWith(color: primaryColor.withOpacity(0.2)),
+            hintStyle: size12weight400.copyWith(color: primaryColor.withValues(alpha: 0.2)),
             contentPadding: widget.contentPadding,
             isDense: true,
             filled: true,

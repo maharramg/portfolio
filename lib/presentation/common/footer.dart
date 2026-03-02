@@ -1,5 +1,5 @@
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
+// ignore: depend_on_referenced_packages
+import "package:web/web.dart" as web;
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -60,7 +60,7 @@ class _FooterState extends State<Footer> {
                                 isTabSelected: currentRoute == Routes.homeScreen,
                                 onPressed: () {
                                   if (currentRoute == Routes.homeScreen) {
-                                    html.window.location.reload();
+                                    web.window.location.reload();
                                   } else {
                                     Navigator.pushNamed(context, Routes.homeScreen);
                                   }
@@ -73,7 +73,7 @@ class _FooterState extends State<Footer> {
                                 isTabSelected: currentRoute == Routes.aboutScreen,
                                 onPressed: () {
                                   if (currentRoute == Routes.aboutScreen) {
-                                    html.window.location.reload();
+                                    web.window.location.reload();
                                   } else {
                                     Navigator.pushNamed(context, Routes.aboutScreen);
                                   }
@@ -138,7 +138,7 @@ class _FooterState extends State<Footer> {
                                     isTabSelected: currentRoute == Routes.homeScreen,
                                     onPressed: () {
                                       if (currentRoute == Routes.homeScreen) {
-                                        html.window.location.reload();
+                                        web.window.location.reload();
                                       } else {
                                         Navigator.pushNamed(context, Routes.homeScreen);
                                       }
@@ -151,7 +151,7 @@ class _FooterState extends State<Footer> {
                                     isTabSelected: currentRoute == Routes.aboutScreen,
                                     onPressed: () {
                                       if (currentRoute == Routes.aboutScreen) {
-                                        html.window.location.reload();
+                                        web.window.location.reload();
                                       } else {
                                         Navigator.pushNamed(context, Routes.aboutScreen);
                                       }
@@ -216,7 +216,7 @@ class _FooterState extends State<Footer> {
                                     isTabSelected: currentRoute == Routes.homeScreen,
                                     onPressed: () {
                                       if (currentRoute == Routes.homeScreen) {
-                                        html.window.location.reload();
+                                        web.window.location.reload();
                                       } else {
                                         Navigator.pushNamed(context, Routes.homeScreen);
                                       }
@@ -229,7 +229,7 @@ class _FooterState extends State<Footer> {
                                     isTabSelected: currentRoute == Routes.aboutScreen,
                                     onPressed: () {
                                       if (currentRoute == Routes.aboutScreen) {
-                                        html.window.location.reload();
+                                        web.window.location.reload();
                                       } else {
                                         Navigator.pushNamed(context, Routes.aboutScreen);
                                       }

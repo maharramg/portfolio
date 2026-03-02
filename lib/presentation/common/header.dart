@@ -1,5 +1,5 @@
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
+// ignore: depend_on_referenced_packages
+import "package:web/web.dart" as web;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -56,7 +56,7 @@ class _HeaderState extends State<Header> {
           InkWell(
             onTap: () {
               if (currentRoute == Routes.homeScreen) {
-                html.window.location.reload();
+                web.window.location.reload();
               } else {
                 Navigator.pushNamed(context, Routes.homeScreen);
               }
@@ -81,7 +81,7 @@ class _HeaderState extends State<Header> {
           isTabSelected: currentRoute == Routes.homeScreen,
           onPressed: () {
             if (currentRoute == Routes.homeScreen) {
-              html.window.location.reload();
+              web.window.location.reload();
             } else {
               Navigator.pushNamed(context, Routes.homeScreen);
             }
@@ -94,7 +94,7 @@ class _HeaderState extends State<Header> {
           isTabSelected: currentRoute == Routes.aboutScreen,
           onPressed: () {
             if (currentRoute == Routes.aboutScreen) {
-              html.window.location.reload();
+              web.window.location.reload();
             } else {
               Navigator.pushNamed(context, Routes.aboutScreen);
             }

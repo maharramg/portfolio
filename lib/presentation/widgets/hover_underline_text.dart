@@ -42,7 +42,7 @@ class _HoverUnderlineTextState extends State<HoverUnderlineText> {
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: greenColor.withOpacity(widget.isTabSelected || isHovered ? 1.0 : 0.0),
+              color: greenColor..withValues(alpha: widget.isTabSelected || isHovered ? 1.0 : 0.0),
             ),
           ),
         ),

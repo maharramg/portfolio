@@ -81,11 +81,11 @@ class _ProjectsViewState extends State<ProjectsView> {
                 children: [
                   Text(
                     Strings.seeMore,
-                    style: size15weight400.copyWith(color: _onHover ? whiteColor : primaryColor.withOpacity(0.5)),
+                    style: size15weight400.copyWith(color: _onHover ? whiteColor : primaryColor.withValues(alpha: 0.5)),
                   ),
                   Icon(
                     Icons.arrow_forward_ios_rounded,
-                    color: _onHover ? whiteColor : primaryColor.withOpacity(0.5),
+                    color: _onHover ? whiteColor : primaryColor.withValues(alpha: 0.5),
                     size: 13.0,
                   ),
                 ],
