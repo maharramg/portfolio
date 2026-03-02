@@ -10,6 +10,19 @@ import 'package:portfolio/utilities/strings.dart';
 class App extends StatelessWidget {
   const App({super.key});
 
+  static const _knownRoutes = [
+    Routes.homeScreen,
+    Routes.aboutScreen,
+    Routes.projectsScreen,
+  ];
+
+  static String get _initialRoute {
+    final path = Uri.base.path;
+    if (path.isEmpty || path == '/') return Routes.homeScreen;
+    if (_knownRoutes.contains(path)) return path;
+    return Routes.homeScreen;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,12 +33,13 @@ class App extends StatelessWidget {
         scaffoldBackgroundColor: scaffoldBgColor,
         colorSchemeSeed: primaryColor,
       ),
-      initialRoute: Routes.homeScreen,
+      initialRoute: _initialRoute,
       routes: {
         Routes.homeScreen: (context) => const HomeScreen(),
         Routes.aboutScreen: (context) => const AboutScreen(),
         Routes.projectsScreen: (context) => const AllProjectsScreen(),
       },
+      onUnknownRoute: (settings) => MaterialPageRoute(builder: (_) => const HomeScreen()),
     ).animate().fadeIn(duration: 400.ms);
   }
 }
