@@ -20,7 +20,7 @@ class Strings {
   static const builtWith = 'Built with';
 
   // Landing
-  static const landing1 = 'Hello!';
+  static const landing1 = 'Hi there!';
   static const landing2 = 'I\'m Maharram, a\nmobile ';
   static const landing3 = 'developer';
   static const landing4 = 'I\'m passionate about crafting experiences that are engaging, accessible, and user-centric.';
@@ -32,8 +32,8 @@ class Strings {
   static const seeMore = 'See more';
 
   // About
-  static const aboutTitle = 'I\'m a Mobile\nDeveloper';
-  static const aboutDesc = 'As a highly skilled Flutter developer with 4 years of extensive experience, I am proficient in creating visually stunning, high-performance mobile applications that run seamlessly on iOS and Android platforms. I am passionate about transforming innovative ideas into user-friendly and engaging digital experiences and confident in my ability to deliver exceptional results.';
+  static const aboutTitle = 'I\'m a Flutter\nDeveloper';
+  static const aboutDesc = 'As a highly skilled Flutter developer with 6 years of extensive experience, I am proficient in creating visually stunning, high-performance mobile applications that run seamlessly on iOS and Android platforms. I am passionate about transforming innovative ideas into user-friendly and engaging digital experiences and confident in my ability to deliver exceptional results.';
   static const resume = 'CV | Resume';
 
   // Jobs
@@ -42,12 +42,12 @@ class Strings {
   // Contact
   static const letsTalk = 'Let’s\ntalk';
   static const contactWithMe = 'Contact with me';
-  static const contactWithMeDesc = 'To request a quote or want meet up for coffee, contact us directly or fill out the from and we will get back to your promptly.';
-  static const yourNameLabel = 'Your Name';
-  static const fullNameHintText = 'Full Name';
-  static const yourEmailLabel = 'Your Email';
-  static const emailHintText = 'xxxxxxxxx_xxxx@gmail.com';
-  static const yourMessageLabel = 'Your Message';
-  static const messageHintText = 'Type something if you want';
-  static const required = 'Required';
+  static const contactWithMeDesc = 'To request a quote or want to meet up, contact me directly or fill out the from and I will get back to you in no time.';
+  static const yourNameLabel = 'Full Name';
+  static const fullNameHintText = 'e.g. John Doe';
+  static const yourEmailLabel = 'Email';
+  static const emailHintText = 'e.g. bigdjohn@gmail.com';
+  static const yourMessageLabel = 'Message';
+  static const messageHintText = 'Type something ...';
+  static const required = 'This field is required';
 }

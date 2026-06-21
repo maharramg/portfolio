@@ -12,14 +12,14 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^1.0.9
   url_launcher: ^6.3.2
-  font_awesome_flutter: ^10.12.0
+  font_awesome_flutter: ^11.0.0
   flutter_animate: ^4.5.2
   http: ^1.6.0
-  fluttertoast: ^9.0.0
+  fluttertoast: ^9.1.0
   animated_text_kit: ^4.3.0
-  lottie: ^3.3.2
+  lottie: ^3.3.3
   url_strategy: ^0.3.0
   emailjs: ^4.0.0
 

@@ -20,6 +20,39 @@ class ProjectModel {
 
 const projects = [
   ProjectModel(
+    name: 'RYVL Team',
+    category: 'Sports',
+    description: 'Ryvl is the ultimate way to experience sports with your friends. Make predictions, drop bold takes, and battle it out in chat-based leagues built for real fans. No spreadsheets, no noise—just straight-up sports talk, picks, and playful rivalries.',
+    images: [
+      'assets/images/mockups/ryvl-mockup.png',
+    ],
+    logo: 'assets/images/logos/ryvl.png',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=ryvl.team.app.RYVL',
+    appStoreUrl: 'https://apps.apple.com/us/app/ryvl-team/id6748541801',
+  ),
+  ProjectModel(
+    name: 'Tendo by Tonik',
+    category: 'Finance',
+    description: 'Tendo by Tonik gives you access to a full-suite of financial services right at your fingertips. Our app allows you to sign up, log in, make purchases, pay bills, set your financial goals, track your expenses, and much more.',
+    images: [
+      'assets/images/mockups/tendopay-mockup.png',
+    ],
+    logo: 'assets/images/logos/tendopay.jpeg',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=ph.tendopay.app.android&hl=en_US&gl=US',
+    appStoreUrl: 'https://apps.apple.com/ph/app/tendopay/id1530959249',
+  ),
+  ProjectModel(
+    name: 'Passave',
+    category: 'Utilities',
+    description: 'Passave is more than just a password manager; it is a sophisticated, privacy-first encryption vault designed for those who demand absolute digital sovereignty. Our philosophy is simple: your sensitive credentials, private documents, and cryptographic keys should never leave your device in an unencrypted state.',
+    images: [
+      'assets/images/mockups/passave-mockup.png',
+    ],
+    logo: 'assets/images/logos/passave.png',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.passave.app',
+    appStoreUrl: 'https://apps.apple.com/us/app/passave-password-manager/id6745766587',
+  ),
+  ProjectModel(
     name: 'Esimafly',
     category: 'Travel',
     description: 'Esimafly is your trusted partner in seamless global connectivity. Founded with the vision of revolutionizing the way travelers stay connected, Esimafly offers affordable and convenient eSIM data packages for globetrotters, digital nomads, and business travelers alike.',
@@ -29,17 +62,6 @@ const projects = [
     logo: 'assets/images/logos/esimafly.png',
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.esimafly.app',
     appStoreUrl: 'https://apps.apple.com/az/app/esimafly-esim-internet/id6618155522',
-  ),
-  ProjectModel(
-    name: 'TendoPay',
-    category: 'Banking',
-    description: 'TendoPay gives you access to a full-suite of financial services right at your fingertips. This app allows you to sign up, log in, make purchases, pay bills, set your financial goals, track your expenses, and much more.',
-    images: [
-      'assets/images/mockups/tendopay-mockup.png',
-    ],
-    logo: 'assets/images/logos/tendopay.jpeg',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=ph.tendopay.app.android&hl=en_US&gl=US',
-    appStoreUrl: 'https://apps.apple.com/ph/app/tendopay/id1530959249',
   ),
   ProjectModel(
     name: 'Tentony',

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/services.dart';
 
 class SocialIcon extends StatefulWidget {
-  final IconData icon;
+  final FaIconData icon;
   final String url;
   final bool isEmail;
 
@@ -31,7 +32,7 @@ class _SocialIconState extends State<SocialIcon> {
           isHovered = !isHovered;
         });
       },
-      child: Icon(
+      child: FaIcon(
         widget.icon,
         color: isHovered ? greenColor : whiteColor,
         size: context.isDesktop

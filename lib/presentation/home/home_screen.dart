@@ -14,8 +14,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  GlobalKey footerKey = GlobalKey();
-  GlobalKey projectsKey = GlobalKey();
+  final GlobalKey footerKey = GlobalKey();
+  final GlobalKey projectsKey = GlobalKey();
 
   final ScrollController _scrollController = ScrollController();
 

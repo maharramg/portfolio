@@ -65,7 +65,7 @@ class _ScrollUpButtonState extends State<ScrollUpButton> {
           },
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
           backgroundColor: primaryColor,
-          child: const Icon(
+          child: const FaIcon(
             FontAwesomeIcons.caretUp,
             color: whiteColor,
           ),
