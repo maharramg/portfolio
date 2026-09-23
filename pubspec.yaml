@@ -19,7 +19,7 @@ dependencies:
   http: ^1.6.0
   fluttertoast: ^10.0.0
   animated_text_kit: ^4.3.0
-  lottie: ^3.5.1
+  lottie: ^3.6.1
   url_strategy: ^0.3.0
   emailjs: ^4.0.0
 
