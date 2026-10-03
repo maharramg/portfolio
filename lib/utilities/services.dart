@@ -87,16 +87,27 @@ class EmailService {
     void showResult(String text, IconData icon, Color color, Color iconColor) {
       messenger.showSnackBar(
         SnackBar(
-          backgroundColor: color,
+          // The bar itself is invisible so the coloured pill can hug its content.
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
           behavior: SnackBarBehavior.floating,
           duration: const Duration(seconds: 2),
-          content: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(icon, color: iconColor),
-              const SizedBox(width: 5.0),
-              Text(text, style: size16weight500),
-            ],
+          content: Center(
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              decoration: BoxDecoration(
+                color: color,
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(icon, color: iconColor),
+                  const SizedBox(width: 5.0),
+                  Text(text, style: size16weight500),
+                ],
+              ),
+            ),
           ),
         ),
       );
@@ -118,12 +129,12 @@ class EmailService {
 
       showResult('Email sent', Icons.check, primaryColor, greenColor);
 
-      log('SUCCESS!!');
+      log('Email Sent!');
       return true;
     } catch (e) {
-      showResult('Error, try again', Icons.close_rounded, errorColor, whiteColor);
+      showResult('Something went wrong, try again', Icons.close_rounded, errorColor, whiteColor);
 
-      log('ERROR!! $e');
+      log('Email Error! $e');
       return false;
     }
   }

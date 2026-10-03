@@ -64,7 +64,7 @@ const projects = [
       'assets/images/mockups/esimafly-mockup.webp',
     ],
     logo: 'assets/images/logos/esimafly.webp',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.esimafly.app',
+    playStoreUrl: '',
     appStoreUrl: 'https://apps.apple.com/az/app/esimafly-esim-internet/id6618155522',
   ),
   ProjectModel(
@@ -76,7 +76,7 @@ const projects = [
       'assets/images/mockups/tentony-mockup.webp',
     ],
     logo: 'assets/images/logos/tentony.webp',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.tentony.app&hl=en&gl=US',
+    playStoreUrl: '',
     appStoreUrl: 'https://apps.apple.com/do/app/tentony/id1630425777',
   ),
   ProjectModel(
@@ -124,7 +124,7 @@ const projects = [
     ],
     logo: 'assets/images/logos/tezibu-courier.webp',
     playStoreUrl: '',
-    appStoreUrl: 'https://apps.apple.com/az/app/tezibu-courier/id1517005869',
+    appStoreUrl: '',
   ),
   ProjectModel(
     name: 'Tezibu Partner',
@@ -136,7 +136,7 @@ const projects = [
     ],
     logo: 'assets/images/logos/tezibu-partner.webp',
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.frazex.tezibu.partner',
-    appStoreUrl: 'https://apps.apple.com/az/app/tezibu-partner/id1516765771',
+    appStoreUrl: '',
   ),
   ProjectModel(
     name: 'Flostore.az',
@@ -170,8 +170,8 @@ const projects = [
       'assets/images/mockups/bouquet-mockup.webp',
     ],
     logo: 'assets/images/logos/bouquet.webp',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.frazex.inloya.bouquet',
-    appStoreUrl: 'https://apps.apple.com/az/app/bouquet-co/id1555310792',
+    playStoreUrl: '',
+    appStoreUrl: '',
   ),
   ProjectModel(
     name: 'RA9 Group',
@@ -205,7 +205,31 @@ const projects = [
     ],
     logo: 'assets/images/logos/dentistore.webp',
     playStoreUrl: '',
-    appStoreUrl: 'https://apps.apple.com/gb/app/dentistore/id1576104680',
+    appStoreUrl: '',
+  ),
+  ProjectModel(
+    name: 'Nata Studio',
+    category: 'Customer Loyalty',
+    description:
+        'At Nata Vip Studio, we take pride in helping women discover and enhance their beauty. Leveraging the full potential of modern technology, our professional team constantly introduces innovations in the fields of beauty and body care.',
+    images: [
+      'assets/images/mockups/nata-mockup.webp',
+    ],
+    logo: 'assets/images/logos/nata.webp',
+    playStoreUrl: '',
+    appStoreUrl: '',
+  ),
+  ProjectModel(
+    name: 'Le Plaisir',
+    category: 'Customer Loyalty',
+    description:
+        'Dear customers, we are pleased to introduce the new Le Plaisir mobile app! Starting today, and for a period of at least six months, customers who spend over 500 AZN at our stores will receive 3% cashback, while those spending over 1,000 AZN will receive 5% cashback. Stay with us!',
+    images: [
+      'assets/images/mockups/leplaisir-mockup.webp',
+    ],
+    logo: 'assets/images/logos/leplaisir.webp',
+    playStoreUrl: '',
+    appStoreUrl: '',
   ),
   ProjectModel(
     name: 'Gunka Beauty House',
@@ -216,7 +240,7 @@ const projects = [
     ],
     logo: 'assets/images/logos/gunka.webp',
     playStoreUrl: '',
-    appStoreUrl: 'https://apps.apple.com/az/app/gunka-beauty-house/id1518607512',
+    appStoreUrl: '',
   ),
   ProjectModel(
     name: 'InLoya POS',
