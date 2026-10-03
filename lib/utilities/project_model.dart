@@ -39,7 +39,7 @@ const projects = [
     images: [
       'assets/images/mockups/tendopay-mockup.webp',
     ],
-    logo: 'assets/images/logos/tendopay.webp',
+    logo: 'assets/images/logos/tendo.webp',
     playStoreUrl: 'https://play.google.com/store/apps/details?id=ph.tendopay.app.android&hl=en_US&gl=US',
     appStoreUrl: 'https://apps.apple.com/ph/app/tendopay/id1530959249',
   ),
