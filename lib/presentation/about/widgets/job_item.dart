@@ -14,7 +14,7 @@ class JobItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery.sizeOf(context).width,
       child: context.isMobile
           ? Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -25,7 +25,7 @@ class JobItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.5,
+                      width: MediaQuery.sizeOf(context).width * 0.5,
                       child: Text(
                         job.companyName,
                         style: size24weight700.copyWith(color: blackColor),
@@ -47,7 +47,7 @@ class JobItem extends StatelessWidget {
                     ),
                     const SizedBox(height: 24.0),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width,
+                      width: MediaQuery.sizeOf(context).width,
                       child: Text(
                         job.description,
                         textAlign: TextAlign.justify,
@@ -67,10 +67,10 @@ class JobItem extends StatelessWidget {
                   children: [
                     SizedBox(
                       width: context.isDesktop
-                          ? MediaQuery.of(context).size.width * 0.2
+                          ? MediaQuery.sizeOf(context).width * 0.2
                           : context.isTablet
-                              ? MediaQuery.of(context).size.width * 0.3
-                              : MediaQuery.of(context).size.width * 0.3,
+                              ? MediaQuery.sizeOf(context).width * 0.3
+                              : MediaQuery.sizeOf(context).width * 0.3,
                       child: Text(
                         job.companyName,
                         style: context.isDesktop
@@ -105,10 +105,10 @@ class JobItem extends StatelessWidget {
                     const SizedBox(height: 24.0),
                     SizedBox(
                       width: context.isDesktop
-                          ? MediaQuery.of(context).size.width * 0.48
+                          ? MediaQuery.sizeOf(context).width * 0.48
                           : context.isTablet
-                              ? MediaQuery.of(context).size.width * 0.4
-                              : MediaQuery.of(context).size.width * 0.4,
+                              ? MediaQuery.sizeOf(context).width * 0.4
+                              : MediaQuery.sizeOf(context).width * 0.4,
                       child: Text(
                         job.description,
                         style: size20weight400.copyWith(color: blackColor),

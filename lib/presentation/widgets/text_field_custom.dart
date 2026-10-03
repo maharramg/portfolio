@@ -55,6 +55,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
           focusNode: _focusNode,
           cursorColor: primaryColor,
           cursorWidth: 1.5,
+          cursorHeight: 15.0,
           maxLines: widget.maxLines,
           decoration: InputDecoration(
             hintText: widget.hintText,

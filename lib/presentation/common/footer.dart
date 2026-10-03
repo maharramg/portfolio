@@ -1,6 +1,3 @@
-// ignore: depend_on_referenced_packages
-import "package:web/web.dart" as web;
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/presentation/common/contact_view.dart';
@@ -9,6 +6,7 @@ import 'package:portfolio/presentation/widgets/hover_underline_text.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/routes.dart';
+import 'package:portfolio/utilities/services.dart';
 import 'package:portfolio/utilities/strings.dart';
 
 class Footer extends StatefulWidget {
@@ -30,7 +28,7 @@ class _FooterState extends State<Footer> {
 
     return Container(
       color: whiteColor,
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery.sizeOf(context).width,
       child: Column(
         children: [
           const ContactView(),
@@ -58,26 +56,14 @@ class _FooterState extends State<Footer> {
                                 text: Strings.tabWork,
                                 textStyle: size24weight500,
                                 isTabSelected: currentRoute == Routes.homeScreen,
-                                onPressed: () {
-                                  if (currentRoute == Routes.homeScreen) {
-                                    web.window.location.reload();
-                                  } else {
-                                    Navigator.pushNamed(context, Routes.homeScreen);
-                                  }
-                                },
+                                onPressed: () => Nav.goTo(context, Routes.homeScreen),
                               ),
                               const SizedBox(width: 24.0),
                               HoverUnderlineText(
                                 text: Strings.tabAbout,
                                 textStyle: size24weight500,
                                 isTabSelected: currentRoute == Routes.aboutScreen,
-                                onPressed: () {
-                                  if (currentRoute == Routes.aboutScreen) {
-                                    web.window.location.reload();
-                                  } else {
-                                    Navigator.pushNamed(context, Routes.aboutScreen);
-                                  }
-                                },
+                                onPressed: () => Nav.goTo(context, Routes.aboutScreen),
                               ),
                               const SizedBox(width: 24.0),
                               HoverUnderlineText(
@@ -136,26 +122,14 @@ class _FooterState extends State<Footer> {
                                     text: Strings.tabWork,
                                     textStyle: size24weight500,
                                     isTabSelected: currentRoute == Routes.homeScreen,
-                                    onPressed: () {
-                                      if (currentRoute == Routes.homeScreen) {
-                                        web.window.location.reload();
-                                      } else {
-                                        Navigator.pushNamed(context, Routes.homeScreen);
-                                      }
-                                    },
+                                    onPressed: () => Nav.goTo(context, Routes.homeScreen),
                                   ),
                                   const SizedBox(width: 24.0),
                                   HoverUnderlineText(
                                     text: Strings.tabAbout,
                                     textStyle: size24weight500,
                                     isTabSelected: currentRoute == Routes.aboutScreen,
-                                    onPressed: () {
-                                      if (currentRoute == Routes.aboutScreen) {
-                                        web.window.location.reload();
-                                      } else {
-                                        Navigator.pushNamed(context, Routes.aboutScreen);
-                                      }
-                                    },
+                                    onPressed: () => Nav.goTo(context, Routes.aboutScreen),
                                   ),
                                   const SizedBox(width: 24.0),
                                   HoverUnderlineText(
@@ -204,7 +178,7 @@ class _FooterState extends State<Footer> {
                             children: [
                               Image.asset(
                                 Strings.mainIconLight,
-                                width: MediaQuery.of(context).size.width * 0.4,
+                                width: MediaQuery.sizeOf(context).width * 0.4,
                               ),
                               const SizedBox(height: 30.0),
                               Row(
@@ -214,26 +188,14 @@ class _FooterState extends State<Footer> {
                                     text: Strings.tabWork,
                                     textStyle: size20weight500,
                                     isTabSelected: currentRoute == Routes.homeScreen,
-                                    onPressed: () {
-                                      if (currentRoute == Routes.homeScreen) {
-                                        web.window.location.reload();
-                                      } else {
-                                        Navigator.pushNamed(context, Routes.homeScreen);
-                                      }
-                                    },
+                                    onPressed: () => Nav.goTo(context, Routes.homeScreen),
                                   ),
                                   const SizedBox(width: 24.0),
                                   HoverUnderlineText(
                                     text: Strings.tabAbout,
                                     textStyle: size20weight500,
                                     isTabSelected: currentRoute == Routes.aboutScreen,
-                                    onPressed: () {
-                                      if (currentRoute == Routes.aboutScreen) {
-                                        web.window.location.reload();
-                                      } else {
-                                        Navigator.pushNamed(context, Routes.aboutScreen);
-                                      }
-                                    },
+                                    onPressed: () => Nav.goTo(context, Routes.aboutScreen),
                                   ),
                                   const SizedBox(width: 24.0),
                                   HoverUnderlineText(
@@ -284,10 +246,10 @@ class _FooterState extends State<Footer> {
   Widget _buildSocialField() {
     return SizedBox(
       width: context.isDesktop
-          ? MediaQuery.of(context).size.width * 0.2
+          ? MediaQuery.sizeOf(context).width * 0.2
           : context.isTablet
-              ? MediaQuery.of(context).size.width * 0.2
-              : MediaQuery.of(context).size.width * 0.5,
+              ? MediaQuery.sizeOf(context).width * 0.2
+              : MediaQuery.sizeOf(context).width * 0.5,
       child: const Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -1,9 +1,10 @@
+import 'dart:convert';
 import 'dart:developer';
 
-import 'package:emailjs/emailjs.dart' as emailjs;
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:portfolio/utilities/app_constants.dart';
+import 'package:portfolio/utilities/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class URLLauncher {
@@ -32,12 +33,35 @@ class URLLauncher {
 }
 
 class Scroll {
-  static void scrollToSection(GlobalKey key) {
-    Scrollable.ensureVisible(
+  static Future<void> scrollToSection(GlobalKey key) async {
+    await Scrollable.ensureVisible(
       key.currentContext!,
       duration: const Duration(milliseconds: 900),
       curve: Curves.easeInOut,
     );
+
+    // Lazy lists only estimate the offset of off-screen sections, so settle on the exact one.
+    final context = key.currentContext;
+    if (context != null && context.mounted) {
+      await Scrollable.ensureVisible(context, duration: const Duration(milliseconds: 200));
+    }
+  }
+}
+
+class Nav {
+  // The current tab scrolls to top. Home is always the first route, so going home pops instead of stacking pages.
+  static void goTo(BuildContext context, String route) {
+    if (ModalRoute.of(context)?.settings.name == route) {
+      Scrollable.of(context).position.animateTo(
+            0.0,
+            duration: const Duration(milliseconds: 800),
+            curve: Curves.fastOutSlowIn,
+          );
+    } else if (route == Routes.homeScreen) {
+      Navigator.popUntil(context, (route) => route.isFirst);
+    } else {
+      Navigator.pushNamed(context, route);
+    }
   }
 }
 
@@ -50,8 +74,7 @@ class EmailService {
   }) async {
     const serviceID = 'service_gs2flp9';
     const templateID = 'template_fru8mij';
-    const publicKey = 'BpTXVWjoc7ESIaQJq';
-    const privateKey = 'L8htfxZx_ZJxo9pZiWHzH';
+    const publicKey = '8ZxHJWPmbm3JClkwK';
 
     Map<String, dynamic> templateParams = {
       'user_name': name,
@@ -59,68 +82,45 @@ class EmailService {
       'user_message': message,
     };
 
-    FToast fToast = FToast().init(context);
+    final messenger = ScaffoldMessenger.of(context);
 
-    try {
-      await emailjs.send(
-        serviceID,
-        templateID,
-        templateParams,
-        const emailjs.Options(
-          publicKey: publicKey,
-          privateKey: privateKey,
-        ),
-      );
-
-      fToast.showToast(
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
-          decoration: BoxDecoration(
-            color: greenColor,
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          child: Row(
+    void showResult(String text, IconData icon, Color color) {
+      messenger.showSnackBar(
+        SnackBar(
+          backgroundColor: color,
+          behavior: SnackBarBehavior.floating,
+          duration: const Duration(seconds: 2),
+          content: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.check, color: whiteColor),
+              Icon(icon, color: whiteColor),
               const SizedBox(width: 5.0),
-              Text(
-                'Email sent',
-                style: size16weight500,
-              ),
+              Text(text, style: size16weight500),
             ],
           ),
         ),
-        gravity: ToastGravity.BOTTOM,
-        fadeDuration: const Duration(milliseconds: 500),
-        toastDuration: const Duration(seconds: 2),
       );
+    }
+
+    try {
+      final response = await http.post(
+        Uri.parse('https://api.emailjs.com/api/v1.0/email/send'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'service_id': serviceID,
+          'template_id': templateID,
+          'user_id': publicKey,
+          'template_params': templateParams,
+        }),
+      );
+
+      if (response.statusCode != 200) throw Exception(response.body);
+
+      showResult('Email sent', Icons.check, greenColor);
 
       log('SUCCESS!!');
     } catch (e) {
-      fToast.showToast(
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
-          decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.close_rounded, color: whiteColor),
-              const SizedBox(width: 5.0),
-              Text(
-                'Error, try again',
-                style: size16weight500,
-              ),
-            ],
-          ),
-        ),
-        gravity: ToastGravity.BOTTOM,
-        fadeDuration: const Duration(milliseconds: 500),
-        toastDuration: const Duration(seconds: 2),
-      );
+      showResult('Error, try again', Icons.close_rounded, errorColor);
 
       log('ERROR!! $e');
     }

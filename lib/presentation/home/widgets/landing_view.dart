@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:lottie/lottie.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/strings.dart';
@@ -22,16 +21,16 @@ class _LandingViewState extends State<LandingView> {
   Widget build(BuildContext context) {
     return Container(
       height: context.isDesktop
-          ? MediaQuery.of(context).size.height + 80.0
+          ? MediaQuery.sizeOf(context).height + 80.0
           : context.isTablet
-              ? MediaQuery.of(context).size.height - 100.0
-              : MediaQuery.of(context).size.height - 100.0,
-      width: MediaQuery.of(context).size.width,
+              ? MediaQuery.sizeOf(context).height - 100.0
+              : MediaQuery.sizeOf(context).height - 100.0,
+      width: MediaQuery.sizeOf(context).width,
       padding: context.isDesktop
-          ? EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.23)
+          ? EdgeInsets.only(top: MediaQuery.sizeOf(context).height * 0.23)
           : context.isTablet
-              ? const EdgeInsets.symmetric(horizontal: 24.0).copyWith(top: MediaQuery.of(context).size.height * 0.2)
-              : const EdgeInsets.symmetric(horizontal: 35.0).copyWith(top: MediaQuery.of(context).size.height * 0.2),
+              ? const EdgeInsets.symmetric(horizontal: 24.0).copyWith(top: MediaQuery.sizeOf(context).height * 0.2)
+              : const EdgeInsets.symmetric(horizontal: 35.0).copyWith(top: MediaQuery.sizeOf(context).height * 0.2),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -110,14 +109,15 @@ class _LandingViewState extends State<LandingView> {
                     : const EdgeInsets.only(bottom: 10.0),
             child: InkWell(
               onTap: () => widget.scrollFunction!(),
-              child: Lottie.asset(
-                'assets/animations/chevron_down.json',
-                height: context.isDesktop
+              child: Icon(
+                Icons.keyboard_arrow_down_rounded,
+                color: whiteColor,
+                size: context.isDesktop
                     ? 55.0
                     : context.isTablet
                         ? 48.0
                         : 38.0,
-              ),
+              ).animate(onPlay: (controller) => controller.repeat(reverse: true)).moveY(end: 8.0, duration: 500.ms, curve: Curves.easeInOut),
             ),
           ),
         ],

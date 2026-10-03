@@ -20,6 +20,12 @@ class _AboutScreenState extends State<AboutScreen> {
   final ScrollController _scrollController = ScrollController();
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: ScrollUpButton(controller: _scrollController),

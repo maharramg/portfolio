@@ -18,21 +18,29 @@ class _AllProjectsScreenState extends State<AllProjectsScreen> {
   final ScrollController _scrollController = ScrollController();
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: ScrollUpButton(controller: _scrollController),
-      body: SingleChildScrollView(
+      body: CustomScrollView(
         controller: _scrollController,
-        child: Column(
-          children: [
-            Header(scrollFunction: () => Scroll.scrollToSection(footerKey)),
-            const AllProjectsView(),
-            Footer(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Header(scrollFunction: () => Scroll.scrollToSection(footerKey)),
+          ),
+          const AllProjectsView(),
+          SliverToBoxAdapter(
+            child: Footer(
               key: footerKey,
               scrollFunction: () => Scroll.scrollToSection(footerKey),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

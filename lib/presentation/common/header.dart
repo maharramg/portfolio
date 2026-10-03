@@ -1,12 +1,10 @@
-// ignore: depend_on_referenced_packages
-import "package:web/web.dart" as web;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:portfolio/presentation/widgets/hover_underline_text.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/routes.dart';
+import 'package:portfolio/utilities/services.dart';
 import 'package:portfolio/utilities/strings.dart';
 
 class Header extends StatefulWidget {
@@ -54,13 +52,7 @@ class _HeaderState extends State<Header> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           InkWell(
-            onTap: () {
-              if (currentRoute == Routes.homeScreen) {
-                web.window.location.reload();
-              } else {
-                Navigator.pushNamed(context, Routes.homeScreen);
-              }
-            },
+            onTap: () => Nav.goTo(context, Routes.homeScreen),
             child: Image.asset(
               widget.bgColor == null ? Strings.mainIconLight : Strings.mainIconDark,
               height: 35.0,
@@ -79,26 +71,14 @@ class _HeaderState extends State<Header> {
           text: Strings.tabWork,
           textStyle: size12weight400.copyWith(color: widget.bgColor == whiteColor ? primaryColor : whiteColor),
           isTabSelected: currentRoute == Routes.homeScreen,
-          onPressed: () {
-            if (currentRoute == Routes.homeScreen) {
-              web.window.location.reload();
-            } else {
-              Navigator.pushNamed(context, Routes.homeScreen);
-            }
-          },
+          onPressed: () => Nav.goTo(context, Routes.homeScreen),
         ),
         const SizedBox(width: 12.0),
         HoverUnderlineText(
           text: Strings.tabAbout,
           textStyle: size12weight400.copyWith(color: widget.bgColor == whiteColor ? primaryColor : whiteColor),
           isTabSelected: currentRoute == Routes.aboutScreen,
-          onPressed: () {
-            if (currentRoute == Routes.aboutScreen) {
-              web.window.location.reload();
-            } else {
-              Navigator.pushNamed(context, Routes.aboutScreen);
-            }
-          },
+          onPressed: () => Nav.goTo(context, Routes.aboutScreen),
         ),
         const SizedBox(width: 12.0),
         HoverUnderlineText(

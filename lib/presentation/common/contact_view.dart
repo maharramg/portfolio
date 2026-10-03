@@ -48,10 +48,10 @@ class _ContactViewState extends State<ContactView> {
             children: [
               SizedBox(
                 width: context.isDesktop
-                    ? MediaQuery.of(context).size.width * 0.43
+                    ? MediaQuery.sizeOf(context).width * 0.43
                     : context.isTablet
-                        ? MediaQuery.of(context).size.width * 0.4
-                        : MediaQuery.of(context).size.width,
+                        ? MediaQuery.sizeOf(context).width * 0.4
+                        : MediaQuery.sizeOf(context).width,
                 child: Padding(
                   padding: context.isDesktop
                       ? const EdgeInsets.symmetric(horizontal: 130.0, vertical: 50.0)
@@ -105,10 +105,10 @@ class _ContactViewState extends State<ContactView> {
               ),
               Container(
                 width: context.isDesktop
-                    ? MediaQuery.of(context).size.width * 0.57
+                    ? MediaQuery.sizeOf(context).width * 0.57
                     : context.isTablet
-                        ? MediaQuery.of(context).size.width * 0.5
-                        : MediaQuery.of(context).size.width * 0.5,
+                        ? MediaQuery.sizeOf(context).width * 0.5
+                        : MediaQuery.sizeOf(context).width * 0.5,
                 padding: context.isDesktop
                     ? const EdgeInsets.symmetric(vertical: 50.0).copyWith(right: 130.0)
                     : context.isTablet
@@ -287,7 +287,7 @@ class _ContactViewState extends State<ContactView> {
       child: Column(
         children: [
           SizedBox(
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery.sizeOf(context).width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -330,7 +330,7 @@ class _ContactViewState extends State<ContactView> {
           ),
           const SizedBox(height: 24.0),
           SizedBox(
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery.sizeOf(context).width,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -10,7 +10,7 @@ class Strings {
   // Assets
   static const mainIconLight = 'assets/images/icons/main-icon-light.png';
   static const mainIconDark = 'assets/images/icons/main-icon-dark.png';
-  static const profileImage = 'assets/images/about.png';
+  static const profileImage = 'assets/images/about.webp';
 
   // Header & Footer
   static const tabWork = 'Work';

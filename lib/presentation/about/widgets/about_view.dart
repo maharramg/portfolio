@@ -32,7 +32,7 @@ class AboutView extends StatelessWidget {
                     ),
                     const SizedBox(height: 70.0),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.39,
+                      width: MediaQuery.sizeOf(context).width * 0.39,
                       child: Text(
                         Strings.aboutDesc,
                         style: size17weight500.copyWith(color: blackColor, height: 1.5),
@@ -47,7 +47,7 @@ class AboutView extends StatelessWidget {
                 ),
                 Image.asset(
                   Strings.profileImage,
-                  width: MediaQuery.of(context).size.width * 0.375,
+                  width: MediaQuery.sizeOf(context).width * 0.375,
                 ),
               ],
             ),
@@ -74,7 +74,7 @@ class AboutView extends StatelessWidget {
                         ),
                         const SizedBox(height: 70.0),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.35,
+                          width: MediaQuery.sizeOf(context).width * 0.35,
                           child: Text(
                             Strings.aboutDesc,
                             style: size12weight500.copyWith(color: blackColor, height: 1.5),
@@ -89,14 +89,14 @@ class AboutView extends StatelessWidget {
                     ),
                     Image.asset(
                       Strings.profileImage,
-                      width: MediaQuery.of(context).size.width * 0.35,
+                      width: MediaQuery.sizeOf(context).width * 0.35,
                     ),
                   ],
                 ),
               )
             : Container(
                 color: whiteColor,
-                width: MediaQuery.of(context).size.width,
+                width: MediaQuery.sizeOf(context).width,
                 padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 70.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -104,7 +104,7 @@ class AboutView extends StatelessWidget {
                   children: [
                     Image.asset(
                       Strings.profileImage,
-                      width: MediaQuery.of(context).size.width * 0.5,
+                      width: MediaQuery.sizeOf(context).width * 0.5,
                     ),
                     const SizedBox(height: 40.0),
                     const Text(
@@ -120,7 +120,7 @@ class AboutView extends StatelessWidget {
                     ),
                     const SizedBox(height: 40.0),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.6,
+                      width: MediaQuery.sizeOf(context).width * 0.6,
                       child: Text(
                         Strings.aboutDesc,
                         textAlign: TextAlign.center,

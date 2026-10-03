@@ -27,22 +27,16 @@ class _HoverUnderlineTextState extends State<HoverUnderlineText> {
     return InkWell(
       onTap: () => widget.onPressed(),
       onHover: (value) {
-        if (!widget.isTabSelected) {
-          setState(() {
-            isHovered = !isHovered;
-          });
-        } else {
-          setState(() {
-            isHovered = true;
-          });
-        }
+        setState(() {
+          isHovered = value;
+        });
       },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: greenColor..withValues(alpha: widget.isTabSelected || isHovered ? 1.0 : 0.0),
+              color: greenColor.withValues(alpha: widget.isTabSelected || isHovered ? 1.0 : 0.0),
             ),
           ),
         ),

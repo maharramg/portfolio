@@ -15,46 +15,49 @@ class AllProjectsView extends StatefulWidget {
 class _AllProjectsViewState extends State<AllProjectsView> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: scaffoldBgColor,
-      child: Column(
-        children: [
-          context.isDesktop
-              ? const SizedBox(height: 75.0)
-              : context.isTablet
-                  ? const SizedBox(height: 40.0)
-                  : const SizedBox(height: 40.0),
-          Text(
-            Strings.portfolio,
-            style: TextStyle(
-              fontSize: context.isDesktop
-                  ? 40.0
-                  : context.isTablet
-                      ? 40.0
-                      : 30.0,
-              fontWeight: FontWeight.w800,
-              color: primaryColor,
-              fontFamily: neuePowerFont,
-              height: 1.2,
+    return DecoratedSliver(
+      decoration: const BoxDecoration(color: scaffoldBgColor),
+      sliver: SliverMainAxisGroup(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                context.isDesktop
+                    ? const SizedBox(height: 75.0)
+                    : context.isTablet
+                        ? const SizedBox(height: 40.0)
+                        : const SizedBox(height: 40.0),
+                Text(
+                  Strings.portfolio,
+                  style: TextStyle(
+                    fontSize: context.isDesktop
+                        ? 40.0
+                        : context.isTablet
+                            ? 40.0
+                            : 30.0,
+                    fontWeight: FontWeight.w800,
+                    color: primaryColor,
+                    fontFamily: neuePowerFont,
+                    height: 1.2,
+                  ),
+                ),
+                Text(
+                  Strings.mobileApps,
+                  style: context.isDesktop
+                      ? size14weight400.copyWith(color: primaryColor)
+                      : context.isTablet
+                          ? size14weight400.copyWith(color: primaryColor)
+                          : size12weight400.copyWith(color: primaryColor),
+                ),
+                context.isDesktop
+                    ? const SizedBox(height: 75.0)
+                    : context.isTablet
+                        ? const SizedBox(height: 40.0)
+                        : const SizedBox(height: 40.0),
+              ],
             ),
           ),
-          Text(
-            Strings.mobileApps,
-            style: context.isDesktop
-                ? size14weight400.copyWith(color: primaryColor)
-                : context.isTablet
-                    ? size14weight400.copyWith(color: primaryColor)
-                    : size12weight400.copyWith(color: primaryColor),
-          ),
-          context.isDesktop
-              ? const SizedBox(height: 75.0)
-              : context.isTablet
-                  ? const SizedBox(height: 40.0)
-                  : const SizedBox(height: 40.0),
-          ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            primary: false,
-            shrinkWrap: true,
+          SliverList.builder(
             itemCount: projects.length,
             itemBuilder: (context, index) {
               return Padding(

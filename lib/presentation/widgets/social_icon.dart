@@ -29,7 +29,7 @@ class _SocialIconState extends State<SocialIcon> {
       onTap: () => widget.isEmail ? URLLauncher.launchEmail(email: widget.url, message: '', name: '') : URLLauncher.launchURL(widget.url),
       onHover: (value) {
         setState(() {
-          isHovered = !isHovered;
+          isHovered = value;
         });
       },
       child: FaIcon(

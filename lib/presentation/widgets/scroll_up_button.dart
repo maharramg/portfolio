@@ -20,32 +20,26 @@ class _ScrollUpButtonState extends State<ScrollUpButton> {
 
   @override
   void initState() {
-    widget.controller.addListener(() {
-      double showoffset = 10.0;
-      double visibleOffset = 5.0;
-
-      if (widget.controller.offset > visibleOffset) {
-        setState(() {
-          shouldBeVisible = true;
-        });
-
-        if (widget.controller.offset > showoffset) {
-          setState(() {
-            showButton = true;
-          });
-        } else {
-          setState(() {
-            showButton = false;
-          });
-        }
-      } else {
-        setState(() {
-          shouldBeVisible = false;
-        });
-      }
-    });
-
     super.initState();
+    widget.controller.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    widget.controller.removeListener(_onScroll);
+    super.dispose();
+  }
+
+  void _onScroll() {
+    final visible = widget.controller.offset > 5.0;
+    final show = widget.controller.offset > 10.0;
+
+    if (visible != shouldBeVisible || show != showButton) {
+      setState(() {
+        shouldBeVisible = visible;
+        showButton = show;
+      });
+    }
   }
 
   @override

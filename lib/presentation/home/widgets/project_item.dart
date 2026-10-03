@@ -33,7 +33,7 @@ class _ProjectItemState extends State<ProjectItem> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.6,
+                  height: MediaQuery.sizeOf(context).height * 0.6,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,7 +62,7 @@ class _ProjectItemState extends State<ProjectItem> {
                               ),
                               const SizedBox(width: 12.0),
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.3,
+                                width: MediaQuery.sizeOf(context).width * 0.3,
                                 child: Text(
                                   widget.project.name,
                                   style: const TextStyle(
@@ -96,7 +96,7 @@ class _ProjectItemState extends State<ProjectItem> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.6,
+                  height: MediaQuery.sizeOf(context).height * 0.6,
                   child: Image.asset(widget.project.images.first),
                 )
               ],
@@ -167,7 +167,7 @@ class _ProjectItemState extends State<ProjectItem> {
                     ),
                     const SizedBox(height: 30.0),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.4,
+                      height: MediaQuery.sizeOf(context).height * 0.4,
                       child: Image.asset(widget.project.images.first),
                     )
                   ],

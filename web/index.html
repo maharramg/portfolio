@@ -32,7 +32,16 @@
     <title>portfolio</title>
     <link rel="manifest" href="manifest.json" />
   </head>
-  <body>
+  <body style="margin: 0; background: #010623">
+    <img
+      id="splash"
+      src="assets/assets/images/icons/main-icon-light.png"
+      alt=""
+      style="position: fixed; inset: 0; margin: auto; width: 160px"
+    />
+    <script>
+      window.addEventListener("flutter-first-frame", () => document.getElementById("splash").remove());
+    </script>
     <script src="flutter_bootstrap.js" async></script>
   </body>
 </html>
