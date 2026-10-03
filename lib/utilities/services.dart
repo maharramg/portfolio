@@ -52,11 +52,11 @@ class Nav {
   // The current tab scrolls to top. Home is always the first route, so going home pops instead of stacking pages.
   static void goTo(BuildContext context, String route) {
     if (ModalRoute.of(context)?.settings.name == route) {
-      Scrollable.of(context).position.animateTo(
-            0.0,
-            duration: const Duration(milliseconds: 800),
-            curve: Curves.fastOutSlowIn,
-          );
+      PrimaryScrollController.of(context).animateTo(
+        0.0,
+        duration: const Duration(milliseconds: 800),
+        curve: Curves.fastOutSlowIn,
+      );
     } else if (route == Routes.homeScreen) {
       Navigator.popUntil(context, (route) => route.isFirst);
     } else {
@@ -66,7 +66,7 @@ class Nav {
 }
 
 class EmailService {
-  static Future<void> sendEmail({
+  static Future<bool> sendEmail({
     required BuildContext context,
     required String? name,
     required String? email,
@@ -84,7 +84,7 @@ class EmailService {
 
     final messenger = ScaffoldMessenger.of(context);
 
-    void showResult(String text, IconData icon, Color color) {
+    void showResult(String text, IconData icon, Color color, Color iconColor) {
       messenger.showSnackBar(
         SnackBar(
           backgroundColor: color,
@@ -93,7 +93,7 @@ class EmailService {
           content: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon, color: whiteColor),
+              Icon(icon, color: iconColor),
               const SizedBox(width: 5.0),
               Text(text, style: size16weight500),
             ],
@@ -116,13 +116,15 @@ class EmailService {
 
       if (response.statusCode != 200) throw Exception(response.body);
 
-      showResult('Email sent', Icons.check, greenColor);
+      showResult('Email sent', Icons.check, primaryColor, greenColor);
 
       log('SUCCESS!!');
+      return true;
     } catch (e) {
-      showResult('Error, try again', Icons.close_rounded, errorColor);
+      showResult('Error, try again', Icons.close_rounded, errorColor, whiteColor);
 
       log('ERROR!! $e');
+      return false;
     }
   }
 }

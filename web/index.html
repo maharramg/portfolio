@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <!--
     If you are serving your web app in a path other than the root, change the
@@ -18,29 +18,36 @@
 
     <meta charset="UTF-8" />
     <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
-    <meta name="description" content="portfolio" />
+    <meta name="description" content="Maharram Guliyev is a Flutter developer building iOS and Android apps. See his projects, experience and contact details." />
+    <meta name="theme-color" content="#010623" />
+
+    <!-- Link previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://maharramguliyev.com/" />
+    <meta property="og:title" content="Maharram Guliyev | Flutter Developer" />
+    <meta property="og:description" content="Maharram Guliyev is a Flutter developer building iOS and Android apps. See his projects, experience and contact details." />
+    <meta property="og:image" content="https://maharramguliyev.com/icons/Icon-512.png" />
+    <meta name="twitter:card" content="summary" />
 
     <!-- iOS meta tags & icons -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="portfolio" />
+    <meta name="apple-mobile-web-app-title" content="Maharram Guliyev" />
     <link rel="apple-touch-icon" href="icons/favicon.png" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="icons/favicon.png" />
 
-    <title>portfolio</title>
+    <title>Maharram Guliyev | Flutter Developer</title>
     <link rel="manifest" href="manifest.json" />
   </head>
   <body style="margin: 0; background: #010623">
-    <img
-      id="splash"
-      src="assets/assets/images/icons/main-icon-light.png"
-      alt=""
-      style="position: fixed; inset: 0; margin: auto; width: 160px"
-    />
+    <div id="splash" style="position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; gap: 16px">
+      <img src="assets/assets/images/icons/mg-icon-white.png" alt="" style="height: 84px; border-radius: 16px" />
+      <img src="assets/assets/images/icons/main-icon-light.png" alt="" style="height: 60px" />
+    </div>
     <script>
-      window.addEventListener("flutter-first-frame", () => document.getElementById("splash").remove());
+      window.addEventListener("flutter-first-frame", () => document.getElementById("splash")?.remove());
     </script>
     <script src="flutter_bootstrap.js" async></script>
   </body>

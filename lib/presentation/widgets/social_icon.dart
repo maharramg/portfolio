@@ -7,12 +7,14 @@ import 'package:portfolio/utilities/services.dart';
 class SocialIcon extends StatefulWidget {
   final FaIconData icon;
   final String url;
+  final String label;
   final bool isEmail;
 
   const SocialIcon({
     super.key,
     required this.icon,
     required this.url,
+    required this.label,
     this.isEmail = false,
   });
 
@@ -25,21 +27,27 @@ class _SocialIconState extends State<SocialIcon> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => widget.isEmail ? URLLauncher.launchEmail(email: widget.url, message: '', name: '') : URLLauncher.launchURL(widget.url),
-      onHover: (value) {
-        setState(() {
-          isHovered = value;
-        });
-      },
-      child: FaIcon(
-        widget.icon,
-        color: isHovered ? greenColor : whiteColor,
-        size: context.isDesktop
-            ? 30.0
-            : context.isTablet
-                ? 25.0
-                : 25.0,
+    return Tooltip(
+      message: widget.label,
+      child: InkWell(
+        onTap: () => widget.isEmail ? URLLauncher.launchEmail(email: widget.url, message: '', name: '') : URLLauncher.launchURL(widget.url),
+        onHover: (value) {
+          setState(() {
+            isHovered = value;
+          });
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: FaIcon(
+            widget.icon,
+            color: isHovered ? greenColor : whiteColor,
+            size: context.isDesktop
+                ? 30.0
+                : context.isTablet
+                    ? 25.0
+                    : 25.0,
+          ),
+        ),
       ),
     );
   }

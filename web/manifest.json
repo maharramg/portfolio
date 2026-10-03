@@ -1,12 +1,11 @@
 {
-    "name": "portfolio",
-    "short_name": "portfolio",
+    "name": "Maharram Guliyev | Flutter Developer",
+    "short_name": "Maharram",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "a portfolio project.",
-    "orientation": "portrait-primary",
+    "background_color": "#010623",
+    "theme_color": "#010623",
+    "description": "Portfolio of Maharram Guliyev, Flutter developer.",
     "prefer_related_applications": false,
     "icons": [
         {

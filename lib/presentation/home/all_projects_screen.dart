@@ -27,20 +27,27 @@ class _AllProjectsScreenState extends State<AllProjectsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: ScrollUpButton(controller: _scrollController),
-      body: CustomScrollView(
+      body: PrimaryScrollController(
         controller: _scrollController,
-        slivers: [
-          SliverToBoxAdapter(
-            child: Header(scrollFunction: () => Scroll.scrollToSection(footerKey)),
-          ),
-          const AllProjectsView(),
-          SliverToBoxAdapter(
-            child: Footer(
-              key: footerKey,
-              scrollFunction: () => Scroll.scrollToSection(footerKey),
+        child: Column(
+          children: [
+            Header(scrollFunction: () => Scroll.scrollToSection(footerKey)),
+            Expanded(
+              child: CustomScrollView(
+                controller: _scrollController,
+                slivers: [
+                  const AllProjectsView(),
+                  SliverToBoxAdapter(
+                    child: Footer(
+                      key: footerKey,
+                      scrollFunction: () => Scroll.scrollToSection(footerKey),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

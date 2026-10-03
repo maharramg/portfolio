@@ -39,23 +39,32 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-        child: CustomScrollView(
+        child: PrimaryScrollController(
           controller: _scrollController,
-          slivers: [
-            SliverToBoxAdapter(
-              child: Header(scrollFunction: () => Scroll.scrollToSection(footerKey)),
-            ),
-            SliverToBoxAdapter(
-              child: LandingView(scrollFunction: () => Scroll.scrollToSection(projectsKey)),
-            ),
-            ProjectsView(key: projectsKey),
-            SliverToBoxAdapter(
-              child: Footer(
-                key: footerKey,
-                scrollFunction: () => Scroll.scrollToSection(footerKey),
+          child: Column(
+            children: [
+              Header(scrollFunction: () => Scroll.scrollToSection(footerKey)),
+              Expanded(
+                child: CustomScrollView(
+                  controller: _scrollController,
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: LandingView(
+                        scrollFunction: () => Scroll.scrollToSection(projectsKey),
+                      ),
+                    ),
+                    ProjectsView(key: projectsKey),
+                    SliverToBoxAdapter(
+                      child: Footer(
+                        key: footerKey,
+                        scrollFunction: () => Scroll.scrollToSection(footerKey),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

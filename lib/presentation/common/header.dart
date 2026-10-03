@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:portfolio/presentation/widgets/hover_underline_text.dart';
+import 'package:portfolio/presentation/widgets/logo.dart';
 import 'package:portfolio/utilities/app_constants.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/routes.dart';
@@ -27,14 +28,14 @@ class _HeaderState extends State<Header> {
     final String? currentRoute = ModalRoute.of(context)?.settings.name;
 
     return Container(
-      height: 100.0,
+      height: 72.0,
       color: widget.bgColor,
       padding: EdgeInsets.symmetric(
         horizontal: context.isDesktop
             ? 130.0
             : context.isTablet
                 ? 100.0
-                : 35.0,
+                : 20.0,
       ),
       decoration: widget.bgColor == null
           ? const BoxDecoration(
@@ -53,9 +54,9 @@ class _HeaderState extends State<Header> {
         children: [
           InkWell(
             onTap: () => Nav.goTo(context, Routes.homeScreen),
-            child: Image.asset(
-              widget.bgColor == null ? Strings.mainIconLight : Strings.mainIconDark,
-              height: 35.0,
+            child: Tooltip(
+              message: Strings.home,
+              child: Logo(height: context.isMobile ? 26.0 : 32.0, dark: widget.bgColor != null),
             ).animate().slideX(duration: 400.ms, begin: -3, end: 0),
           ),
           _buildTabs(currentRoute).animate().slideX(duration: 400.ms, begin: 3, end: 0),
@@ -69,21 +70,21 @@ class _HeaderState extends State<Header> {
       children: [
         HoverUnderlineText(
           text: Strings.tabWork,
-          textStyle: size12weight400.copyWith(color: widget.bgColor == whiteColor ? primaryColor : whiteColor),
+          textStyle: size14weight500.copyWith(color: widget.bgColor == whiteColor ? primaryColor : whiteColor),
           isTabSelected: currentRoute == Routes.homeScreen,
           onPressed: () => Nav.goTo(context, Routes.homeScreen),
         ),
-        const SizedBox(width: 12.0),
+        SizedBox(width: context.isMobile ? 16.0 : 24.0),
         HoverUnderlineText(
           text: Strings.tabAbout,
-          textStyle: size12weight400.copyWith(color: widget.bgColor == whiteColor ? primaryColor : whiteColor),
+          textStyle: size14weight500.copyWith(color: widget.bgColor == whiteColor ? primaryColor : whiteColor),
           isTabSelected: currentRoute == Routes.aboutScreen,
           onPressed: () => Nav.goTo(context, Routes.aboutScreen),
         ),
-        const SizedBox(width: 12.0),
+        SizedBox(width: context.isMobile ? 16.0 : 24.0),
         HoverUnderlineText(
           text: Strings.tabContact,
-          textStyle: size12weight400.copyWith(color: widget.bgColor == whiteColor ? primaryColor : whiteColor),
+          textStyle: size14weight500.copyWith(color: widget.bgColor == whiteColor ? primaryColor : whiteColor),
           isTabSelected: false,
           onPressed: () => widget.scrollFunction!(),
         ),

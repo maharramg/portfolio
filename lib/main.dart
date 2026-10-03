@@ -18,6 +18,9 @@ void main() {
         fontFamily: poppinsFont,
         scaffoldBackgroundColor: scaffoldBgColor,
         colorSchemeSeed: primaryColor,
+        pageTransitionsTheme: PageTransitionsTheme(
+          builders: {for (final platform in TargetPlatform.values) platform: const FadeUpwardsPageTransitionsBuilder()},
+        ),
       ),
       initialRoute: Routes.homeScreen,
       routes: {
@@ -25,6 +28,7 @@ void main() {
         Routes.aboutScreen: (context) => const AboutScreen(),
         Routes.projectsScreen: (context) => const AllProjectsScreen(),
       },
+      onUnknownRoute: (settings) => MaterialPageRoute(builder: (context) => const HomeScreen()),
     ).animate().fadeIn(duration: 400.ms),
   );
 }

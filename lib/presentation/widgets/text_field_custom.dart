@@ -8,6 +8,8 @@ class TextFieldCustom extends StatefulWidget {
   final int? maxLines;
   final EdgeInsets? contentPadding;
   final String? errorText;
+  final TextInputType? keyboardType;
+  final Iterable<String>? autofillHints;
 
   const TextFieldCustom({
     super.key,
@@ -17,6 +19,8 @@ class TextFieldCustom extends StatefulWidget {
     this.maxLines = 1,
     this.contentPadding = const EdgeInsets.only(bottom: 15.0, left: 20.0, top: 15.0),
     required this.errorText,
+    this.keyboardType,
+    this.autofillHints,
   });
 
   @override
@@ -47,7 +51,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
       children: [
         Text(
           widget.label,
-          style: size12weight400.copyWith(color: primaryColor),
+          style: size14weight500.copyWith(color: primaryColor),
         ),
         const SizedBox(height: 8.0),
         TextField(
@@ -57,15 +61,18 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
           cursorWidth: 1.5,
           cursorHeight: 15.0,
           maxLines: widget.maxLines,
+          keyboardType: widget.keyboardType,
+          autofillHints: widget.autofillHints,
+          style: size14weight400.copyWith(color: blackColor),
           decoration: InputDecoration(
             hintText: widget.hintText,
-            hintStyle: size12weight400.copyWith(color: primaryColor.withValues(alpha: 0.2)),
+            hintStyle: size14weight400.copyWith(color: primaryColor.withValues(alpha: 0.5)),
             contentPadding: widget.contentPadding,
             isDense: true,
             filled: true,
             fillColor: _focusNode.hasFocus ? whiteColor : scaffoldBgColor,
             errorText: widget.errorText,
-            errorStyle: size10weight400.copyWith(color: Colors.red),
+            errorStyle: size12weight400.copyWith(color: errorColor),
             border: OutlineInputBorder(
               borderRadius: const BorderRadius.all(Radius.circular(8.0)),
               borderSide: _focusNode.hasFocus ? const BorderSide(color: primaryColor, width: 1.0) : BorderSide.none,

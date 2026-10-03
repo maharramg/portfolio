@@ -20,17 +20,14 @@ class _LandingViewState extends State<LandingView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: context.isDesktop
-          ? MediaQuery.sizeOf(context).height + 80.0
-          : context.isTablet
-              ? MediaQuery.sizeOf(context).height - 100.0
-              : MediaQuery.sizeOf(context).height - 100.0,
+      // Fills the screen below the 72px pinned header.
+      height: (MediaQuery.sizeOf(context).height - 72.0).clamp(620.0, double.infinity),
       width: MediaQuery.sizeOf(context).width,
       padding: context.isDesktop
-          ? EdgeInsets.only(top: MediaQuery.sizeOf(context).height * 0.23)
+          ? EdgeInsets.only(top: MediaQuery.sizeOf(context).height * 0.15)
           : context.isTablet
-              ? const EdgeInsets.symmetric(horizontal: 24.0).copyWith(top: MediaQuery.sizeOf(context).height * 0.2)
-              : const EdgeInsets.symmetric(horizontal: 35.0).copyWith(top: MediaQuery.sizeOf(context).height * 0.2),
+              ? const EdgeInsets.symmetric(horizontal: 24.0).copyWith(top: MediaQuery.sizeOf(context).height * 0.15)
+              : const EdgeInsets.symmetric(horizontal: 35.0).copyWith(top: MediaQuery.sizeOf(context).height * 0.1),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -88,28 +85,28 @@ class _LandingViewState extends State<LandingView> {
                   ],
                 ),
               ).animate().flip(duration: 400.ms),
-              const SizedBox(height: 5.0),
-              Text(
-                Strings.landing4,
-                textAlign: TextAlign.center,
-                style: context.isDesktop
-                    ? size11weight400
-                    : context.isTablet
-                        ? size11weight400
-                        : size10weight400,
+              const SizedBox(height: 16.0),
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 520.0),
+                child: Text(
+                  Strings.landing4,
+                  textAlign: TextAlign.center,
+                  style: (context.isMobile ? size14weight400 : size16weight400).copyWith(color: Colors.white70, height: 1.5),
+                ),
               ).animate().flip(duration: 400.ms),
             ],
           ),
           context.isDesktop ? const Spacer() : const SizedBox(),
           Padding(
             padding: context.isDesktop
-                ? const EdgeInsets.only(bottom: 80.0)
+                ? const EdgeInsets.only(bottom: 40.0)
                 : context.isTablet
                     ? EdgeInsets.zero
                     : const EdgeInsets.only(bottom: 10.0),
-            child: InkWell(
-              onTap: () => widget.scrollFunction!(),
-              child: Icon(
+            child: IconButton(
+              tooltip: Strings.scrollToProjects,
+              onPressed: () => widget.scrollFunction!(),
+              icon: Icon(
                 Icons.keyboard_arrow_down_rounded,
                 color: whiteColor,
                 size: context.isDesktop

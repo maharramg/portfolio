@@ -35,7 +35,7 @@ class AboutView extends StatelessWidget {
                       width: MediaQuery.sizeOf(context).width * 0.39,
                       child: Text(
                         Strings.aboutDesc,
-                        style: size17weight500.copyWith(color: blackColor, height: 1.5),
+                        style: size17weight400.copyWith(color: blackColor, height: 1.5),
                       ),
                     ),
                     const SizedBox(height: 40.0),
@@ -47,6 +47,7 @@ class AboutView extends StatelessWidget {
                 ),
                 Image.asset(
                   Strings.profileImage,
+                  semanticLabel: Strings.title,
                   width: MediaQuery.sizeOf(context).width * 0.375,
                 ),
               ],
@@ -77,7 +78,7 @@ class AboutView extends StatelessWidget {
                           width: MediaQuery.sizeOf(context).width * 0.35,
                           child: Text(
                             Strings.aboutDesc,
-                            style: size12weight500.copyWith(color: blackColor, height: 1.5),
+                            style: size14weight400.copyWith(color: blackColor, height: 1.5),
                           ),
                         ),
                         const SizedBox(height: 40.0),
@@ -89,6 +90,7 @@ class AboutView extends StatelessWidget {
                     ),
                     Image.asset(
                       Strings.profileImage,
+                      semanticLabel: Strings.title,
                       width: MediaQuery.sizeOf(context).width * 0.35,
                     ),
                   ],
@@ -104,6 +106,7 @@ class AboutView extends StatelessWidget {
                   children: [
                     Image.asset(
                       Strings.profileImage,
+                      semanticLabel: Strings.title,
                       width: MediaQuery.sizeOf(context).width * 0.5,
                     ),
                     const SizedBox(height: 40.0),
@@ -120,11 +123,10 @@ class AboutView extends StatelessWidget {
                     ),
                     const SizedBox(height: 40.0),
                     SizedBox(
-                      width: MediaQuery.sizeOf(context).width * 0.6,
                       child: Text(
                         Strings.aboutDesc,
                         textAlign: TextAlign.center,
-                        style: size12weight500.copyWith(color: blackColor, height: 1.5),
+                        style: size14weight400.copyWith(color: blackColor, height: 1.5),
                       ),
                     ),
                     const SizedBox(height: 40.0),

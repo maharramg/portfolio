@@ -6,9 +6,15 @@ class Strings {
   static const googlePlay = 'GOOGLE PLAY';
   static const appStore = 'APP STORE';
   static const sendMessage = 'Send Message';
+  static const sending = 'Sending...';
+  static const backToTop = 'Back to top';
+  static const scrollToProjects = 'Scroll to projects';
+  static const home = 'Home';
 
   // Assets
   static const mainIconLight = 'assets/images/icons/main-icon-light.png';
+  static const mgIcon = 'assets/images/icons/mg-icon.png';
+  static const mgIconWhite = 'assets/images/icons/mg-icon-white.png';
   static const mainIconDark = 'assets/images/icons/main-icon-dark.png';
   static const profileImage = 'assets/images/about.webp';
 
@@ -16,7 +22,7 @@ class Strings {
   static const tabWork = 'Work';
   static const tabAbout = 'About';
   static const tabContact = 'Contact';
-  static const copyright = '©Copyright - Maharram Guliyev';
+  static const copyright = '© Copyright - Maharram Guliyev';
   static const builtWith = 'Built with';
 
   // Landing
@@ -33,7 +39,8 @@ class Strings {
 
   // About
   static const aboutTitle = 'I\'m a Flutter\nDeveloper';
-  static const aboutDesc = 'As a highly skilled Flutter developer with 6 years of extensive experience, I am proficient in creating visually stunning, high-performance mobile applications that run seamlessly on iOS and Android platforms. I am passionate about transforming innovative ideas into user-friendly and engaging digital experiences and confident in my ability to deliver exceptional results.';
+  static const aboutDesc =
+      'As a highly skilled Flutter developer with 6 years of extensive experience, I am proficient in creating visually stunning, high-performance mobile applications that run seamlessly on iOS and Android platforms. I am passionate about transforming innovative ideas into user-friendly and engaging digital experiences and confident in my ability to deliver exceptional results.';
   static const resume = 'CV | Resume';
 
   // Jobs
@@ -41,8 +48,8 @@ class Strings {
 
   // Contact
   static const letsTalk = 'Let’s\ntalk';
-  static const contactWithMe = 'Contact with me';
-  static const contactWithMeDesc = 'To request a quote or want to meet up, contact me directly or fill out the from and I will get back to you in no time.';
+  static const contactWithMe = 'Get in touch';
+  static const contactWithMeDesc = 'To request a quote or want to meet up, contact me directly or fill out the form and I will get back to you in no time.';
   static const yourNameLabel = 'Full Name';
   static const fullNameHintText = 'e.g. John Doe';
   static const yourEmailLabel = 'Email';
@@ -50,4 +57,5 @@ class Strings {
   static const yourMessageLabel = 'Message';
   static const messageHintText = 'Type something ...';
   static const required = 'This field is required';
+  static const invalidEmail = 'Enter a valid email address';
 }

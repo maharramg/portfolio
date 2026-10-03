@@ -50,7 +50,7 @@ class _ProjectsViewState extends State<ProjectsView> {
                       ? size14weight400.copyWith(color: primaryColor)
                       : context.isTablet
                           ? size14weight400.copyWith(color: primaryColor)
-                          : size12weight400.copyWith(color: primaryColor),
+                          : size14weight400.copyWith(color: primaryColor),
                 ),
                 context.isDesktop
                     ? const SizedBox(height: 75.0)
@@ -65,7 +65,12 @@ class _ProjectsViewState extends State<ProjectsView> {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.all(24.0).copyWith(top: 0.0, bottom: 30.0),
-                child: ProjectItem(project: projects[index]),
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 1200.0),
+                    child: ProjectItem(project: projects[index], reversed: index.isOdd),
+                  ),
+                ),
               );
             },
           ),

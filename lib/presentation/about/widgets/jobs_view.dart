@@ -32,22 +32,24 @@ class JobsView extends StatelessWidget {
             : context.isTablet
                 ? const SizedBox(height: 75.0)
                 : const SizedBox(height: 35.0),
-        ListView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          primary: false,
-          shrinkWrap: true,
-          itemCount: jobs.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: context.isDesktop
-                  ? const EdgeInsets.all(130.0).copyWith(top: 0.0)
+        for (final job in jobs)
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: context.isDesktop
+                  ? 130.0
                   : context.isTablet
-                      ? const EdgeInsets.all(100.0).copyWith(top: 0.0)
-                      : const EdgeInsets.all(35.0),
-              child: JobItem(job: jobs[index]),
-            );
-          },
-        ),
+                      ? 100.0
+                      : 35.0,
+            ),
+            child: Column(
+              children: [
+                if (job != jobs.first) const Divider(height: 0.0),
+                SizedBox(height: context.isMobile ? 35.0 : 60.0),
+                JobItem(job: job),
+                SizedBox(height: context.isMobile ? 35.0 : 60.0),
+              ],
+            ),
+          ),
       ],
     );
   }

@@ -22,7 +22,8 @@ const projects = [
   ProjectModel(
     name: 'RYVL Team',
     category: 'Sports',
-    description: 'Ryvl is the ultimate way to experience sports with your friends. Make predictions, drop bold takes, and battle it out in chat-based leagues built for real fans. No spreadsheets, no noise—just straight-up sports talk, picks, and playful rivalries.',
+    description:
+        'Ryvl is the ultimate way to experience sports with your friends. Make predictions, drop bold takes, and battle it out in chat-based leagues built for real fans. No spreadsheets, no noise—just straight-up sports talk, picks, and playful rivalries.',
     images: [
       'assets/images/mockups/ryvl-mockup.webp',
     ],
@@ -33,7 +34,8 @@ const projects = [
   ProjectModel(
     name: 'Tendo by Tonik',
     category: 'Finance',
-    description: 'Tendo by Tonik gives you access to a full-suite of financial services right at your fingertips. Our app allows you to sign up, log in, make purchases, pay bills, set your financial goals, track your expenses, and much more.',
+    description:
+        'Tendo by Tonik gives you access to a full-suite of financial services right at your fingertips. Our app allows you to sign up, log in, make purchases, pay bills, set your financial goals, track your expenses, and much more.',
     images: [
       'assets/images/mockups/tendopay-mockup.webp',
     ],
@@ -44,7 +46,8 @@ const projects = [
   ProjectModel(
     name: 'Passave',
     category: 'Utilities',
-    description: 'Passave is more than just a password manager; it is a sophisticated, privacy-first encryption vault designed for those who demand absolute digital sovereignty. Our philosophy is simple: your sensitive credentials, private documents, and cryptographic keys should never leave your device in an unencrypted state.',
+    description:
+        'Passave is more than just a password manager; it is a sophisticated, privacy-first encryption vault designed for those who demand absolute digital sovereignty. Our philosophy is simple: your sensitive credentials, private documents, and cryptographic keys should never leave your device in an unencrypted state.',
     images: [
       'assets/images/mockups/passave-mockup.webp',
     ],
@@ -55,7 +58,8 @@ const projects = [
   ProjectModel(
     name: 'Esimafly',
     category: 'Travel',
-    description: 'Esimafly is your trusted partner in seamless global connectivity. Founded with the vision of revolutionizing the way travelers stay connected, Esimafly offers affordable and convenient eSIM data packages for globetrotters, digital nomads, and business travelers alike.',
+    description:
+        'Esimafly is your trusted partner in seamless global connectivity. Founded with the vision of revolutionizing the way travelers stay connected, Esimafly offers affordable and convenient eSIM data packages for globetrotters, digital nomads, and business travelers alike.',
     images: [
       'assets/images/mockups/esimafly-mockup.webp',
     ],
@@ -66,7 +70,8 @@ const projects = [
   ProjectModel(
     name: 'Tentony',
     category: 'E-commerce',
-    description: 'The easy way to shop from home. Enhance your shopping experience with the Tentony app. By downloading the Tentony app, you can find the answer to all your needs in one app. Brands\' new season products, daily specials and discounts you won\'t find anywhere else are with you anytime with the Tentony mobile app!',
+    description:
+        'The easy way to shop from home. Enhance your shopping experience with the Tentony app. By downloading the Tentony app, you can find the answer to all your needs in one app. Brands\' new season products, daily specials and discounts you won\'t find anywhere else are with you anytime with the Tentony mobile app!',
     images: [
       'assets/images/mockups/tentony-mockup.webp',
     ],
@@ -77,7 +82,8 @@ const projects = [
   ProjectModel(
     name: 'Wibty',
     category: 'Social Media | Music',
-    description: 'Wibty is the first national social network of Azerbaijan. Create connections with friends, loved ones, family, and people who share your musical tastes. Share your own photos and videos as both posts and stories. Share with people how you feel. Make your profile private or ultra private.',
+    description:
+        'Wibty is the first national social network of Azerbaijan. Create connections with friends, loved ones, family, and people who share your musical tastes. Share your own photos and videos as both posts and stories. Share with people how you feel. Make your profile private or ultra private.',
     images: [
       'assets/images/mockups/wibty-mockup.webp',
     ],
@@ -88,7 +94,8 @@ const projects = [
   ProjectModel(
     name: 'Tezibu',
     category: 'Delivery',
-    description: 'By easy user interface issued for your disposal, everything, from tasty foods, city pharmacies and supermarket networks up to Children’s world, 1001 Trifles – will be delivered to your door. All you need to do is to register.',
+    description:
+        'By easy user interface issued for your disposal, everything, from tasty foods, city pharmacies and supermarket networks up to Children’s world, 1001 Trifles – will be delivered to your door. All you need to do is to register.',
     images: [
       'assets/images/mockups/tezibu-mockup.webp',
     ],
@@ -110,7 +117,8 @@ const projects = [
   ProjectModel(
     name: 'Tezibu Courier',
     category: 'Delivery',
-    description: 'The Tezibu Courier application was created in integration with the Tezibu application for the convenience of couriers in order to carry out proactive delivery processes. This application contains information about customer contacts, time, cost, destinations and other data related to delivery details.',
+    description:
+        'The Tezibu Courier application was created in integration with the Tezibu application for the convenience of couriers in order to carry out proactive delivery processes. This application contains information about customer contacts, time, cost, destinations and other data related to delivery details.',
     images: [
       'assets/images/mockups/tezibu-courier-mockup.webp',
     ],
@@ -121,7 +129,8 @@ const projects = [
   ProjectModel(
     name: 'Tezibu Partner',
     category: 'Delivery',
-    description: 'Do you want to develop your own business and involve new customers? Then, join the row of partners of Tezibu! We present you mobile partner with confident user interface and our web-site.',
+    description:
+        'Do you want to develop your own business and involve new customers? Then, join the row of partners of Tezibu! We present you mobile partner with confident user interface and our web-site.',
     images: [
       'assets/images/mockups/tezibu-partner-mockup.webp',
     ],
@@ -132,7 +141,8 @@ const projects = [
   ProjectModel(
     name: 'Flostore.az',
     category: 'E-commerce',
-    description: 'Basics in a small workshop in 1960 by Ahmet Ziylan thrown FLO Retailing, today is the undisputed leader of Turkey\'s shoe market. FLO Mağazacılık, which employs more than 9,700 and indirectly close to 30,000 people, sells 55 million pairs of shoes annually.',
+    description:
+        'Basics in a small workshop in 1960 by Ahmet Ziylan thrown FLO Retailing, today is the undisputed leader of Turkey\'s shoe market. FLO Mağazacılık, which employs more than 9,700 and indirectly close to 30,000 people, sells 55 million pairs of shoes annually.',
     images: [
       'assets/images/mockups/flo-mockup.webp',
     ],
@@ -143,7 +153,8 @@ const projects = [
   ProjectModel(
     name: 'Lilac.az',
     category: 'E-commerce',
-    description: 'All flowers for bouquets, flower arrangements and interior decoration are carefully selected, collected and sent to Azerbaijan by Dutch specialists. Thanks to this, "Lilac" is known and loved in Baku for its unique taste. After all, every bouquet is a small work of art.',
+    description:
+        'All flowers for bouquets, flower arrangements and interior decoration are carefully selected, collected and sent to Azerbaijan by Dutch specialists. Thanks to this, "Lilac" is known and loved in Baku for its unique taste. After all, every bouquet is a small work of art.',
     images: [
       'assets/images/mockups/lilac-mockup.webp',
     ],
@@ -187,7 +198,8 @@ const projects = [
   ProjectModel(
     name: 'Denti Store',
     category: 'E-commerce',
-    description: 'Dentists and surgeons, orthodontists, dental technicians can order all dental products, instruments, disposables, disinfectants and other laboratory equipment from a single mobile application.',
+    description:
+        'Dentists and surgeons, orthodontists, dental technicians can order all dental products, instruments, disposables, disinfectants and other laboratory equipment from a single mobile application.',
     images: [
       'assets/images/mockups/denti-store-mockup.webp',
     ],

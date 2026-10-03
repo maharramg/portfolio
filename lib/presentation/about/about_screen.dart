@@ -29,7 +29,7 @@ class _AboutScreenState extends State<AboutScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: ScrollUpButton(controller: _scrollController),
-      body: SingleChildScrollView(
+      body: PrimaryScrollController(
         controller: _scrollController,
         child: Column(
           children: [
@@ -37,15 +37,20 @@ class _AboutScreenState extends State<AboutScreen> {
               bgColor: whiteColor,
               scrollFunction: () => Scroll.scrollToSection(footerKey),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0),
-              child: Divider(height: 0.0),
-            ),
-            const AboutView(),
-            const JobsView(),
-            Footer(
-              key: footerKey,
-              scrollFunction: () => Scroll.scrollToSection(footerKey),
+            Expanded(
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: [
+                    const AboutView(),
+                    const JobsView(),
+                    Footer(
+                      key: footerKey,
+                      scrollFunction: () => Scroll.scrollToSection(footerKey),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),

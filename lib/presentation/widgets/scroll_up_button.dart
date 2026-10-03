@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/utilities/app_constants.dart';
+import 'package:portfolio/utilities/strings.dart';
 
 class ScrollUpButton extends StatefulWidget {
   final ScrollController controller;
@@ -31,8 +32,10 @@ class _ScrollUpButtonState extends State<ScrollUpButton> {
   }
 
   void _onScroll() {
-    final visible = widget.controller.offset > 5.0;
-    final show = widget.controller.offset > 10.0;
+    // Only offer the shortcut once a full screen has been scrolled.
+    final threshold = widget.controller.position.viewportDimension;
+    final visible = widget.controller.offset > threshold * 0.9;
+    final show = widget.controller.offset > threshold;
 
     if (visible != shouldBeVisible || show != showButton) {
       setState(() {
@@ -57,6 +60,7 @@ class _ScrollUpButtonState extends State<ScrollUpButton> {
               curve: Curves.fastOutSlowIn,
             );
           },
+          tooltip: Strings.backToTop,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
           backgroundColor: primaryColor,
           child: const FaIcon(

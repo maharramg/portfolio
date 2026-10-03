@@ -28,12 +28,12 @@ class JobItem extends StatelessWidget {
                       width: MediaQuery.sizeOf(context).width * 0.5,
                       child: Text(
                         job.companyName,
-                        style: size24weight700.copyWith(color: blackColor),
+                        style: size24weight600.copyWith(color: blackColor),
                       ),
                     ),
                     Text(
                       job.location,
-                      style: size12weight700.copyWith(color: blackColor),
+                      style: size13weight600.copyWith(color: blackColor),
                     ),
                   ],
                 ),
@@ -43,16 +43,12 @@ class JobItem extends StatelessWidget {
                   children: [
                     Text(
                       job.dates,
-                      style: size13weight400.copyWith(color: blackColor),
+                      style: size14weight400.copyWith(color: blackColor),
                     ),
                     const SizedBox(height: 24.0),
                     SizedBox(
                       width: MediaQuery.sizeOf(context).width,
-                      child: Text(
-                        job.description,
-                        textAlign: TextAlign.justify,
-                        style: size20weight400.copyWith(color: blackColor),
-                      ),
+                      child: _buildDescription(size14weight400),
                     ),
                   ],
                 ),
@@ -74,20 +70,20 @@ class JobItem extends StatelessWidget {
                       child: Text(
                         job.companyName,
                         style: context.isDesktop
-                            ? size32weight700.copyWith(color: blackColor)
+                            ? size32weight600.copyWith(color: blackColor)
                             : context.isTablet
-                                ? size24weight700.copyWith(color: blackColor)
-                                : size20weight700.copyWith(color: blackColor),
+                                ? size24weight600.copyWith(color: blackColor)
+                                : size20weight600.copyWith(color: blackColor),
                       ),
                     ),
                     const SizedBox(height: 12.0),
                     Text(
                       job.dates,
                       style: context.isDesktop
-                          ? size20weight400.copyWith(color: blackColor)
+                          ? size16weight400.copyWith(color: blackColor)
                           : context.isTablet
-                              ? size13weight400.copyWith(color: blackColor)
-                              : size13weight400.copyWith(color: blackColor),
+                              ? size14weight400.copyWith(color: blackColor)
+                              : size14weight400.copyWith(color: blackColor),
                     ),
                   ],
                 ),
@@ -97,10 +93,10 @@ class JobItem extends StatelessWidget {
                     Text(
                       job.location,
                       style: context.isDesktop
-                          ? size18weight700.copyWith(color: blackColor)
+                          ? size16weight600.copyWith(color: blackColor)
                           : context.isTablet
-                              ? size12weight700.copyWith(color: blackColor)
-                              : size12weight700.copyWith(color: blackColor),
+                              ? size13weight600.copyWith(color: blackColor)
+                              : size13weight600.copyWith(color: blackColor),
                     ),
                     const SizedBox(height: 24.0),
                     SizedBox(
@@ -109,15 +105,32 @@ class JobItem extends StatelessWidget {
                           : context.isTablet
                               ? MediaQuery.sizeOf(context).width * 0.4
                               : MediaQuery.sizeOf(context).width * 0.4,
-                      child: Text(
-                        job.description,
-                        style: size20weight400.copyWith(color: blackColor),
-                      ),
+                      child: _buildDescription(context.isDesktop ? size16weight400 : size14weight400),
                     ),
                   ],
                 ),
               ],
             ),
+    );
+  }
+
+  Widget _buildDescription(TextStyle textStyle) {
+    final style = textStyle.copyWith(color: blackColor, height: 1.6);
+
+    return Column(
+      children: [
+        for (final line in job.description.split('\n'))
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('•  ', style: style),
+                Expanded(child: Text(line.replaceFirst(RegExp(r'^•\s*'), ''), style: style)),
+              ],
+            ),
+          ),
+      ],
     );
   }
 }
