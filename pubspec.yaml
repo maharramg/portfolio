@@ -1,49 +1,23 @@
 name: portfolio
-description: A Flutter portfolio project.
+description: Maharram Guliyev's portfolio, built with Jaspr.
 
 publish_to: 'none'
 
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ^3.10.0
 
 dependencies:
-  flutter:
-    sdk: flutter
-
-  cupertino_icons: ^2.0.0
-  url_launcher: ^6.3.3
-  font_awesome_flutter: ^11.0.0
-  flutter_animate: ^4.5.2
-  url_strategy: ^0.3.0
   http: ^1.6.0
+  jaspr: ^0.23.5
+  jaspr_router: ^0.9.0
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  build_runner: ^2.15.1
+  build_web_compilers: ^4.8.5
+  jaspr_builder: ^0.23.5
+  lints: ^5.0.0
 
-  flutter_lints: ^6.0.0
-
-
-flutter:
-
-  uses-material-design: true
-
-  assets:
-    - assets/images/
-    - assets/images/icons/
-    - assets/images/logos/
-    - assets/images/mockups/
-
-  fonts:
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/poppins/Poppins-Regular.ttf
-        - asset: assets/fonts/poppins/Poppins-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/poppins/Poppins-SemiBold.ttf
-          weight: 600
-    - family: NeuePower
-      fonts:
-        - asset: assets/fonts/neue-power/NeuePower-Ultra.ttf
+jaspr:
+  mode: static

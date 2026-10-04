@@ -1,111 +1,42 @@
-import 'package:flutter/material.dart';
+import 'package:jaspr/dom.dart';
+import 'package:jaspr/jaspr.dart';
 import 'package:portfolio/presentation/home/widgets/project_item.dart';
-import 'package:portfolio/utilities/app_constants.dart';
-import 'package:portfolio/utilities/extensions.dart';
+import 'package:portfolio/presentation/widgets/app_icon.dart';
 import 'package:portfolio/utilities/project_model.dart';
 import 'package:portfolio/utilities/routes.dart';
 import 'package:portfolio/utilities/strings.dart';
 
-class ProjectsView extends StatefulWidget {
-  const ProjectsView({super.key});
+class ProjectsView extends StatelessComponent {
+  /// Shows only the first [limit] projects and a link to the rest. Null shows all of them.
+  final int? limit;
+
+  const ProjectsView({
+    super.key,
+    this.limit,
+  });
 
   @override
-  State<ProjectsView> createState() => _ProjectsViewState();
-}
+  Component build(BuildContext context) {
+    final limit = this.limit;
+    final shown = limit == null ? projects : projects.take(limit).toList();
 
-class _ProjectsViewState extends State<ProjectsView> {
-  bool _onHover = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return DecoratedSliver(
-      decoration: const BoxDecoration(color: scaffoldBgColor),
-      sliver: SliverMainAxisGroup(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                context.isDesktop
-                    ? const SizedBox(height: 75.0)
-                    : context.isTablet
-                        ? const SizedBox(height: 40.0)
-                        : const SizedBox(height: 40.0),
-                Text(
-                  Strings.portfolio,
-                  style: TextStyle(
-                    fontSize: context.isDesktop
-                        ? 40.0
-                        : context.isTablet
-                            ? 40.0
-                            : 30.0,
-                    fontWeight: FontWeight.w800,
-                    color: primaryColor,
-                    fontFamily: neuePowerFont,
-                    height: 1.2,
-                  ),
-                ),
-                Text(
-                  Strings.mobileApps,
-                  style: context.isDesktop
-                      ? size14weight400.copyWith(color: primaryColor)
-                      : context.isTablet
-                          ? size14weight400.copyWith(color: primaryColor)
-                          : size14weight400.copyWith(color: primaryColor),
-                ),
-                context.isDesktop
-                    ? const SizedBox(height: 75.0)
-                    : context.isTablet
-                        ? const SizedBox(height: 40.0)
-                        : const SizedBox(height: 40.0),
-              ],
-            ),
-          ),
-          SliverList.builder(
-            itemCount: 5,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(24.0).copyWith(top: 0.0, bottom: 30.0),
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 1200.0),
-                    child: ProjectItem(project: projects[index], reversed: index.isOdd),
-                  ),
-                ),
-              );
-            },
-          ),
-          SliverToBoxAdapter(
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 30.0),
-                child: OutlinedButton(
-                  onPressed: () => Navigator.pushNamed(context, Routes.projectsScreen),
-                  onHover: (value) => setState(() => _onHover = value),
-                  style: OutlinedButton.styleFrom(
-                    side: BorderSide.none,
-                    backgroundColor: _onHover ? primaryColor : whiteColor,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        Strings.seeMore,
-                        style: size15weight400.copyWith(color: _onHover ? whiteColor : primaryColor.withValues(alpha: 0.5)),
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        color: _onHover ? whiteColor : primaryColor.withValues(alpha: 0.5),
-                        size: 13.0,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+    return section(id: 'projects', classes: 'projects', [
+      div(classes: 'section-title', [
+        h2([.text(Strings.portfolio)]),
+        p([.text(Strings.mobileApps)]),
+      ]),
+      div(classes: limit == null ? 'project-list project-list-all' : 'project-list', [
+        for (final (index, project) in shown.indexed)
+          // The first mockups are near the top of the page, so they are not worth deferring.
+          ProjectItem(project: project, reversed: index.isOdd, lazy: index > 1),
+      ]),
+      if (limit != null)
+        div(classes: 'see-more', [
+          a(href: Routes.href(Routes.projectsScreen), [
+            .text(Strings.seeMore),
+            const AppIcon('chevron-right'),
+          ]),
+        ]),
+    ]);
   }
 }

@@ -1,70 +1,22 @@
-import 'package:flutter/material.dart';
+import 'package:jaspr/dom.dart';
+import 'package:jaspr/jaspr.dart';
 import 'package:portfolio/presentation/common/footer.dart';
 import 'package:portfolio/presentation/common/header.dart';
 import 'package:portfolio/presentation/home/widgets/landing_view.dart';
 import 'package:portfolio/presentation/home/widgets/projects_view.dart';
-import 'package:portfolio/utilities/services.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessComponent {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  final GlobalKey footerKey = GlobalKey();
-  final GlobalKey projectsKey = GlobalKey();
-
-  final ScrollController _scrollController = ScrollController();
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF010623),
-              Color(0xFF001446),
-              Color(0xFF000E34),
-            ],
-          ),
-        ),
-        child: PrimaryScrollController(
-          controller: _scrollController,
-          child: Column(
-            children: [
-              Header(scrollFunction: () => Scroll.scrollToSection(footerKey)),
-              Expanded(
-                child: CustomScrollView(
-                  controller: _scrollController,
-                  slivers: [
-                    SliverToBoxAdapter(
-                      child: LandingView(
-                        scrollFunction: () => Scroll.scrollToSection(projectsKey),
-                      ),
-                    ),
-                    ProjectsView(key: projectsKey),
-                    SliverToBoxAdapter(
-                      child: Footer(
-                        key: footerKey,
-                        scrollFunction: () => Scroll.scrollToSection(footerKey),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+  Component build(BuildContext context) {
+    return const .fragment([
+      Header(),
+      main_([
+        LandingView(),
+        ProjectsView(limit: 5),
+      ]),
+      Footer(),
+    ]);
   }
 }

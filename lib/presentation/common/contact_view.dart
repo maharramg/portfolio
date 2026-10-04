@@ -1,12 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:portfolio/presentation/widgets/outlined_button_custom.dart';
-import 'package:portfolio/presentation/widgets/text_field_custom.dart';
-import 'package:portfolio/utilities/app_constants.dart';
-import 'package:portfolio/utilities/extensions.dart';
+import 'dart:async';
+
+import 'package:jaspr/dom.dart';
+import 'package:jaspr/jaspr.dart';
+import 'package:portfolio/presentation/widgets/app_icon.dart';
+import 'package:portfolio/presentation/widgets/text_lines.dart';
 import 'package:portfolio/utilities/services.dart';
 import 'package:portfolio/utilities/strings.dart';
 
-class ContactView extends StatefulWidget {
+// The only part of the site that runs Dart in the browser: everything else is static HTML and CSS.
+@client
+class ContactView extends StatefulComponent {
   const ContactView({super.key});
 
   @override
@@ -16,9 +19,9 @@ class ContactView extends StatefulWidget {
 class _ContactViewState extends State<ContactView> {
   static final _emailRegExp = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
 
-  final _nameController = TextEditingController();
-  final _emailController = TextEditingController();
-  final _messageController = TextEditingController();
+  String _name = '';
+  String _email = '';
+  String _message = '';
 
   String? _nameError;
   String? _emailError;
@@ -26,20 +29,18 @@ class _ContactViewState extends State<ContactView> {
 
   bool _sending = false;
 
-  @override
-  void dispose() {
-    _nameController.dispose();
-    _emailController.dispose();
-    _messageController.dispose();
-    super.dispose();
-  }
+  // Whether the last send succeeded, while its message is on screen.
+  bool? _sent;
+
+  // Bumped after a successful send so the fields are recreated empty.
+  int _formVersion = 0;
 
   Future<void> _submit() async {
     if (_sending) return;
 
-    final name = _nameController.text.trim();
-    final email = _emailController.text.trim();
-    final message = _messageController.text.trim();
+    final name = _name.trim();
+    final email = _email.trim();
+    final message = _message.trim();
 
     setState(() {
       _nameError = name.isEmpty ? Strings.required : null;
@@ -55,153 +56,87 @@ class _ContactViewState extends State<ContactView> {
 
     setState(() => _sending = true);
 
-    final sent = await EmailService.sendEmail(
-      context: context,
-      name: name,
-      email: email,
-      message: message,
-    );
+    final sent = await EmailService.sendEmail(name: name, email: email, message: message);
 
     if (!mounted) return;
 
-    setState(() => _sending = false);
+    setState(() {
+      _sending = false;
+      _sent = sent;
 
-    if (sent) {
-      _nameController.clear();
-      _emailController.clear();
-      _messageController.clear();
-    }
+      if (sent) {
+        _name = _email = _message = '';
+        _formVersion++;
+      }
+    });
+
+    Timer(const Duration(seconds: 2), () {
+      if (mounted) setState(() => _sent = null);
+    });
   }
 
   @override
-  Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
+  Component build(BuildContext context) {
+    final sent = _sent;
 
-    return context.isMobile
-        ? Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 50.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildIntro(),
-                const SizedBox(height: 24.0),
-                _buildForm(),
-              ],
+    return section(classes: 'contact', [
+      div(classes: 'contact-intro', [
+        h2([
+          ...textLines(Strings.letsTalk),
+          span([.text('*')]),
+        ]),
+        h3([.text(Strings.contactWithMe)]),
+        p([.text(Strings.contactWithMeDesc)]),
+      ]),
+      div(key: ValueKey(_formVersion), classes: 'contact-form', [
+        div(classes: 'field-row', [
+          _buildField(
+            id: 'contact-name',
+            label: Strings.yourNameLabel,
+            error: _nameError,
+            field: input<String>(
+              id: 'contact-name',
+              type: InputType.text,
+              attributes: const {'placeholder': Strings.fullNameHintText, 'autocomplete': 'name'},
+              onInput: (value) => _name = value,
             ),
-          )
-        : Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: context.isDesktop ? width * 0.43 : width * 0.4,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: context.isDesktop ? 130.0 : 80.0, vertical: 50.0),
-                  child: _buildIntro(),
-                ),
-              ),
-              Container(
-                width: context.isDesktop ? width * 0.57 : width * 0.5,
-                padding: const EdgeInsets.symmetric(vertical: 50.0).copyWith(right: context.isDesktop ? 130.0 : 0.0),
-                child: _buildForm(),
-              ),
-            ],
-          );
-  }
-
-  Widget _buildIntro() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        RichText(
-          text: const TextSpan(
-            style: TextStyle(
-              fontSize: 60.0,
-              fontWeight: FontWeight.w800,
-              color: primaryColor,
-              fontFamily: neuePowerFont,
-              height: 0.85,
+          ),
+          _buildField(
+            id: 'contact-email',
+            label: Strings.yourEmailLabel,
+            error: _emailError,
+            field: input<String>(
+              id: 'contact-email',
+              type: InputType.email,
+              attributes: const {'placeholder': Strings.emailHintText, 'autocomplete': 'email'},
+              onInput: (value) => _email = value,
             ),
-            children: [
-              TextSpan(
-                text: Strings.letsTalk,
-              ),
-              TextSpan(
-                text: '*',
-                style: TextStyle(color: greenColor),
-              ),
-            ],
           ),
-        ),
-        SizedBox(height: context.isDesktop ? 50.0 : 25.0),
-        Text(
-          Strings.contactWithMe,
-          style: size24weight600.copyWith(color: primaryColor),
-        ),
-        const SizedBox(height: 12.0),
-        SizedBox(
-          width: 300.0,
-          child: Text(
-            Strings.contactWithMeDesc,
-            style: size14weight400.copyWith(color: blackColor, height: 1.5),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildForm() {
-    final nameField = TextFieldCustom(
-      controller: _nameController,
-      label: Strings.yourNameLabel,
-      hintText: Strings.fullNameHintText,
-      keyboardType: TextInputType.name,
-      autofillHints: const [AutofillHints.name],
-      errorText: _nameError,
-    );
-
-    final emailField = TextFieldCustom(
-      controller: _emailController,
-      label: Strings.yourEmailLabel,
-      hintText: Strings.emailHintText,
-      keyboardType: TextInputType.emailAddress,
-      autofillHints: const [AutofillHints.email],
-      errorText: _emailError,
-    );
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (context.isDesktop)
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(child: nameField),
-              const SizedBox(width: 24.0),
-              Expanded(child: emailField),
-            ],
-          )
-        else ...[
-          nameField,
-          const SizedBox(height: 24.0),
-          emailField,
-        ],
-        const SizedBox(height: 24.0),
-        TextFieldCustom(
-          controller: _messageController,
+        ]),
+        _buildField(
+          id: 'contact-message',
           label: Strings.yourMessageLabel,
-          hintText: Strings.messageHintText,
-          maxLines: context.isDesktop ? 8 : 10,
-          contentPadding: const EdgeInsets.all(20.0),
-          errorText: _messageError,
+          error: _messageError,
+          field: textarea(id: 'contact-message', placeholder: Strings.messageHintText, onInput: (value) => _message = value, []),
         ),
-        const SizedBox(height: 24.0),
-        OutlinedButtonCustom(
-          title: _sending ? Strings.sending : Strings.sendMessage,
-          buttonSize: const Size(160.0, 46.0),
-          onPressed: _submit,
-        ),
-        if (context.isDesktop) const SizedBox(height: 80.0),
-      ],
-    );
+        button(classes: 'btn btn-send', type: ButtonType.button, disabled: _sending, onClick: _submit, [
+          .text(_sending ? Strings.sending : Strings.sendMessage),
+        ]),
+      ]),
+      if (sent != null)
+        div(classes: sent ? 'toast' : 'toast error', attributes: {'role': 'status'}, [
+          AppIcon(sent ? 'check' : 'xmark'),
+          .text(sent ? Strings.emailSent : Strings.emailFailed),
+        ]),
+    ]);
+  }
+
+  Component _buildField({required String id, required String label, required String? error, required Component field}) {
+    return div(classes: error == null ? 'field' : 'field invalid', [
+      // `label` the element is shadowed by the parameter of the same name.
+      Component.element(tag: 'label', attributes: {'for': id}, children: [.text(label)]),
+      field,
+      if (error != null) span(classes: 'field-error', [.text(error)]),
+    ]);
   }
 }

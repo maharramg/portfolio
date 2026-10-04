@@ -1,16 +1,17 @@
 # portfolio
 
-A new Flutter project.
+Maharram Guliyev's portfolio, built with [Jaspr](https://jaspr.site) and pre-rendered to static HTML.
 
-## Getting Started
+## Commands
 
-This project is a starting point for a Flutter application.
+```sh
+dart pub global activate jaspr_cli   # once
+jaspr serve                          # local development with hot reload
+jaspr build                          # static site in build/jaspr
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Layout
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- `lib/presentation` – pages and components
+- `lib/utilities` – projects, jobs, strings and the email service
+- `web` – stylesheet, fonts, images and other files served as-is

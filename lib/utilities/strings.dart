@@ -1,6 +1,9 @@
 class Strings {
   // Title
   static const title = 'Maharram Guliyev';
+  static const siteTitle = 'Maharram Guliyev | Flutter Developer';
+  static const description =
+      'Maharram Guliyev is a Flutter developer building iOS and Android apps. See his projects, experience and contact details.';
 
   // Buttons
   static const googlePlay = 'GOOGLE PLAY';
@@ -11,18 +14,17 @@ class Strings {
   static const home = 'Home';
 
   // Assets
-  static const mainIconLight = 'assets/images/icons/main-icon-light.png';
-  static const mgIcon = 'assets/images/icons/mg-icon.png';
-  static const mgIconWhite = 'assets/images/icons/mg-icon-white.png';
-  static const mainIconDark = 'assets/images/icons/main-icon-dark.png';
-  static const profileImage = 'assets/images/about.webp';
+  static const mainIconLight = '/images/icons/main-icon-light.png';
+  static const mgIcon = '/images/icons/mg-icon.png';
+  static const mgIconWhite = '/images/icons/mg-icon-white.png';
+  static const mainIconDark = '/images/icons/main-icon-dark.png';
+  static const profileImage = '/images/about.webp';
 
   // Header & Footer
   static const tabWork = 'Work';
   static const tabAbout = 'About';
   static const tabContact = 'Contact';
   static const copyright = '© Copyright - Maharram Guliyev';
-  static const builtWith = 'Built with';
 
   // Landing
   static const landing1 = 'Hi there!';
@@ -57,4 +59,6 @@ class Strings {
   static const messageHintText = 'Type something ...';
   static const required = 'This field is required';
   static const invalidEmail = 'Enter a valid email address';
+  static const emailSent = 'Email sent';
+  static const emailFailed = 'Something went wrong, try again';
 }

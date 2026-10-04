@@ -1,66 +1,32 @@
-import 'package:flutter/material.dart';
-import 'package:portfolio/utilities/app_constants.dart';
+import 'package:jaspr/dom.dart';
+import 'package:jaspr/jaspr.dart';
+import 'package:portfolio/presentation/widgets/app_icon.dart';
 
-class OutlinedButtonCustom extends StatefulWidget {
+/// A link styled as an outlined button. Without a [url] it is shown faded and cannot be clicked.
+class OutlinedButtonCustom extends StatelessComponent {
   final String title;
-  final Function? onPressed;
-  final Size? buttonSize;
-  final IconData? icon;
+  final String? url;
+  final String? icon;
 
   const OutlinedButtonCustom({
     super.key,
     required this.title,
-    required this.onPressed,
-    this.buttonSize = const Size(200.0, 55.0),
+    required this.url,
     this.icon,
   });
 
   @override
-  State<OutlinedButtonCustom> createState() => _OutlinedButtonCustomState();
-}
+  Component build(BuildContext context) {
+    final children = [
+      if (icon != null) AppIcon(icon!),
+      Component.text(title),
+    ];
 
-class _OutlinedButtonCustomState extends State<OutlinedButtonCustom> {
-  bool _onHover = false;
+    final url = this.url;
+    if (url == null || url.isEmpty) {
+      return span(classes: 'btn disabled', attributes: {'aria-disabled': 'true'}, children);
+    }
 
-  @override
-  Widget build(BuildContext context) {
-    final enabled = widget.onPressed != null;
-    final hovered = enabled && _onHover;
-
-    return Opacity(
-      opacity: enabled ? 1.0 : 0.35,
-      child: SizedBox(
-        height: widget.buttonSize?.height,
-        width: widget.buttonSize?.width,
-        child: OutlinedButton(
-          onPressed: enabled ? () => widget.onPressed!() : null,
-          onHover: (value) => setState(() => _onHover = value),
-          style: OutlinedButton.styleFrom(
-            elevation: 0.0,
-            backgroundColor: hovered ? primaryColor : whiteColor,
-            side: const BorderSide(
-              color: primaryColor,
-              width: 1.5,
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              if (widget.icon != null) ...[
-                Icon(widget.icon, size: 20.0, color: hovered ? whiteColor : primaryColor),
-                const SizedBox(width: 8.0),
-              ],
-              Text(
-                widget.title,
-                style: size14weight500.copyWith(color: hovered ? whiteColor : primaryColor),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+    return a(classes: 'btn', href: url, target: Target.blank, attributes: {'rel': 'noopener'}, children);
   }
 }
