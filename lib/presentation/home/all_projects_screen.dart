@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/presentation/common/footer.dart';
 import 'package:portfolio/presentation/common/header.dart';
 import 'package:portfolio/presentation/home/widgets/all_projects_view.dart';
-import 'package:portfolio/presentation/widgets/scroll_up_button.dart';
 import 'package:portfolio/utilities/services.dart';
 
 class AllProjectsScreen extends StatefulWidget {
@@ -26,7 +25,6 @@ class _AllProjectsScreenState extends State<AllProjectsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: ScrollUpButton(controller: _scrollController),
       body: PrimaryScrollController(
         controller: _scrollController,
         child: Column(

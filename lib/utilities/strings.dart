@@ -7,7 +7,6 @@ class Strings {
   static const appStore = 'APP STORE';
   static const sendMessage = 'Send Message';
   static const sending = 'Sending...';
-  static const backToTop = 'Back to top';
   static const scrollToProjects = 'Scroll to projects';
   static const home = 'Home';
 
