@@ -36,7 +36,7 @@ class Strings {
   static const portfolio = 'Portfolio';
   static const mobileApps = 'Projects that I contributed to';
   static const category = 'Category';
-  static const seeMore = 'See more';
+  static String seeAll(int count) => 'See all $count+ apps';
 
   // About
   static const aboutTitle = 'I\'m a Flutter\nDeveloper';
@@ -50,7 +50,8 @@ class Strings {
   // Contact
   static const letsTalk = 'Let’s\ntalk';
   static const contactWithMe = 'Get in touch';
-  static const contactWithMeDesc = 'To request a quote or want to meet up, contact me directly or fill out the form and I will get back to you in no time.';
+  static const contactWithMeDesc =
+      'To request a quote or want to meet up, contact me directly or fill out the form and I will get back to you in no time.';
   static const yourNameLabel = 'Full Name';
   static const fullNameHintText = 'e.g. John Doe';
   static const yourEmailLabel = 'Email';

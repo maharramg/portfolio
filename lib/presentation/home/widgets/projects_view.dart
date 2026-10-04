@@ -27,16 +27,23 @@ class ProjectsView extends StatelessComponent {
       ]),
       div(classes: limit == null ? 'project-list project-list-all' : 'project-list', [
         for (final (index, project) in shown.indexed)
-          // The first mockups are near the top of the page, so they are not worth deferring.
-          ProjectItem(project: project, reversed: index.isOdd, lazy: index > 1),
+          if (limit != null && index == shown.length - 1)
+            // The last project only peeks out from under a fade, as a teaser behind the link to the full list.
+            div(classes: 'project-peek', [
+              div(attributes: {'inert': ''}, [
+                ProjectItem(project: project, reversed: index.isOdd),
+              ]),
+              div(classes: 'project-peek-fade', [
+                a(classes: 'see-all', href: Routes.href(Routes.projectsScreen), [
+                  .text(Strings.seeAll(projects.length)),
+                  const AppIcon('chevron-right'),
+                ]),
+              ]),
+            ])
+          else
+            // The first mockups are near the top of the page, so they are not worth deferring.
+            ProjectItem(project: project, reversed: index.isOdd, lazy: index > 1),
       ]),
-      if (limit != null)
-        div(classes: 'see-more', [
-          a(href: Routes.href(Routes.projectsScreen), [
-            .text(Strings.seeMore),
-            const AppIcon('chevron-right'),
-          ]),
-        ]),
     ]);
   }
 }

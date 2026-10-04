@@ -330,29 +330,40 @@ img {
   aspect-ratio: 1200 / 1208;
   object-fit: contain;
 }
-.see-more {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 30px;
+.project-peek {
+  position: relative;
+  max-height: 300px;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
 }
-.see-more a {
+.project-peek-fade {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 24px;
+  background: linear-gradient(to bottom, rgba(238, 238, 238, 0) 0%, rgba(238, 238, 238, 0.85) 45%, var(--bg) 80%);
+}
+.see-all {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
-  height: 40px;
-  padding: 0 24px;
-  border-radius: 20px;
-  background: #fff;
-  color: rgba(0, 20, 70, 0.5);
-  font-size: 15px;
-  text-decoration: none;
-  transition: background-color 0.2s, color 0.2s;
-}
-.see-more a:hover {
+  gap: 8px;
+  height: 52px;
+  padding: 0 28px;
+  border-radius: 26px;
   background: var(--primary);
   color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.2s, background-color 0.2s;
 }
-.see-more .icon {
+.see-all:hover {
+  background: var(--tertiary);
+  transform: translateY(-2px);
+}
+.see-all .icon {
   font-size: 12px;
 }
 
