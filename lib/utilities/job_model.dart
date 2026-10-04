@@ -15,7 +15,7 @@ class JobModel {
 const jobs = [
   JobModel(
     companyName: 'RYVL Team',
-    location: 'NY, United States of America',
+    location: 'New York, USA',
     dates: '05/2026 - Present',
     description:
         '•	Played a key role in building “RYVL” – an interactive soccer fantasy chat game where users can challenge friends, make match predictions, compete on leaderboards, earn coins, and unlock rewards.\n•	Worked on developing engaging mobile features such as friend leagues, weekly and custom predictions, in-app chat, ranking systems, and reward-based user interactions to create a more competitive and social experience.\n•	Contributed to API integrations, performance improvements, and overall app stability, helping deliver a smooth and enjoyable fantasy sports platform for football fans across mobile devices.',

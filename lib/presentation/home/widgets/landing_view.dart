@@ -114,7 +114,7 @@ class _LandingViewState extends State<LandingView> {
                     : context.isTablet
                         ? 48.0
                         : 38.0,
-              ).animate(onPlay: (controller) => controller.repeat(reverse: true)).moveY(end: 8.0, duration: 500.ms, curve: Curves.easeInOut),
+              ).animate(onPlay: (controller) => controller.repeat(reverse: true, count: 12)).moveY(end: 8.0, duration: 500.ms, curve: Curves.easeInOut),
             ),
           ),
         ],
