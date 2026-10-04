@@ -23,7 +23,7 @@ class LandingView extends StatelessComponent {
         classes: 'landing-arrow',
         href: '/#projects',
         attributes: {'title': Strings.scrollToProjects, 'aria-label': Strings.scrollToProjects},
-        [const AppIcon('chevron-down')],
+        [const AppIcon('caret-down')],
       ),
     ]);
   }

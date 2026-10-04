@@ -77,7 +77,7 @@ img {
 .icon-instagram { --i: url(images/icons/fa/instagram.svg); }
 .icon-facebook { --i: url(images/icons/fa/facebook.svg); }
 .icon-envelope { --i: url(images/icons/fa/envelope.svg); }
-.icon-chevron-down { --i: url(images/icons/fa/chevron-down.svg); }
+.icon-caret-down { --i: url(images/icons/caret-down-rounded.svg); }
 .icon-chevron-right { --i: url(images/icons/fa/chevron-right.svg); }
 .icon-check { --i: url(images/icons/fa/check.svg); }
 .icon-xmark { --i: url(images/icons/fa/xmark.svg); }
@@ -223,7 +223,7 @@ img {
   font-size: 22px;
 }
 .landing-arrow .icon {
-  animation: bounce 0.5s ease-in-out 12 alternate;
+  animation: bounce 0.5s ease-in-out infinite alternate;
 }
 
 /* Projects */
