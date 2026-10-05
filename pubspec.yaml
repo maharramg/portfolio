@@ -1,7 +1,7 @@
 name: portfolio
 description: Maharram Guliyev's portfolio, built with Jaspr.
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -17,7 +17,7 @@ dev_dependencies:
   build_runner: ^2.15.1
   build_web_compilers: ^4.8.5
   jaspr_builder: ^0.23.5
-  lints: ^5.0.0
+  lints: ^6.1.0
 
 jaspr:
   mode: static
