@@ -12,6 +12,7 @@ class Strings {
   static const sending = 'Sending...';
   static const scrollToProjects = 'Scroll to projects';
   static const home = 'Home';
+  static const toggleTheme = 'Toggle dark mode';
 
   // Assets
   static const mainIconLight = '/images/icons/main-icon-light.png';

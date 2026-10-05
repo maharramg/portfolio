@@ -36,6 +36,8 @@ void main() {
         link(rel: 'preload', as: 'font', type: 'font/ttf', href: 'fonts/neue-power/NeuePower-Ultra.ttf', attributes: {'crossorigin': ''}),
         link(rel: 'preload', as: 'font', type: 'font/ttf', href: 'fonts/poppins/Poppins-Regular.ttf', attributes: {'crossorigin': ''}),
         link(rel: 'stylesheet', href: 'styles.css'),
+        // Picks the theme before the first paint and wires up the header's toggle button, shown once the landing is scrolled away.
+        script(content: _themeScript),
         // Removes the service worker the Flutter build of this site registered.
         script(content: 'navigator.serviceWorker?.getRegistrations().then((rs) => rs.forEach((r) => r.unregister()));'),
       ],
@@ -43,3 +45,25 @@ void main() {
     ),
   );
 }
+
+const _themeScript = '''
+(() => {
+  const root = document.documentElement;
+  let saved;
+  try { saved = localStorage.theme; } catch (_) {}
+  root.dataset.theme = saved ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  addEventListener('click', (e) => {
+    if (!e.target.closest?.('.theme-toggle')) return;
+    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    try { localStorage.theme = root.dataset.theme; } catch (_) {}
+  });
+  // Lets the stylesheet reveal the toggle once at least half of the landing is scrolled away.
+  addEventListener('DOMContentLoaded', () => {
+    const landing = document.querySelector('.landing');
+    if (!landing) return;
+    const update = () => root.toggleAttribute('data-past-landing', scrollY > landing.offsetHeight / 2);
+    addEventListener('scroll', update, { passive: true });
+    update();
+  });
+})();
+''';

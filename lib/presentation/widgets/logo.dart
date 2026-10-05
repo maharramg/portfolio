@@ -14,7 +14,9 @@ class Logo extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return span(classes: 'logo', [
-      img(classes: 'logo-mark', src: dark ? Strings.mgIcon : Strings.mgIconWhite, alt: '', width: 2000, height: 2000),
+      // The dark logo sits on a surface that follows the theme, so its mark has a variant for each.
+      if (dark) img(classes: 'logo-mark only-light', src: Strings.mgIcon, alt: '', width: 2000, height: 2000),
+      img(classes: dark ? 'logo-mark only-dark' : 'logo-mark', src: Strings.mgIconWhite, alt: '', width: 2000, height: 2000),
       img(classes: 'logo-word', src: dark ? Strings.mainIconDark : Strings.mainIconLight, alt: Strings.title, width: 540, height: 204),
     ]);
   }
